@@ -30,3 +30,36 @@
 | initial_reserves      | available reserve stock            |
 | reserve_release_limit | maximum reserve release per day    |
 | demand_reduction_pct  | optional reduction in daily demand |
+## What happens each day
+The sequence is as follows:
+1. Calculate how much supply remains after the shock
+2. Apply any demand reduction measure.
+3. Calculate the supply deficit.
+4. If enabled, release reserves to cover part of the deficit
+5. Calculate any demand that still cannot be met
+6. Update remaining reserves and check critical thresholds
+7. Move to the next day
+
+## SHITTING MY PANTS
+
+$$
+S_t = S_0(1-L_t)
+$$
+$$
+D_t = D_0(1-R_t)
+$$
+
+| $S_t$ | supply after disruption       |
+| ----- | ----------------------------- |
+| $D_t$ | demand after demand reduction |
+| $L_t$ | supply loss fraction          |
+| $R_t$ | demand-reduction fraction     |
+$$Q_t = min(B_t, R_{max}, max(0, D_t - S_t))$$
+$$B{t+1} = B_t - Q_t$$
+The reserve release is limited by both the remaining stock and the daily release limit
+$$ U_t=\max(0,D_t-S_t-Q_t)$$
+
+| $Q_t$ | amount releassed that day |
+| ----- | ------------------------- |
+| $B_t$ | the reserve stock         |
+|       |                           |
