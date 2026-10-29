@@ -62,4 +62,9 @@ $$ U_t=\max(0,D_t-S_t-Q_t)$$
 | $Q_t$ | amount releassed that day |
 | ----- | ------------------------- |
 | $B_t$ | the reserve stock         |
-|       |                           |
+## for the first run ( hypothetical)
+- Normal supply: 100 mb/d
+- Demand: 95 mb/d
+- Initial reserves: 200 mb
+- Supply loss: 25% for 20 days
+- Maximum reserve release: 5 mb/d
