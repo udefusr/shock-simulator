@@ -1,7 +1,7 @@
 """Tests for the first Shock Simulator model.
 
 Run from the project root:
-    pytest -v
+    python -m pytest -v
 
 Expected layout:
     src/simulation.py
