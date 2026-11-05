@@ -27,7 +27,7 @@ MAX_ENVELOPE_RUNS = 5000
 
 def _validate_levels(name, values, *, integer=False, minimum=None, maximum=None):
     if not isinstance(values, (tuple, list)) or len(values) != 3:
-        raise ValueError(f"{name} must contain exactly three low/base/high values.")
+        raise ValueError(f"{name} must contain exactly three strictly ordered values.")
 
     parsed = []
     for value in values:
