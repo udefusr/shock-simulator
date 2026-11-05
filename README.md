@@ -27,6 +27,8 @@ The current empirical focus is the 2026 Strait of Hormuz disruption. The project
 - Reserve dataset schema validation and automated tests.
 - Unit-checked U.S. SPR calibration adapter requiring an analyst-supplied physical daily-flow denominator and applying the DOE mobilisation lead time.
 - Separate Japan announcement denominator cross-check that does not mislabel equivalent-day calculations as release rates.
+- Deterministic full-factorial uncertainty envelope covering six factors and 729 low/reference/high design points per selected scenario/strategy.
+- Main-effect ranking for the six uncertainty factors, with full design-point and summary CSV exports.
 - Streamlit dashboard with Plotly visualizations and CSV exports.
 
 ## Research evidence and interpretation
@@ -59,6 +61,7 @@ The dashboard currently contains:
 3. **Sensitivity analysis** — inspect how demand-reduction assumptions affect outcomes.
 4. **Empirical scenarios** — compare six scenarios under three response strategies, inspect individual runs, and export the 18-experiment results.
 5. **Reserve calibration** — translate a compatible dated U.S. SPR record into normalized inventory and release parameters after the user supplies a matching physical daily-flow denominator; apply the mobilisation delay and export calibration and simulation outputs.
+6. **Uncertainty analysis** — run 729 combinations across six low/reference/high assumptions, inspect outcome ranges and main-effect rankings, and export all design points.
 
 The empirical scenario experiments restrict the 10% demand-reduction response to the disruption window. Demand returns to baseline during recovery. Reserve releases may continue during recovery while a deficit remains and reserve stock is available.
 
@@ -80,6 +83,8 @@ Important assumptions and limitations:
 - The model does not yet explicitly represent oil prices, refinery constraints, alternative shipping routes, country-level trade networks or market substitution.
 - The U.S. SPR calibration uses a country-specific reserve profile inside a normalized wider supply-disruption model; it is not a full U.S. oil-market, global trade, or Hormuz-importer model.
 - The calibrated release limit is constant in the simulation. DOE describes a nominal rate of up to 4.4 million barrels/day for up to 90 days before drawdown capability declines; the declining-rate curve is not yet implemented.
+- Uncertainty-envelope minimum, median and maximum values summarize deterministic design points. They are not confidence intervals, probabilities, or expected values.
+- The uncertainty design uses analyst-defined ranges and does not yet model correlated inputs or statistically estimated distributions.
 - The model does not establish that observed national changes were caused solely by the Hormuz disruption.
 - Severity thresholds are configurable assumptions, not empirically validated thresholds.
 
@@ -97,6 +102,7 @@ Important assumptions and limitations:
 - `research/scenario_design.md` — empirical and hypothetical scenario definitions.
 - `research/reserve_data_assessment.md` — reserve-source assessment, comparability cautions and data gaps.
 - `research/reserve_calibration_method.md` — unit-compatible conversion, lead-time treatment, and calibration limitations.
+- `research/uncertainty_analysis.md` — bounded uncertainty factors, full-factorial design, main-effect method and interpretation.
 
 The reserve data is an initial source inventory, not a calibrated cross-country reserve dataset. Missing values mean not reported or not established; they are not zero.
 
@@ -111,7 +117,8 @@ shock-simulator/
 │   ├── sensitivity.py
 │   ├── data_loader.py
 │   ├── reserve_data.py
-│   └── reserve_calibration.py
+│   ├── reserve_calibration.py
+│   └── uncertainty.py
 ├── scripts/
 │   └── validate_reserve_data.py
 ├── tests/
@@ -119,7 +126,8 @@ shock-simulator/
 │   ├── test_sensitivity.py
 │   ├── test_empirical_scenarios.py
 │   ├── test_reserve_data.py
-│   └── test_reserve_calibration.py
+│   ├── test_reserve_calibration.py
+│   └── test_uncertainty.py
 ├── data/
 │   ├── raw/
 │   │   ├── jodi/
@@ -204,7 +212,8 @@ python -m src.sensitivity
 - [ ] Calibrate deliverable reserve release constraints by country.
 - [ ] Model production disruption separately from maritime transit disruption and rerouting.
 - [ ] Develop country-level importer and producer resilience models.
-- [ ] Add uncertainty analysis and stronger empirical validation.
+- [x] Add deterministic 729-point uncertainty envelope and main-effect screening for six model assumptions.
+- [ ] Estimate defensible statistical distributions and correlated uncertainty from data before adding probabilistic forecasts.
 - [ ] Complete research report, figures and portfolio demonstration.
 
 ## Disclaimer
