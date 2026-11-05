@@ -6,7 +6,6 @@ from src.scenarios import summarize_results
 from src.sensitivity import analyze_demand_reduction
 from src.simulation import run_simulation
 
-
 # --------------------------------------------------
 # Configuration
 # --------------------------------------------------
@@ -17,7 +16,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("⚡ Shock Simulator")
+st.title("Shock Simulator")
 st.caption("Supply disruption, reserve deployment and recovery modelling")
 
 
@@ -60,7 +59,7 @@ def create_supply_chart(results):
             y=total_supply,
             mode="lines",
             name="Total available supply",
-            line=dict(width=3),
+            line={"width": 3},
         )
     )
 
@@ -70,7 +69,7 @@ def create_supply_chart(results):
             y=demand,
             mode="lines",
             name="Demand",
-            line=dict(dash="dash"),
+            line={"dash": "dash"},
         )
     )
 
@@ -120,19 +119,19 @@ def create_severity_chart(results):
             y=[severity_values[row["severity"]] for row in results],
             mode="lines+markers",
             name="Severity",
-            line=dict(shape="hv", width=3),
+            line={"shape": "hv", "width": 3},
         )
     )
 
     fig.update_layout(
         xaxis_title="Simulation day",
-        yaxis=dict(
-            title="Severity",
-            tickmode="array",
-            tickvals=[0, 1, 2, 3],
-            ticktext=["Normal", "Warning", "Critical", "Severe"],
-            range=[-0.2, 3.2],
-        ),
+        yaxis={
+            "title": "Severity",
+            "tickmode": "array",
+            "tickvals": [0, 1, 2, 3],
+            "ticktext": ["Normal", "Warning", "Critical", "Severe"],
+            "range": [-0.2, 3.2],
+        },
         template="plotly_dark",
     )
 
