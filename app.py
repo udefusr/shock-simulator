@@ -6,6 +6,11 @@ from src.scenarios import summarize_results
 from src.sensitivity import analyze_demand_reduction
 from src.simulation import run_simulation
 
+
+# --------------------------------------------------
+# Configuration
+# --------------------------------------------------
+
 st.set_page_config(
     page_title="Shock Simulator",
     page_icon="⚡",
@@ -14,6 +19,174 @@ st.set_page_config(
 
 st.title("⚡ Shock Simulator")
 st.caption("Supply disruption, reserve deployment and recovery modelling")
+
+
+# --------------------------------------------------
+# Chart builders
+# --------------------------------------------------
+
+
+def create_supply_chart(results):
+    days = [row["day"] for row in results]
+    baseline = [row["supply"] for row in results]
+    reserves = [row["reserve_release"] for row in results]
+    demand = [row["demand"] for row in results]
+
+    total_supply = [supply + reserve for supply, reserve in zip(baseline, reserves)]
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=days,
+            y=baseline,
+            mode="lines",
+            name="Baseline supply",
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=days,
+            y=reserves,
+            mode="lines",
+            name="Reserve contribution",
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=days,
+            y=total_supply,
+            mode="lines",
+            name="Total available supply",
+            line=dict(width=3),
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=days,
+            y=demand,
+            mode="lines",
+            name="Demand",
+            line=dict(dash="dash"),
+        )
+    )
+
+    fig.update_layout(
+        xaxis_title="Simulation day",
+        yaxis_title="Resource units",
+        hovermode="x unified",
+        template="plotly_dark",
+    )
+
+    return fig
+
+
+def create_shortage_chart(results):
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x=[row["day"] for row in results],
+            y=[row["unmet_demand"] for row in results],
+            name="Unmet demand",
+        )
+    )
+
+    fig.update_layout(
+        xaxis_title="Simulation day",
+        yaxis_title="Unmet resource units",
+        template="plotly_dark",
+    )
+
+    return fig
+
+
+def create_severity_chart(results):
+    severity_values = {
+        "Normal": 0,
+        "Warning": 1,
+        "Critical": 2,
+        "Severe": 3,
+    }
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=[row["day"] for row in results],
+            y=[severity_values[row["severity"]] for row in results],
+            mode="lines+markers",
+            name="Severity",
+            line=dict(shape="hv", width=3),
+        )
+    )
+
+    fig.update_layout(
+        xaxis_title="Simulation day",
+        yaxis=dict(
+            title="Severity",
+            tickmode="array",
+            tickvals=[0, 1, 2, 3],
+            ticktext=["Normal", "Warning", "Critical", "Severe"],
+            range=[-0.2, 3.2],
+        ),
+        template="plotly_dark",
+    )
+
+    return fig
+
+
+# --------------------------------------------------
+# Scenario analysis
+# --------------------------------------------------
+
+
+def run_strategy_comparison(inputs):
+    strategies = {
+        "No intervention": {
+            "use_reserves": False,
+            "demand_reduction_pct": 0.0,
+        },
+        "Reserve strategy": {
+            "use_reserves": True,
+            "demand_reduction_pct": 0.0,
+        },
+        "Combined strategy": {
+            "use_reserves": True,
+            "demand_reduction_pct": 0.10,
+        },
+    }
+
+    comparison = []
+
+    for name, settings in strategies.items():
+        simulation = run_simulation(
+            **inputs,
+            **settings,
+        )
+
+        summary = summarize_results(simulation)
+
+        comparison.append(
+            {
+                "Strategy": name,
+                "Total unmet demand": round(summary["total_unmet_demand"], 2),
+                "Shortage days": summary["shortage_days"],
+                "Critical days": summary["critical_days"],
+                "Severe days": summary["severe_days"],
+                "Remaining reserves": round(summary["remaining_reserves"], 2),
+            }
+        )
+
+    return comparison
+
+
+# --------------------------------------------------
+# Sidebar: simulation inputs
+# --------------------------------------------------
 
 st.sidebar.header("Simulation Parameters")
 
@@ -79,142 +252,12 @@ days = st.sidebar.number_input(
     value=60,
 )
 
-results = run_simulation(
-    baseline_supply=baseline_supply,
-    daily_demand=daily_demand,
-    initial_reserves=initial_reserves,
-    shock_loss_pct=shock_loss_pct,
-    shock_start_day=shock_start_day,
-    shock_duration=shock_duration,
-    reserve_release_limit=reserve_release_limit,
-    recovery_rate=recovery_rate,
-    days=days,
-)
 
-total_unmet = sum(row["unmet_demand"] for row in results)
-shortage_days = sum(row["unmet_demand"] > 0 for row in results)
-final_reserves = results[-1]["reserves_remaining"]
+# --------------------------------------------------
+# Execute primary simulation
+# --------------------------------------------------
 
-col1, col2, col3 = st.columns(3)
-
-col1.metric("Total unmet demand", f"{total_unmet:.2f}")
-col2.metric("Shortage days", shortage_days)
-col3.metric("Remaining reserves", f"{final_reserves:.2f}")
-
-st.divider()
-
-st.subheader("Supply vs. demand")
-
-days_axis = [row["day"] for row in results]
-baseline_supply_series = [row["supply"] for row in results]
-reserve_contribution = [row["reserve_release"] for row in results]
-total_available_supply = [row["supply"] + row["reserve_release"] for row in results]
-demand = [row["demand"] for row in results]
-
-fig = go.Figure()
-
-fig.add_trace(
-    go.Scatter(
-        x=days_axis,
-        y=baseline_supply_series,
-        mode="lines",
-        name="Baseline supply",
-    )
-)
-
-fig.add_trace(
-    go.Scatter(
-        x=days_axis, y=reserve_contribution, mode="lines", name="Reserve contribution"
-    )
-)
-
-fig.add_trace(
-    go.Scatter(
-        x=days_axis,
-        y=total_available_supply,
-        mode="lines",
-        name="Total available supply",
-        line=dict(width=3),
-    )
-)
-
-fig.add_trace(
-    go.Scatter(
-        x=days_axis, y=demand, mode="lines", name="Demand", line=dict(dash="dash")
-    )
-)
-
-fig.update_layout(
-    xaxis_title="Simulation day",
-    yaxis_title="Resource units",
-    hovermode="x unified",
-    template="plotly_dark",
-)
-
-st.plotly_chart(fig, use_container_width=True)
-st.divider()
-st.subheader("Daily unmet demand")
-
-unmet_demand = [row["unmet_demand"] for row in results]
-
-shortage_fig = go.Figure()
-
-shortage_fig.add_trace(go.Bar(x=days_axis, y=unmet_demand, name="Unmet demand"))
-
-shortage_fig.update_layout(
-    xaxis_title="Simulation day",
-    yaxis_title="Unmet resource units",
-    hovermode="x unified",
-    template="plotly_dark",
-)
-
-st.plotly_chart(shortage_fig, use_container_width=True)
-
-st.divider()
-st.subheader("System severity timeline")
-
-severity_values = {
-    "Normal": 0,
-    "Warning": 1,
-    "Critical": 2,
-    "Severe": 3,
-}
-
-severity_days = [row["day"] for row in results]
-severity_levels = [severity_values[row["severity"]] for row in results]
-
-severity_fig = go.Figure()
-
-severity_fig.add_trace(
-    go.Scatter(
-        x=severity_days,
-        y=severity_levels,
-        mode="lines+markers",
-        name="Severity",
-        line={"shape": "hv", "width": 3},
-    )
-)
-
-severity_fig.update_layout(
-    xaxis_title="Simulation day",
-    yaxis={
-        "title": "Severity level",
-        "tickmode": "array",
-        "tickvals": [0, 1, 2, 3],
-        "ticktext": ["Normal", "Warning", "Critical", "Severe"],
-        "range": [-0.2, 3.2],
-    },
-    hovermode="x unified",
-    template="plotly_dark",
-)
-
-st.plotly_chart(severity_fig, use_container_width=True)
-
-st.divider()
-st.header("Scenario comparison")
-st.caption("Compare different response strategies under identical conditions.")
-
-common_inputs = {
+simulation_inputs = {
     "baseline_supply": baseline_supply,
     "daily_demand": daily_demand,
     "initial_reserves": initial_reserves,
@@ -226,160 +269,188 @@ common_inputs = {
     "days": days,
 }
 
-strategies = {
-    "No intervention": {
-        "use_reserves": False,
-        "demand_reduction_pct": 0.0,
-    },
-    "Reserve strategy": {
-        "use_reserves": True,
-        "demand_reduction_pct": 0.0,
-    },
-    "Combined strategy": {
-        "use_reserves": True,
-        "demand_reduction_pct": 0.10,
-    },
-}
+results = run_simulation(**simulation_inputs)
 
-comparison_results = {}
+total_unmet = sum(row["unmet_demand"] for row in results)
+shortage_days = sum(row["unmet_demand"] > 0 for row in results)
+final_reserves = results[-1]["reserves_remaining"]
 
-for strategy_name, strategy_settings in strategies.items():
-    simulation = run_simulation(
-        **common_inputs,
-        **strategy_settings,
+
+# --------------------------------------------------
+# Main dashboard tabs
+# --------------------------------------------------
+
+simulation_tab, comparison_tab, sensitivity_tab = st.tabs(
+    [
+        "📊 Simulation",
+        "⚖️ Scenario comparison",
+        "📈 Sensitivity analysis",
+    ]
+)
+
+
+# ==================================================
+# TAB 1: SIMULATION
+# ==================================================
+
+with simulation_tab:
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric("Total unmet demand", f"{total_unmet:.2f}")
+    col2.metric("Shortage days", shortage_days)
+    col3.metric("Remaining reserves", f"{final_reserves:.2f}")
+
+    st.divider()
+
+    st.subheader("Supply vs. demand")
+
+    st.plotly_chart(
+        create_supply_chart(results),
+        use_container_width=True,
     )
 
-    comparison_results[strategy_name] = summarize_results(simulation)
+    col1, col2 = st.columns(2)
 
-comparison_data = []
+    with col1:
+        st.subheader("Daily unmet demand")
 
-for strategy_name, summary in comparison_results.items():
-    comparison_data.append(
-        {
-            "Strategy": strategy_name,
-            "Total unmet demand": round(summary["total_unmet_demand"], 2),
-            "Shortage days": summary["shortage_days"],
-            "Critical days": summary["critical_days"],
-            "Severe days": summary["severe_days"],
-            "Remaining reserves": round(summary["remaining_reserves"], 2),
-        }
+        st.plotly_chart(
+            create_shortage_chart(results),
+            use_container_width=True,
+        )
+
+    with col2:
+        st.subheader("System severity")
+
+        st.plotly_chart(
+            create_severity_chart(results),
+            use_container_width=True,
+        )
+
+
+# ==================================================
+# TAB 2: SCENARIO COMPARISON
+# ==================================================
+
+with comparison_tab:
+    st.header("Scenario comparison")
+
+    st.caption("Compare response strategies under identical simulation conditions.")
+
+    comparison_data = run_strategy_comparison(simulation_inputs)
+
+    comparison_df = pd.DataFrame(comparison_data)
+
+    st.dataframe(
+        comparison_df,
+        use_container_width=True,
+        hide_index=True,
     )
 
-st.dataframe(
-    comparison_data,
-    use_container_width=True,
-    hide_index=True,
-)
+    col1, col2 = st.columns(2)
 
-st.subheader("Strategy performance")
+    with col1:
+        st.subheader("Total unmet demand")
 
-comparison_fig = go.Figure()
+        fig = go.Figure(
+            go.Bar(
+                x=comparison_df["Strategy"],
+                y=comparison_df["Total unmet demand"],
+                name="Total unmet demand",
+            )
+        )
 
-comparison_fig.add_trace(
-    go.Bar(
-        x=[row["Strategy"] for row in comparison_data],
-        y=[row["Total unmet demand"] for row in comparison_data],
-        name="Total unmet demand",
-    )
-)
+        fig.update_layout(
+            yaxis_title="Unmet resource units",
+            template="plotly_dark",
+        )
 
-comparison_fig.update_layout(
-    title="Total unmet demand by strategy",
-    xaxis_title="Response strategy",
-    yaxis_title="Unmet resource units",
-    template="plotly_dark",
-)
+        st.plotly_chart(fig, use_container_width=True)
 
-st.plotly_chart(comparison_fig, use_container_width=True)
+    with col2:
+        st.subheader("Shortage days")
 
+        fig = go.Figure(
+            go.Bar(
+                x=comparison_df["Strategy"],
+                y=comparison_df["Shortage days"],
+                name="Shortage days",
+            )
+        )
 
-shortage_fig_comparison = go.Figure()
+        fig.update_layout(
+            yaxis_title="Number of days",
+            template="plotly_dark",
+        )
 
-shortage_fig_comparison.add_trace(
-    go.Bar(
-        x=[row["Strategy"] for row in comparison_data],
-        y=[row["Shortage days"] for row in comparison_data],
-        name="Shortage days",
-    )
-)
+        st.plotly_chart(fig, use_container_width=True)
 
-shortage_fig_comparison.update_layout(
-    title="Shortage days by strategy",
-    xaxis_title="Response strategy",
-    yaxis_title="Number of days",
-    template="plotly_dark",
-)
-
-st.plotly_chart(shortage_fig_comparison, use_container_width=True)
-
-st.divider()
-st.subheader("Export comparison")
-
-comparison_df = pd.DataFrame(comparison_data)
-
-csv_data = comparison_df.to_csv(index=False).encode("utf-8")
-
-st.download_button(
-    label="Download comparison as CSV",
-    data=csv_data,
-    file_name="shock_simulator_comparison.csv",
-    mime="text/csv",
-)
-
-st.divider()
-st.header("Demand-response sensitivity")
-st.caption(
-    "Investigate how demand reduction affects system resilience "
-    "under identical supply disruption conditions."
-)
-
-demand_results = analyze_demand_reduction()
-
-demand_comparison = []
-
-for reduction, summary in demand_results.items():
-    demand_comparison.append(
-        {
-            "Demand reduction": f"{reduction * 100:.0f}%",
-            "Total unmet demand": round(summary["total_unmet_demand"], 2),
-            "Shortage days": summary["shortage_days"],
-            "Critical days": summary["critical_days"],
-            "Severe days": summary["severe_days"],
-            "Remaining reserves": round(summary["remaining_reserves"], 2),
-        }
+    st.download_button(
+        label="Download comparison as CSV",
+        data=comparison_df.to_csv(index=False).encode("utf-8"),
+        file_name="shock_simulator_comparison.csv",
+        mime="text/csv",
     )
 
-st.dataframe(
-    demand_comparison,
-    use_container_width=True,
-    hide_index=True,
-)
 
-demand_fig = go.Figure()
+# ==================================================
+# TAB 3: SENSITIVITY ANALYSIS
+# ==================================================
 
-demand_fig.add_trace(
-    go.Scatter(
-        x=[row["Demand reduction"] for row in demand_comparison],
-        y=[row["Total unmet demand"] for row in demand_comparison],
-        mode="lines+markers",
-        name="Total unmet demand",
+with sensitivity_tab:
+    st.header("Demand-response sensitivity")
+
+    st.caption(
+        "Investigate how demand reduction affects system "
+        "resilience under fixed disruption conditions."
     )
-)
 
-demand_fig.update_layout(
-    title="Impact of demand reduction on unmet demand",
-    xaxis_title="Demand reduction",
-    yaxis_title="Total unmet resource units",
-    template="plotly_dark",
-)
+    demand_results = analyze_demand_reduction()
 
-st.plotly_chart(demand_fig, use_container_width=True)
+    demand_comparison = []
 
-demand_csv = pd.DataFrame(demand_comparison).to_csv(index=False).encode("utf-8")
+    for reduction, summary in demand_results.items():
+        demand_comparison.append(
+            {
+                "Demand reduction": f"{reduction * 100:.0f}%",
+                "Total unmet demand": round(summary["total_unmet_demand"], 2),
+                "Shortage days": summary["shortage_days"],
+                "Critical days": summary["critical_days"],
+                "Severe days": summary["severe_days"],
+                "Remaining reserves": round(summary["remaining_reserves"], 2),
+            }
+        )
 
-st.download_button(
-    label="Download demand-response analysis as CSV",
-    data=demand_csv,
-    file_name="demand_response_sensitivity.csv",
-    mime="text/csv",
-)
+    demand_df = pd.DataFrame(demand_comparison)
+
+    st.dataframe(
+        demand_df,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.subheader("Impact of demand reduction")
+
+    fig = go.Figure(
+        go.Scatter(
+            x=demand_df["Demand reduction"],
+            y=demand_df["Total unmet demand"],
+            mode="lines+markers",
+            name="Total unmet demand",
+        )
+    )
+
+    fig.update_layout(
+        xaxis_title="Demand reduction",
+        yaxis_title="Total unmet resource units",
+        template="plotly_dark",
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.download_button(
+        label="Download sensitivity analysis as CSV",
+        data=demand_df.to_csv(index=False).encode("utf-8"),
+        file_name="demand_response_sensitivity.csv",
+        mime="text/csv",
+    )
