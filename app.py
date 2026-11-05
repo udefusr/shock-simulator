@@ -17,6 +17,10 @@ from src.reserve_calibration import (
     summarize_announced_release_denominators,
 )
 from src.uncertainty import run_scenario_envelope
+from src.importer_lng_resilience import (
+    load_lng_importer_profiles,
+    run_lng_importer_resilience_scenario,
+)
 from src.importer_resilience import (
     load_importer_flow_profiles,
     run_importer_resilience_scenario,
@@ -295,7 +299,7 @@ final_reserves = results[-1]["reserves_remaining"]
 # Main dashboard tabs
 # --------------------------------------------------
 
-simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, uncertainty_tab, importer_tab = st.tabs(
+simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, uncertainty_tab, importer_tab, lng_tab = st.tabs(
     [
         "📊 Simulation",
         "⚖️ Scenario comparison",
@@ -304,6 +308,7 @@ simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, unc
         "🧰 Reserve calibration",
         "🧪 Uncertainty analysis",
         "🌏 Importer resilience",
+        "🔥 LNG resilience",
     ]
 )
 
@@ -1352,4 +1357,241 @@ with importer_tab:
         "national stock availability. This experiment does not allocate shared "
         "Saudi/UAE pipeline bypass capacity, infer cargo origins, or simulate "
         "commodity prices, refinery constraints, products, or LNG."
+    )
+
+
+# ==================================================
+# TAB 8: LNG IMPORTER RESILIENCE
+# ==================================================
+
+with lng_tab:
+    st.header("LNG importer resilience")
+    st.caption(
+        "A separate natural-gas model using annual LNG destination flows "
+        "transiting Hormuz. All model quantities are expressed in gas units."
+    )
+
+    lng_profiles = load_lng_importer_profiles()
+    lng_col1, lng_col2 = st.columns(2)
+    with lng_col1:
+        lng_country = st.selectbox(
+            "Destination market",
+            options=lng_profiles["country"].tolist(),
+            index=lng_profiles["country"].tolist().index("Bangladesh"),
+            key="lng_country",
+        )
+        lng_profile = lng_profiles[lng_profiles["country"] == lng_country].iloc[0]
+        lng_disruption_fraction = (
+            st.slider(
+                "Share of Hormuz LNG flow disrupted (%)",
+                min_value=0,
+                max_value=100,
+                value=100,
+                step=5,
+                key="lng_disruption_fraction",
+            )
+            / 100
+        )
+        lng_disruption_days = st.number_input(
+            "Disruption duration (days)",
+            min_value=0,
+            max_value=365,
+            value=30,
+            step=1,
+            key="lng_disruption_days",
+        )
+        lng_days_in_year = st.selectbox(
+            "Annual averaging convention",
+            options=[365, 366],
+            index=0,
+            key="lng_days_in_year",
+        )
+    with lng_col2:
+        lng_alternative_supply = st.number_input(
+            "Alternative LNG supply (million m³/day)",
+            min_value=0.0,
+            max_value=1000.0,
+            value=0.0,
+            step=0.5,
+            key="lng_alternative_supply",
+            help="Analyst-defined replacement LNG deliveries; not sourced spare liquefaction or shipping capacity.",
+        )
+        lng_alternative_start = st.number_input(
+            "First day alternative LNG is available",
+            min_value=1,
+            max_value=365,
+            value=1,
+            step=1,
+            key="lng_alternative_start",
+        )
+        lng_buffer_days = st.number_input(
+            "Assumed buffer (days of disrupted LNG flow)",
+            min_value=0.0,
+            max_value=365.0,
+            value=0.0,
+            step=1.0,
+            key="lng_buffer_days",
+            help="Scenario volume only; not actual Bangladesh or national storage capacity.",
+        )
+        lng_demand_reduction = (
+            st.slider(
+                "Demand response (% of gross lost flow)",
+                min_value=0,
+                max_value=100,
+                value=0,
+                step=5,
+                key="lng_demand_reduction",
+            )
+            / 100
+        )
+
+    annual_flow = float(lng_profile["annual_hormuz_lng_flow_bcm"])
+    daily_flow = annual_flow * 1000.0 / lng_days_in_year
+    st.info(
+        f"**{lng_country}: {annual_flow:.1f} bcm/year** estimated 2025 LNG "
+        f"destination flow via Hormuz, equal to **{daily_flow:.2f} million m³/day** "
+        f"using a {lng_days_in_year}-day annual average. This is not total national "
+        "LNG imports or an import-dependency percentage."
+    )
+    st.caption(
+        f"Underlying estimate: {lng_profile['data_provider']} via "
+        f"{lng_profile['source_organization']}. "
+        f"Source: {lng_profile['source_url']}. "
+        "Destination flows are annual estimates reproduced in the ACER 2026 report."
+    )
+    if lng_country in ("Bangladesh", "India", "Pakistan"):
+        st.caption(
+            "IEA independently states that Bangladesh, India and Pakistan imported "
+            "almost two-thirds of their total LNG supplies via Hormuz in 2025. "
+            "This country-specific dependency context is separate from the "
+            "destination-flow volume above. Source: "
+            "https://www.iea.org/about/oil-safety-and-emergency-response/strait-of-hormuz"
+        )
+
+    lng_result = run_lng_importer_resilience_scenario(
+        country=lng_country,
+        disruption_fraction=lng_disruption_fraction,
+        disruption_duration_days=int(lng_disruption_days),
+        alternative_supply_mcm_per_day=lng_alternative_supply,
+        alternative_supply_start_day=int(lng_alternative_start),
+        buffer_cover_days=lng_buffer_days,
+        demand_reduction_fraction=lng_demand_reduction,
+        days_in_year=lng_days_in_year,
+    )
+    lng_summary = lng_result["summary"]
+    lng_daily = lng_result["daily"]
+
+    st.subheader("Scenario outcome")
+    lng_metric1, lng_metric2, lng_metric3, lng_metric4 = st.columns(4)
+    lng_metric1.metric(
+        "Gross lost LNG",
+        f"{lng_summary['gross_lost_lng_volume_mcm']:,.1f} mcm",
+    )
+    lng_metric2.metric(
+        "Alternative LNG",
+        f"{lng_summary['total_alternative_lng_mcm']:,.1f} mcm",
+    )
+    lng_metric3.metric(
+        "Buffer released",
+        f"{lng_summary['total_buffer_release_mcm']:,.1f} mcm",
+    )
+    lng_metric4.metric(
+        "Uncovered LNG gap",
+        f"{lng_summary['total_uncovered_lng_gap_mcm']:,.1f} mcm",
+    )
+
+    lng_chart = go.Figure()
+    for column, label in [
+        ("gross_lost_lng_mcm_per_day", "Gross lost Hormuz LNG"),
+        ("alternative_lng_mcm_per_day", "Alternative LNG"),
+        ("buffer_release_mcm_per_day", "Buffer release"),
+        ("demand_response_mcm_per_day", "Demand response"),
+        ("uncovered_lng_gap_mcm_per_day", "Uncovered LNG gap"),
+    ]:
+        lng_chart.add_trace(
+            go.Scatter(
+                x=lng_daily["day"],
+                y=lng_daily[column],
+                mode="lines",
+                name=label,
+            )
+        )
+    lng_chart.update_layout(
+        title="Daily LNG disruption and response flows",
+        xaxis_title="Simulation day",
+        yaxis_title="Million cubic metres/day",
+        hovermode="x unified",
+        template="plotly_dark",
+    )
+    st.plotly_chart(lng_chart, width="stretch")
+
+    lng_summary_columns = [
+        "country",
+        "reference_year",
+        "annual_hormuz_lng_flow_bcm",
+        "baseline_hormuz_lng_flow_mcm_per_day",
+        "disruption_fraction",
+        "disruption_duration_days",
+        "alternative_supply_capacity_mcm_per_day",
+        "alternative_supply_start_day",
+        "assumed_buffer_cover_days",
+        "starting_buffer_mcm",
+        "total_buffer_release_mcm",
+        "demand_reduction_fraction_of_gross_loss",
+        "total_demand_response_mcm",
+        "total_uncovered_lng_gap_mcm",
+        "ending_buffer_mcm",
+    ]
+    st.subheader("Scenario assumptions and totals")
+    st.dataframe(
+        pd.DataFrame([lng_summary])[lng_summary_columns].round(3),
+        width="stretch",
+        hide_index=True,
+    )
+    st.download_button(
+        "Download LNG daily results",
+        data=lng_daily.to_csv(index=False).encode("utf-8"),
+        file_name=f"{lng_country.lower().replace(' ', '_')}_lng_resilience.csv",
+        mime="text/csv",
+    )
+    st.download_button(
+        "Download LNG scenario summary",
+        data=pd.DataFrame([lng_summary]).to_csv(index=False).encode("utf-8"),
+        file_name=f"{lng_country.lower().replace(' ', '_')}_lng_summary.csv",
+        mime="text/csv",
+    )
+
+    st.subheader("2025 Hormuz LNG destination-flow comparison")
+    lng_comparison = lng_profiles.sort_values(
+        "annual_hormuz_lng_flow_bcm", ascending=False
+    )
+    lng_flow_chart = go.Figure(
+        go.Bar(
+            x=lng_comparison["country"],
+            y=lng_comparison["annual_hormuz_lng_flow_bcm"],
+            name="Estimated Hormuz LNG destination flow",
+        )
+    )
+    lng_flow_chart.update_layout(
+        xaxis_title="Destination market",
+        yaxis_title="Billion cubic metres/year",
+        template="plotly_dark",
+    )
+    st.plotly_chart(lng_flow_chart, width="stretch")
+    st.dataframe(
+        lng_comparison[
+            ["country", "reference_year", "annual_hormuz_lng_flow_bcm", "data_status"]
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+    st.warning(
+        "This is an LNG volume-gap scenario, not a full national gas-system model. "
+        "Alternative LNG supply, buffer cover and demand reduction are analyst "
+        "assumptions. It does not model regasification capacity, terminal slots, "
+        "pipeline transmission, domestic production, power-sector dispatch, "
+        "industrial priority, cargo competition or prices. The annual destination "
+        "flows are not total national imports. Do not compare mcm outputs directly "
+        "with crude-oil mb/d outputs."
     )
