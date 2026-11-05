@@ -18,6 +18,7 @@ def calculate_sensitivity_metrics(simulation, initial_reserves):
 
     return summary
 
+
 def calculate_improvement(baseline_value, current_value):
     if baseline_value == 0:
         return None
@@ -25,6 +26,7 @@ def calculate_improvement(baseline_value, current_value):
     improvement = ((baseline_value - current_value) / baseline_value) * 100
 
     return improvement
+
 
 def add_baseline_comparisons(results, baseline_parameter):
     baseline = results[baseline_parameter]
@@ -39,6 +41,7 @@ def add_baseline_comparisons(results, baseline_parameter):
         )
 
     return results
+
 
 def analyze_recovery_rates():
     # Compare simulation outcomes across different recovery rates
@@ -188,6 +191,7 @@ def print_analysis(title, results, parameter_label, parameter_formatter=None):
                 print(f"  {metric}: N/A")
             else:
                 print(f"  {metric}: {value:.2f}")
+
 
 if __name__ == "__main__":
     analyses = [
