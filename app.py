@@ -902,17 +902,18 @@ with uncertainty_tab:
         [
             ["Supply shock multiplier", "0.8× / 1.0× / 1.2×"],
             ["Shock duration multiplier", "0.8× / 1.0× / 1.2×"],
-            ["Starting reserve inventory", "50% / 75% / 100%"],
-            ["Daily release cap", "50% / 75% / 100%"],
+            ["Starting reserve inventory", "50% / 75% / 100% of baseline"],
+            ["Daily release cap", "50% / 75% / 100% of baseline"],
             ["Supply recovery multiplier", "0.5× / 1.0× / 1.5×"],
             ["Additional mobilisation delay", "0 / 7 / 14 days"],
         ],
-        columns=["Parameter", "Low / reference / high"],
+        columns=["Parameter", "Tested levels"],
     )
     st.dataframe(assumption_ranges, use_container_width=True, hide_index=True)
     st.caption(
         "The six three-level dimensions create 3⁶ = 729 design points. "
-        "Every combination is run, including the neutral reference case."
+        "The 100% reserve and release-cap levels preserve the baseline values; "
+        "zero additional delay and 1.0× multipliers form the neutral reference case."
     )
 
     uncertainty_result = run_scenario_envelope(
