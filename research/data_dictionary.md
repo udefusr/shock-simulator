@@ -181,3 +181,16 @@ The full-factorial design output in src/uncertainty.py contains:
 The factor-effect output reports the low and high factor levels, mean total unmet demand at each level averaged across the other factors, the signed high-minus-low difference, its absolute value, and rank.
 
 The median outcome is the median of enumerated design points, not an expected value. Design-point counts do not imply likelihood.
+
+
+## Time-varying reserve release output
+
+When `reserve_release_schedule` is supplied to `run_simulation`, its periods are measured in days since the first modeled reserve delivery (drawdown day 1), not calendar simulation day or decision day. Each period contains `start_day`, `end_day` (inclusive; `None` for the final open-ended period), and `rate_multiplier` (0–1) applied to the nominal `reserve_release_limit`.
+
+Daily simulation outputs add:
+
+| Field | Description |
+| --- | --- |
+| reserve_drawdown_day | Day number since first modeled reserve delivery; blank before mobilisation |
+| reserve_release_rate_multiplier | Schedule multiplier active on that day; zero before mobilisation |
+| reserve_release_limit_today | Effective model-unit daily cap after applying the schedule; zero before mobilisation |
