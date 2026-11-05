@@ -239,3 +239,52 @@ Daily output fields:
 | cumulative_uncovered_gap_million_barrels | Sum of uncovered daily gaps over the simulation horizon |
 
 The buffer is a scenario assumption, not a measured national strategic stock. Summing a million-barrel/day rate over one-day time steps yields million barrels.
+
+
+## LNG importer route-flow dataset
+
+File: `data/processed/hormuz_importer_lng_flows_2025.csv`
+
+| Field | Description |
+| --- | --- |
+| country | LNG destination market |
+| reference_year | Calendar year represented by the annual flow |
+| annual_hormuz_lng_flow_bcm | Estimated annual LNG volume transiting Hormuz, billion cubic metres |
+| source_organization | Organization publishing the destination-flow chart |
+| data_provider | Underlying commercial data provider cited by the publisher |
+| source_url | Direct report URL |
+| data_status | Source description and evidence classification |
+| limitations | Scope and interpretation restrictions |
+
+The ACER report reproduces the ICIS destination estimates. They are annual route-specific destination volumes, not total country LNG imports.
+
+## LNG importer resilience inputs and outputs
+
+Function: `run_lng_importer_resilience_scenario()` in `src/importer_lng_resilience.py`.
+
+All rate and volume fields are gas volumes: million cubic metres/day (mcm/day) and million cubic metres (mcm).
+
+| Input | Description |
+| --- | --- |
+| disruption_fraction | Share of annual-average Hormuz destination flow assumed interrupted (0–1) |
+| disruption_duration_days | Disruption duration |
+| alternative_supply_mcm_per_day | Analyst-defined replacement LNG delivery rate |
+| alternative_supply_start_day | First day alternative LNG is available |
+| buffer_cover_days | Assumed buffer stock expressed as days of the gross disrupted flow |
+| demand_reduction_fraction | Demand response as a share of gross lost flow, capped by the residual daily gap |
+| simulation_days | Model horizon; defaults to disruption duration plus 30 days |
+| days_in_year | 365 or 366 for annual-flow averaging |
+
+Daily outputs:
+
+| Field | Description |
+| --- | --- |
+| gross_lost_lng_mcm_per_day | Gross daily lost Hormuz LNG flow |
+| alternative_lng_mcm_per_day | Replacement LNG supply applied that day |
+| buffer_release_mcm_per_day | Assumed buffer released against the remaining gap |
+| demand_response_mcm_per_day | Modelled reduction in demand against the remaining gap |
+| uncovered_lng_gap_mcm_per_day | Residual daily LNG supply gap |
+| buffer_remaining_mcm | Remaining assumed buffer volume |
+| cumulative_uncovered_lng_gap_mcm | Cumulative residual gap over the simulation horizon |
+
+The LNG model uses natural-gas volume units and must not be merged with crude-oil million-barrel units.
