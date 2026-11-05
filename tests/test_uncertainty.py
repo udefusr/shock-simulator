@@ -73,7 +73,7 @@ def test_scenario_envelope_rejects_shock_above_100_percent():
     with pytest.raises(ValueError, match="above 100%"):
         run_scenario_envelope(
             "extreme_stress",
-            shock_loss_multipliers=(1.0, 1.1, 1.2),
+            shock_loss_multipliers=(1.0, 1.5, 2.0),
         )
 
 
