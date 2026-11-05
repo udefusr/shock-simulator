@@ -6,7 +6,7 @@ rate record. This denominator must represent the same physical flow as the
 simulation's model_daily_demand. It produces normalized model inputs, not a
 forecast of actual deliveries.
 """
-from math import isfinite
+from math import isclose, isfinite
 import pandas as pd
 
 from src.reserve_data import load_reserve_profiles, load_reserve_response_events
@@ -17,6 +17,42 @@ INVENTORY_TO_FLOW_UNIT = {
     "million kilolitres": "million kilolitres per day",
     "million tonnes": "million tonnes per day",
 }
+
+
+DOE_SPR_DESIGN_REFERENCE_URL = (
+    "https://www.energy.gov/ceser/articles/"
+    "long-term-strategic-review-ltsr-us-strategic-petroleum-reserve-spr-report-congress"
+)
+DOE_SPR_DESIGN_REFERENCE_RATE = 4.4
+DOE_SPR_DESIGN_REFERENCE_PERIODS = (
+    (1, 90, 4.4),
+    (91, 120, 3.8),
+    (121, 150, 3.4),
+    (151, None, 1.9),
+)
+
+
+def build_doe_spr_design_reference_schedule(nominal_release_rate):
+    """Return DOE's historical 2016 drawdown curve as cap multipliers."""
+    _positive_finite(nominal_release_rate, "nominal_release_rate")
+    if not isclose(
+        float(nominal_release_rate),
+        DOE_SPR_DESIGN_REFERENCE_RATE,
+        rel_tol=0.0,
+        abs_tol=0.05,
+    ):
+        raise ValueError(
+            "The DOE design-reference schedule requires a 4.4 million-barrel/day nominal rate."
+        )
+
+    return [
+        {
+            "start_day": start_day,
+            "end_day": end_day,
+            "rate_multiplier": rate / DOE_SPR_DESIGN_REFERENCE_RATE,
+        }
+        for start_day, end_day, rate in DOE_SPR_DESIGN_REFERENCE_PERIODS
+    ]
 
 
 def _positive_finite(value, name):
@@ -124,12 +160,20 @@ def calibrate_reserve_profile(
         "initial_reserves_model_units": model_initial_reserves,
         "reserve_release_limit_model_units": model_release_limit,
         "reserve_release_start_day": int(lead_time) + 1,
+        "doe_spr_design_reference_schedule": (
+            build_doe_spr_design_reference_schedule(float(row["nominal_release_rate"]))
+            if country == "United States"
+            else None
+        ),
+        "doe_spr_design_reference_url": DOE_SPR_DESIGN_REFERENCE_URL,
         "calibration_status": "Derived from reported inventory/rate plus user-supplied demand denominator",
         "source_url": row["source_url"],
         "interpretation_note": (
             "Nominal capability is not a guarantee of actual market delivery. "
             "The chosen demand denominator is user supplied. Day 1 is the decision day; "
-            "delivery starts after the stated complete lead time."
+            "delivery starts after the stated complete lead time. The optional DOE "
+            "design-reference taper is historical engineering design data, not a "
+            "measurement of current effective site capability."
         ),
     }
 
