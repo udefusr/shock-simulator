@@ -447,3 +447,65 @@ def test_delayed_reserve_mobilization_does_not_release_when_reserves_disabled():
     )
     assert all(row["reserve_release"] == 0 for row in results)
     assert all(not row["reserve_release_active"] for row in results)
+
+
+def test_reserve_release_schedule_uses_days_since_first_delivery():
+    schedule = [
+        {"start_day": 1, "end_day": 2, "rate_multiplier": 1.0},
+        {"start_day": 3, "end_day": None, "rate_multiplier": 0.5},
+    ]
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=95,
+        initial_reserves=100,
+        shock_loss_pct=0.25,
+        shock_duration=5,
+        reserve_release_limit=10,
+        reserve_release_start_day=3,
+        reserve_release_schedule=schedule,
+        days=5,
+    )
+
+    assert [row["reserve_drawdown_day"] for row in results] == [None, None, 1, 2, 3]
+    assert [row["reserve_release_rate_multiplier"] for row in results] == pytest.approx(
+        [0, 0, 1, 1, 0.5]
+    )
+    assert [row["reserve_release_limit_today"] for row in results] == pytest.approx(
+        [0, 0, 10, 10, 5]
+    )
+    assert [row["reserve_release"] for row in results] == pytest.approx([0, 0, 10, 10, 5])
+
+
+@pytest.mark.parametrize(
+    "schedule",
+    [
+        [],
+        [{"start_day": 2, "end_day": None, "rate_multiplier": 1.0}],
+        [
+            {"start_day": 1, "end_day": 2, "rate_multiplier": 1.0},
+            {"start_day": 4, "end_day": None, "rate_multiplier": 0.5},
+        ],
+        [{"start_day": 1, "end_day": 2, "rate_multiplier": 1.0}],
+        [{"start_day": 1, "end_day": None, "rate_multiplier": 1.1}],
+        [{"start_day": 1, "end_day": None, "rate_multiplier": -0.1}],
+        [{"start_day": 1, "end_day": None, "rate_multiplier": float("inf")}],
+    ],
+)
+def test_invalid_reserve_release_schedules_are_rejected(schedule):
+    with pytest.raises((ValueError, TypeError)):
+        run_simulation(reserve_release_schedule=schedule)
+
+
+def test_reserve_release_schedule_is_ignored_when_reserves_are_disabled():
+    results = run_simulation(
+        shock_loss_pct=0.25,
+        shock_duration=2,
+        reserve_release_limit=10,
+        use_reserves=False,
+        reserve_release_schedule=[
+            {"start_day": 1, "end_day": None, "rate_multiplier": 0.5}
+        ],
+        days=2,
+    )
+    assert all(row["reserve_release"] == 0 for row in results)
+    assert all(row["reserve_release_limit_today"] == 0 for row in results)
