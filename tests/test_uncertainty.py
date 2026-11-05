@@ -75,3 +75,16 @@ def test_scenario_envelope_rejects_shock_above_100_percent():
             "extreme_stress",
             shock_loss_multipliers=(1.0, 1.1, 1.2),
         )
+
+
+def test_factor_effects_rank_all_six_uncertain_assumptions():
+    result = run_scenario_envelope("observed_benchmark")
+    effects = result["factor_effects"]
+    assert len(effects) == 6
+    assert effects["sensitivity_rank"].tolist() == [1, 2, 3, 4, 5, 6]
+    assert effects["absolute_main_effect"].is_monotonic_decreasing
+
+
+def test_no_disruption_baseline_is_not_a_valid_uncertainty_scenario():
+    with pytest.raises(ValueError, match="non-zero disruption"):
+        run_scenario_envelope("baseline")
