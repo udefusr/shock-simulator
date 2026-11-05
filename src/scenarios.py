@@ -4,6 +4,9 @@ from src.simulation import run_simulation
 def summarize_results(results):
     # Calculate useful summary statistics for a simulation
 
+    if not results:
+        raise ValueError("Cannot summarize an empty simulation.")
+
     total_unmet = sum(row["unmet_demand"] for row in results)
 
     shortage_days = sum(row["unmet_demand"] > 0 for row in results)

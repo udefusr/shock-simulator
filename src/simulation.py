@@ -26,6 +26,8 @@ def validate_inputs(
         "reserve_release_limit": reserve_release_limit,
         "demand_reduction_pct": demand_reduction_pct,
         "recovery_rate": recovery_rate,
+        "warning_threshold": warning_threshold,
+        "critical_threshold": critical_threshold
     }
 
     for name, value in numeric_values.items():
