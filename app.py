@@ -695,15 +695,16 @@ with reserve_tab:
     input_col1, input_col2 = st.columns(2)
     with input_col1:
         physical_daily_demand = st.number_input(
-            "Physical daily demand / net-import denominator "
+            "Physical daily flow represented by model demand "
             "(million barrels per day)",
             min_value=0.0,
             value=0.0,
             step=0.1,
             help=(
-                "Enter a denominator that is conceptually consistent with the "
-                "selected crude-oil reserve stock. This is user supplied, not "
-                "inferred from the reserve profile."
+                "Enter the same physical flow represented by the simulation daily-demand "
+                "series. If the stock-cover basis is crude-oil net imports, "
+                "model daily demand must represent that net-import flow, not "
+                "total oil consumption. This value is user supplied."
             ),
         )
         demand_denominator_basis = st.text_input(
@@ -756,6 +757,14 @@ with reserve_tab:
             "denominator; it is not a separately reported official metric. "
             "The release cap is DOE's nominal capability scaled to the chosen "
             "denominator, not a guarantee of market delivery."
+        )
+
+        st.info(
+            "The selected disruption percentage is an EIA-derived regional Gulf "
+            "producer benchmark or a hypothetical stress test, while the reserve "
+            "profile is the U.S. SPR. This combined experiment is an abstract "
+            "sensitivity analysis, not a reconstruction of a documented U.S. "
+            "SPR deployment or a country-specific market balance."
         )
 
         st.subheader("Run a reserve-calibrated scenario")
