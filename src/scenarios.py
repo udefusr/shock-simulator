@@ -2,7 +2,7 @@ from src.simulation import run_simulation
 
 
 def summarize_results(results):
-    #Calculate useful summary statistics for a simulation."""
+    # Calculate useful summary statistics for a simulation
 
     total_unmet = sum(row["unmet_demand"] for row in results)
 
@@ -22,7 +22,7 @@ def summarize_results(results):
 
 
 def compare_scenarios():
-    #Compare three responses to the same supply disruption."""
+    # Compare three responses to the same supply disruption
 
     common_inputs = {
         "baseline_supply": 100,
