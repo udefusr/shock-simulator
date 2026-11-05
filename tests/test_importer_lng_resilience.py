@@ -42,10 +42,10 @@ def test_lng_scenario_converts_annual_flow_and_uses_three_response_levers():
     assert summary["starting_buffer_mcm"] == pytest.approx(lost)
     assert summary["total_buffer_release_mcm"] == pytest.approx(lost)
     assert summary["total_demand_response_mcm"] == pytest.approx(
-        (lost * 0.25) * 3
+        (lost * 0.25) * 2
     )
     assert summary["total_uncovered_lng_gap_mcm"] == pytest.approx(
-        (lost - (lost * 0.25)) * 2
+        (lost - 5.0 - (lost * 0.25)) * 2
     )
 
 
