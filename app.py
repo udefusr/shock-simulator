@@ -320,7 +320,7 @@ with simulation_tab:
 
     st.plotly_chart(
         create_supply_chart(results),
-        use_container_width=True,
+        width="stretch",
     )
 
     col1, col2 = st.columns(2)
@@ -330,7 +330,7 @@ with simulation_tab:
 
         st.plotly_chart(
             create_shortage_chart(results),
-            use_container_width=True,
+            width="stretch",
         )
 
     with col2:
@@ -338,7 +338,7 @@ with simulation_tab:
 
         st.plotly_chart(
             create_severity_chart(results),
-            use_container_width=True,
+            width="stretch",
         )
 
 
@@ -357,7 +357,7 @@ with comparison_tab:
 
     st.dataframe(
         comparison_df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -379,7 +379,7 @@ with comparison_tab:
             template="plotly_dark",
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col2:
         st.subheader("Shortage days")
@@ -397,7 +397,7 @@ with comparison_tab:
             template="plotly_dark",
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.download_button(
         label="Download comparison as CSV",
@@ -439,7 +439,7 @@ with sensitivity_tab:
 
     st.dataframe(
         demand_df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -460,7 +460,7 @@ with sensitivity_tab:
         template="plotly_dark",
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     st.download_button(
         label="Download sensitivity analysis as CSV",
@@ -539,7 +539,7 @@ with empirical_tab:
 
     st.dataframe(
         empirical_df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -585,7 +585,7 @@ with empirical_tab:
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width="stretch",
     )
 
     # --------------------------------------------------
@@ -643,7 +643,7 @@ with empirical_tab:
 
         st.plotly_chart(
             create_supply_chart(selected_result["daily_results"]),
-            use_container_width=True,
+            width="stretch",
         )
 
     with detail_col2:
@@ -651,7 +651,7 @@ with empirical_tab:
 
         st.plotly_chart(
             create_shortage_chart(selected_result["daily_results"]),
-            use_container_width=True,
+            width="stretch",
         )
 
     # --------------------------------------------------
@@ -818,7 +818,7 @@ with reserve_tab:
 
         st.plotly_chart(
             create_supply_chart(calibrated_results),
-            use_container_width=True,
+            width="stretch",
         )
         calibrated_daily_df = pd.DataFrame(calibrated_results)
         st.download_button(
@@ -849,7 +849,7 @@ with reserve_tab:
                 "implied_daily_supply_unit",
             ]
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
     st.caption(
@@ -909,7 +909,7 @@ with uncertainty_tab:
         ],
         columns=["Parameter", "Tested levels"],
     )
-    st.dataframe(assumption_ranges, use_container_width=True, hide_index=True)
+    st.dataframe(assumption_ranges, width="stretch", hide_index=True)
     st.caption(
         "The six three-level dimensions create 3⁶ = 729 design points. "
         "The 100% reserve and release-cap levels preserve the baseline values; "
@@ -947,7 +947,7 @@ with uncertainty_tab:
                 "reference_case": "Neutral reference case",
             }
         ).round(2),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -966,7 +966,7 @@ with uncertainty_tab:
             yaxis_title="Number of design points",
             template="plotly_dark",
         )
-        st.plotly_chart(histogram, use_container_width=True)
+        st.plotly_chart(histogram, width="stretch")
 
     with chart_col2:
         st.subheader("Reserve and recovery trade-offs")
@@ -1003,7 +1003,7 @@ with uncertainty_tab:
             yaxis_title="Total unmet demand (model units)",
             template="plotly_dark",
         )
-        st.plotly_chart(scatter, use_container_width=True)
+        st.plotly_chart(scatter, width="stretch")
 
     best_run = uncertainty_runs.loc[
         uncertainty_runs["total_unmet_demand"].idxmin()
@@ -1017,13 +1017,13 @@ with uncertainty_tab:
         st.markdown("**Lowest unmet demand design point**")
         st.dataframe(
             best_run.to_frame("Value"),
-            use_container_width=True,
+            width="stretch",
         )
     with boundary_col2:
         st.markdown("**Highest unmet demand design point**")
         st.dataframe(
             worst_run.to_frame("Value"),
-            use_container_width=True,
+            width="stretch",
         )
 
     st.subheader("Which assumptions move the result most?")
@@ -1036,7 +1036,7 @@ with uncertainty_tab:
     factor_effects = uncertainty_result["factor_effects"]
     st.dataframe(
         factor_effects.round(2),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
     effects_chart = go.Figure(
@@ -1053,7 +1053,7 @@ with uncertainty_tab:
         yaxis={"categoryorder": "total ascending"},
         template="plotly_dark",
     )
-    st.plotly_chart(effects_chart, use_container_width=True)
+    st.plotly_chart(effects_chart, width="stretch")
 
     st.download_button(
         "Download all 729 design points",
