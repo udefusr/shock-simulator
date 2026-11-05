@@ -33,10 +33,10 @@ def test_importer_scenario_calculates_alternative_sourcing_and_buffer():
         [0, 0, 1.0, 0, 0]
     )
     assert daily["buffer_release_mbd"].tolist() == pytest.approx(
-        [2.7, 2.7, 1.7, 0, 0]
+        [2.7, 2.7, 0, 0, 0]
     )
     assert summary["starting_buffer_million_barrels"] == pytest.approx(5.4)
-    assert summary["total_uncovered_gap_million_barrels"] == pytest.approx(0)
+    assert summary["total_uncovered_gap_million_barrels"] == pytest.approx(1.7)
     assert summary["ending_buffer_million_barrels"] == pytest.approx(0)
 
 
