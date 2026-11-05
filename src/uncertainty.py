@@ -101,6 +101,27 @@ def run_scenario_envelope(
         )
 
     base = build_simulation_inputs(scenario_id, strategy)
+    if base["shock_loss_pct"] <= 0 or base["shock_duration"] <= 0:
+        raise ValueError("Choose a non-zero disruption scenario for uncertainty analysis.")
+    neutral_levels = {
+        "shock_loss_multiplier": 1.0,
+        "shock_duration_multiplier": 1.0,
+        "reserve_inventory_fraction": 1.0,
+        "release_limit_fraction": 1.0,
+        "recovery_rate_multiplier": 1.0,
+        "additional_mobilization_delay_days": 0,
+    }
+    for factor, neutral in neutral_levels.items():
+        if neutral not in levels[factor]:
+            raise ValueError(
+                "The uncertainty grid must include neutral levels: 1.0 multipliers, "
+                "1.0 inventory/release fractions, and zero additional delay."
+            )
+    if base["shock_loss_pct"] * max(levels["shock_loss_multiplier"]) > 1:
+        raise ValueError("Shock-loss multiplier produces a supply loss above 100%.")
+    if base["recovery_rate"] * max(levels["recovery_rate_multiplier"]) > 1:
+        raise ValueError("Recovery-rate multiplier produces a recovery rate above 100%.")
+
     base_release_start = base.get("reserve_release_start_day", 1)
     rows = []
     reference_summary = None
@@ -122,10 +143,6 @@ def run_scenario_envelope(
         inputs["initial_reserves"] = base["initial_reserves"] * inventory_fraction
         inputs["reserve_release_limit"] = base["reserve_release_limit"] * release_fraction
         inputs["recovery_rate"] = base["recovery_rate"] * recovery_mult
-        if inputs["shock_loss_pct"] > 1:
-            raise ValueError("Shock-loss multiplier produces a supply loss above 100%.")
-        if inputs["recovery_rate"] > 1:
-            raise ValueError("Recovery-rate multiplier produces a recovery rate above 100%.")
         inputs["reserve_release_start_day"] = base_release_start + extra_delay
 
         daily = run_simulation(**inputs)
@@ -174,15 +191,18 @@ def run_scenario_envelope(
             "1.0 inventory/release fractions, and zero additional delay."
         )
 
-    metric_columns = [
-        "total_unmet_demand",
-        "shortage_days",
-        "critical_days",
-        "severe_days",
-        "maximum_shortage_percentage",
-        "remaining_reserves",
-        "total_reserve_released",
-    ]
+    reference_values = {
+        "total_unmet_demand": reference_summary["total_unmet_demand"],
+        "shortage_days": reference_summary["shortage_days"],
+        "critical_days": reference_summary["critical_days"],
+        "severe_days": reference_summary["severe_days"],
+        "maximum_shortage_percentage": reference_summary["maximum_shortage_percentage"],
+        "remaining_reserves": reference_summary["remaining_reserves"],
+        "total_reserve_released": (
+            reference_inputs["initial_reserves"] - reference_summary["remaining_reserves"]
+        ),
+    }
+    metric_columns = list(reference_values)
     envelope = pd.DataFrame(
         [
             {
@@ -190,29 +210,51 @@ def run_scenario_envelope(
                 "minimum": runs[column].min(),
                 "median_of_design_points": runs[column].median(),
                 "maximum": runs[column].max(),
-                "reference_case": reference_summary[
-                    {
-                        "total_unmet_demand": "total_unmet_demand",
-                        "shortage_days": "shortage_days",
-                        "critical_days": "critical_days",
-                        "severe_days": "severe_days",
-                        "maximum_shortage_percentage": "maximum_shortage_percentage",
-                        "remaining_reserves": "remaining_reserves",
-                        "total_reserve_released": None,
-                    }.get(column, column)
-                ] if column != "total_reserve_released" else (
-                    reference_inputs["initial_reserves"] - reference_summary["remaining_reserves"]
-                ),
+                "reference_case": reference_values[column],
             }
             for column in metric_columns
         ]
     )
+
+    factors = {
+        "shock_loss_multiplier": "Supply shock multiplier",
+        "shock_duration_multiplier": "Shock duration multiplier",
+        "reserve_inventory_fraction": "Reserve inventory fraction",
+        "release_limit_fraction": "Daily release-cap fraction",
+        "recovery_rate_multiplier": "Recovery-rate multiplier",
+        "additional_mobilization_delay_days": "Additional mobilisation delay",
+    }
+    effects = []
+    for column, label in factors.items():
+        levels_for_factor = sorted(runs[column].unique())
+        low_mean = runs.loc[
+            runs[column] == levels_for_factor[0], "total_unmet_demand"
+        ].mean()
+        high_mean = runs.loc[
+            runs[column] == levels_for_factor[-1], "total_unmet_demand"
+        ].mean()
+        effects.append(
+            {
+                "factor": label,
+                "low_level": levels_for_factor[0],
+                "high_level": levels_for_factor[-1],
+                "mean_unmet_demand_at_low": low_mean,
+                "mean_unmet_demand_at_high": high_mean,
+                "high_minus_low": high_mean - low_mean,
+                "absolute_main_effect": abs(high_mean - low_mean),
+            }
+        )
+    factor_effects = pd.DataFrame(effects).sort_values(
+        "absolute_main_effect", ascending=False
+    ).reset_index(drop=True)
+    factor_effects.insert(0, "sensitivity_rank", range(1, len(factor_effects) + 1))
 
     return {
         "scenario_id": scenario_id,
         "strategy": strategy,
         "runs": runs,
         "envelope": envelope,
+        "factor_effects": factor_effects,
         "reference_inputs": reference_inputs,
         "reference_summary": reference_summary,
         "run_count": len(runs),
