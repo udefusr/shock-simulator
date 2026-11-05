@@ -16,6 +16,7 @@ from src.reserve_calibration import (
     list_calibratable_profiles,
     summarize_announced_release_denominators,
 )
+from src.uncertainty import run_scenario_envelope
 
 # --------------------------------------------------
 # Configuration
@@ -290,13 +291,14 @@ final_reserves = results[-1]["reserves_remaining"]
 # Main dashboard tabs
 # --------------------------------------------------
 
-simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab = st.tabs(
+simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, uncertainty_tab = st.tabs(
     [
         "📊 Simulation",
         "⚖️ Scenario comparison",
         "📈 Sensitivity analysis",
         "🛢️ Empirical scenarios",
         "🧰 Reserve calibration",
+        "🧪 Uncertainty analysis",
     ]
 )
 
@@ -855,5 +857,182 @@ with reserve_tab:
         "by the official equivalent-days statement. It is a derived denominator "
         "check, not a physical release rate, withdrawal time series, or evidence "
         "that the announced volumes were fully delivered."
+    )
+
+# ==================================================
+# TAB 6: DETERMINISTIC UNCERTAINTY ENVELOPE
+# ==================================================
+
+with uncertainty_tab:
+    st.header("Deterministic uncertainty envelope")
+    st.caption(
+        "Explore how combinations of uncertain assumptions change cumulative "
+        "unmet demand and reserve performance."
+    )
+
+    st.warning(
+        "This is a deterministic full-factorial scenario grid, not a probabilistic "
+        "forecast. The median is the median of the enumerated design points; it is "
+        "not an expected value, confidence interval, or likelihood estimate."
+    )
+
+    uncertainty_col1, uncertainty_col2 = st.columns(2)
+    scenario_options = {
+        item["scenario_id"]: item for item in list_empirical_scenarios()
+    }
+    with uncertainty_col1:
+        uncertainty_scenario_id = st.selectbox(
+            "Disruption scenario",
+            options=list(scenario_options),
+            index=list(scenario_options).index("observed_benchmark"),
+            format_func=lambda value: scenario_options[value]["name"],
+            key="uncertainty_scenario",
+        )
+    with uncertainty_col2:
+        uncertainty_strategy = st.selectbox(
+            "Response strategy",
+            options=["Reserve release", "Combined response"],
+            key="uncertainty_strategy",
+        )
+
+    st.markdown("**Assumption ranges**")
+    assumption_ranges = pd.DataFrame(
+        [
+            ["Supply shock multiplier", "0.8× / 1.0× / 1.2×"],
+            ["Shock duration multiplier", "0.8× / 1.0× / 1.2×"],
+            ["Starting reserve inventory", "50% / 75% / 100%"],
+            ["Daily release cap", "50% / 75% / 100%"],
+            ["Supply recovery multiplier", "0.5× / 1.0× / 1.5×"],
+            ["Additional mobilisation delay", "0 / 7 / 14 days"],
+        ],
+        columns=["Parameter", "Low / reference / high"],
+    )
+    st.dataframe(assumption_ranges, use_container_width=True, hide_index=True)
+    st.caption(
+        "The six three-level dimensions create 3⁶ = 729 design points. "
+        "Every combination is run, including the neutral reference case."
+    )
+
+    uncertainty_result = run_scenario_envelope(
+        scenario_id=uncertainty_scenario_id,
+        strategy=uncertainty_strategy,
+    )
+    uncertainty_runs = uncertainty_result["runs"]
+    uncertainty_envelope = uncertainty_result["envelope"]
+
+    st.subheader("Outcome envelope")
+    metric_row = uncertainty_envelope[
+        uncertainty_envelope["metric"] == "total_unmet_demand"
+    ].iloc[0]
+    reference_unmet = metric_row["reference_case"]
+    min_unmet = metric_row["minimum"]
+    max_unmet = metric_row["maximum"]
+
+    envelope_col1, envelope_col2, envelope_col3, envelope_col4 = st.columns(4)
+    envelope_col1.metric("Design points", uncertainty_result["run_count"])
+    envelope_col2.metric("Reference unmet demand", f"{reference_unmet:,.1f}")
+    envelope_col3.metric("Lowest unmet demand", f"{min_unmet:,.1f}")
+    envelope_col4.metric("Highest unmet demand", f"{max_unmet:,.1f}")
+
+    st.dataframe(
+        uncertainty_envelope.rename(
+            columns={
+                "metric": "Outcome metric",
+                "minimum": "Minimum across design points",
+                "median_of_design_points": "Median design point",
+                "maximum": "Maximum across design points",
+                "reference_case": "Neutral reference case",
+            }
+        ).round(2),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    chart_col1, chart_col2 = st.columns(2)
+    with chart_col1:
+        st.subheader("Cumulative unmet-demand distribution")
+        histogram = go.Figure(
+            go.Histogram(
+                x=uncertainty_runs["total_unmet_demand"],
+                nbinsx=30,
+                name="Design points",
+            )
+        )
+        histogram.update_layout(
+            xaxis_title="Total unmet demand (model units)",
+            yaxis_title="Number of design points",
+            template="plotly_dark",
+        )
+        st.plotly_chart(histogram, use_container_width=True)
+
+    with chart_col2:
+        st.subheader("Reserve and recovery trade-offs")
+        scatter = go.Figure(
+            go.Scatter(
+                x=uncertainty_runs["reserve_release_start_day"],
+                y=uncertainty_runs["total_unmet_demand"],
+                mode="markers",
+                marker={
+                    "size": 7,
+                    "color": uncertainty_runs["recovery_rate"],
+                    "showscale": True,
+                    "colorbar": {"title": "Recovery rate"},
+                },
+                text=[
+                    (
+                        f"Shock: {row.shock_loss_pct:.1f}%<br>"
+                        f"Duration: {row.shock_duration_days} days<br>"
+                        f"Inventory: {row.initial_reserves_model_units:.1f}<br>"
+                        f"Release cap: {row.release_limit_model_units_per_day:.2f}/day"
+                    )
+                    for row in uncertainty_runs.itertuples()
+                ],
+                hovertemplate=(
+                    "First delivery day: %{x}<br>"
+                    "Total unmet demand: %{y:.1f}<br>"
+                    "%{text}<extra></extra>"
+                ),
+                name="Scenario design point",
+            )
+        )
+        scatter.update_layout(
+            xaxis_title="First reserve delivery day",
+            yaxis_title="Total unmet demand (model units)",
+            template="plotly_dark",
+        )
+        st.plotly_chart(scatter, use_container_width=True)
+
+    best_run = uncertainty_runs.loc[
+        uncertainty_runs["total_unmet_demand"].idxmin()
+    ]
+    worst_run = uncertainty_runs.loc[
+        uncertainty_runs["total_unmet_demand"].idxmax()
+    ]
+    st.subheader("Boundary cases")
+    boundary_col1, boundary_col2 = st.columns(2)
+    with boundary_col1:
+        st.markdown("**Lowest unmet demand design point**")
+        st.dataframe(
+            best_run.to_frame("Value"),
+            use_container_width=True,
+        )
+    with boundary_col2:
+        st.markdown("**Highest unmet demand design point**")
+        st.dataframe(
+            worst_run.to_frame("Value"),
+            use_container_width=True,
+        )
+
+    st.download_button(
+        "Download all 729 design points",
+        data=uncertainty_runs.to_csv(index=False).encode("utf-8"),
+        file_name="shock_simulator_uncertainty_design_points.csv",
+        mime="text/csv",
+    )
+    st.download_button(
+        "Download outcome envelope",
+        data=uncertainty_envelope.to_csv(index=False).encode("utf-8"),
+        file_name="shock_simulator_uncertainty_envelope.csv",
+        mime="text/csv",
     )
 
