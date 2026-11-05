@@ -17,6 +17,10 @@ from src.reserve_calibration import (
     summarize_announced_release_denominators,
 )
 from src.uncertainty import run_scenario_envelope
+from src.importer_resilience import (
+    load_importer_flow_profiles,
+    run_importer_resilience_scenario,
+)
 
 # --------------------------------------------------
 # Configuration
@@ -291,7 +295,7 @@ final_reserves = results[-1]["reserves_remaining"]
 # Main dashboard tabs
 # --------------------------------------------------
 
-simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, uncertainty_tab = st.tabs(
+simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, uncertainty_tab, importer_tab = st.tabs(
     [
         "📊 Simulation",
         "⚖️ Scenario comparison",
@@ -299,6 +303,7 @@ simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab, unc
         "🛢️ Empirical scenarios",
         "🧰 Reserve calibration",
         "🧪 Uncertainty analysis",
+        "🌏 Importer resilience",
     ]
 )
 
@@ -1135,3 +1140,216 @@ with uncertainty_tab:
         mime="text/csv",
     )
 
+
+
+# ==================================================
+# TAB 7: IMPORTER-COUNTRY RESILIENCE
+# ==================================================
+
+with importer_tab:
+    st.header("Importer-country resilience")
+    st.caption(
+        "Stress-test the effect of a disrupted Hormuz crude-oil flow and compare "
+        "alternative sourcing and an explicitly assumed stock buffer."
+    )
+
+    importer_profiles = load_importer_flow_profiles()
+    importer_col1, importer_col2 = st.columns(2)
+    with importer_col1:
+        selected_importer = st.selectbox(
+            "Destination country",
+            options=importer_profiles["country"].tolist(),
+            key="importer_country",
+        )
+        selected_importer_row = importer_profiles[
+            importer_profiles["country"] == selected_importer
+        ].iloc[0]
+        disruption_fraction = (
+            st.slider(
+                "Share of baseline Hormuz flow disrupted (%)",
+                min_value=0,
+                max_value=100,
+                value=100,
+                step=5,
+                key="importer_disruption_fraction",
+            )
+            / 100
+        )
+        disruption_duration_days = st.number_input(
+            "Disruption duration (days)",
+            min_value=0,
+            max_value=365,
+            value=30,
+            step=1,
+            key="importer_disruption_duration",
+        )
+    with importer_col2:
+        alternative_supply_mbd = st.number_input(
+            "Alternative supply available (million barrels/day)",
+            min_value=0.0,
+            max_value=float(selected_importer_row["baseline_hormuz_flow_mbd"]),
+            value=0.0,
+            step=0.1,
+            help=(
+                "Analyst-defined replacement flow. This is not a sourced spare-capacity "
+                "allocation and cannot exceed the modeled daily lost flow."
+            ),
+            key="importer_alternative_supply",
+        )
+        alternative_supply_start_day = st.number_input(
+            "First day alternative supply is available",
+            min_value=1,
+            max_value=365,
+            value=1,
+            step=1,
+            key="importer_alternative_start",
+        )
+        buffer_cover_days = st.number_input(
+            "Assumed buffer (days of disrupted flow)",
+            min_value=0.0,
+            max_value=365.0,
+            value=0.0,
+            step=1.0,
+            help=(
+                "This is a scenario assumption, not observed national stock cover. "
+                "The modeled buffer volume equals lost flow × cover days."
+            ),
+            key="importer_buffer_cover",
+        )
+
+    baseline_flow = float(selected_importer_row["baseline_hormuz_flow_mbd"])
+    st.info(
+        f"2025 estimated crude-oil and condensate flow through Hormuz for "
+        f"{selected_importer}: **{baseline_flow:.1f} million barrels/day**. "
+        "This is destination flow, not total national imports or a national "
+        "dependency percentage."
+    )
+    st.caption(
+        f"Source: [{selected_importer_row['data_provider']} via "
+        f"{selected_importer_row['source_organization']}]"
+        f"({selected_importer_row['source_url']}). "
+        f"Status: {selected_importer_row['data_status']}. "
+        "Published values are rounded to 0.1 million barrels/day."
+    )
+
+    importer_result = run_importer_resilience_scenario(
+        country=selected_importer,
+        disruption_fraction=disruption_fraction,
+        disruption_duration_days=int(disruption_duration_days),
+        alternative_supply_mbd=alternative_supply_mbd,
+        alternative_supply_start_day=int(alternative_supply_start_day),
+        buffer_cover_days=buffer_cover_days,
+    )
+    importer_summary = importer_result["summary"]
+    importer_daily = importer_result["daily"]
+
+    st.subheader("Scenario outcome")
+    metric1, metric2, metric3, metric4 = st.columns(4)
+    metric1.metric(
+        "Gross lost imports",
+        f"{importer_summary['gross_lost_import_volume_million_barrels']:,.1f} mb",
+    )
+    metric2.metric(
+        "Alternative supply",
+        f"{importer_summary['total_alternative_supply_million_barrels']:,.1f} mb",
+    )
+    metric3.metric(
+        "Buffer released",
+        f"{importer_summary['total_buffer_release_million_barrels']:,.1f} mb",
+    )
+    metric4.metric(
+        "Uncovered import gap",
+        f"{importer_summary['total_uncovered_gap_million_barrels']:,.1f} mb",
+    )
+
+    importer_chart = go.Figure()
+    for column, label in [
+        ("gross_lost_imports_mbd", "Gross lost Hormuz flow"),
+        ("alternative_supply_mbd", "Alternative supply"),
+        ("buffer_release_mbd", "Buffer release"),
+        ("uncovered_import_gap_mbd", "Uncovered daily gap"),
+    ]:
+        importer_chart.add_trace(
+            go.Scatter(
+                x=importer_daily["day"],
+                y=importer_daily[column],
+                mode="lines",
+                name=label,
+            )
+        )
+    importer_chart.update_layout(
+        title="Daily disruption and response flows",
+        xaxis_title="Simulation day",
+        yaxis_title="Million barrels/day",
+        hovermode="x unified",
+        template="plotly_dark",
+    )
+    st.plotly_chart(importer_chart, width="stretch")
+
+    summary_columns = [
+        "country",
+        "reference_year",
+        "baseline_hormuz_flow_mbd",
+        "disruption_fraction",
+        "disruption_duration_days",
+        "alternative_supply_capacity_mbd",
+        "alternative_supply_start_day",
+        "assumed_buffer_cover_days",
+        "starting_buffer_million_barrels",
+        "total_buffer_release_million_barrels",
+        "total_uncovered_gap_million_barrels",
+        "maximum_daily_uncovered_gap_mbd",
+        "ending_buffer_million_barrels",
+    ]
+    st.subheader("Scenario assumptions and totals")
+    st.dataframe(
+        pd.DataFrame([importer_summary])[summary_columns].round(3),
+        width="stretch",
+        hide_index=True,
+    )
+    st.download_button(
+        "Download importer daily results",
+        data=importer_daily.to_csv(index=False).encode("utf-8"),
+        file_name=f"{selected_importer.lower().replace(' ', '_')}_importer_resilience.csv",
+        mime="text/csv",
+    )
+    st.download_button(
+        "Download importer scenario summary",
+        data=pd.DataFrame([importer_summary]).to_csv(index=False).encode("utf-8"),
+        file_name=f"{selected_importer.lower().replace(' ', '_')}_importer_summary.csv",
+        mime="text/csv",
+    )
+
+    st.subheader("2025 observed Hormuz crude-flow comparison")
+    comparison_profiles = importer_profiles.sort_values(
+        "baseline_hormuz_flow_mbd", ascending=False
+    )
+    flow_chart = go.Figure(
+        go.Bar(
+            x=comparison_profiles["country"],
+            y=comparison_profiles["baseline_hormuz_flow_mbd"],
+            name="Estimated Hormuz destination flow",
+        )
+    )
+    flow_chart.update_layout(
+        xaxis_title="Destination country",
+        yaxis_title="Million barrels/day",
+        template="plotly_dark",
+    )
+    st.plotly_chart(flow_chart, width="stretch")
+    st.dataframe(
+        comparison_profiles[
+            ["country", "reference_year", "commodity", "baseline_hormuz_flow_mbd", "data_status"]
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+    st.warning(
+        "Interpretation limits: the baseline is an estimated seaborne destination "
+        "flow, not the country's share of total imports. Alternative supply and "
+        "buffer cover are analyst inputs, not observed spare capacity or verified "
+        "national stock availability. This experiment does not allocate shared "
+        "Saudi/UAE pipeline bypass capacity, infer cargo origins, or simulate "
+        "commodity prices, refinery constraints, products, or LNG."
+    )
