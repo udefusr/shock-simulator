@@ -213,10 +213,10 @@ Planned areas of development include:
 - [x] Gradual post-shock supply recovery
 - [x] Shortage severity classification
 - [x] Configurable severity thresholds
-- [ ] One-factor-at-a-time sensitivity analysis
+- [x] One-factor-at-a-time sensitivity analysis
 - [ ] Improved model validation and empirical calibration
 - [ ] Additional disruption types and response strategies
-- [ ] Visualisation and interactive exploration
+- [x] Visualisation and interactive exploration
 
 The roadmap may change as the model is tested and refined.
 
