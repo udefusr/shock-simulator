@@ -169,3 +169,32 @@
 **Used for:** Dated assessment of effective SPR drawdown capability, inventory, and operational constraints.
 
 **Data notes:** GAO reports DOE's estimates as of December 2025: effective aggregate drawdown capability of 2.700 million barrels/day against a 4.415 million-barrel/day design rate (61%). This aggregate snapshot is not a time-varying drawdown curve and is not combined with the 2016 DOE design-reference curve in this model.
+
+
+## 13. Vortexa — Hormuz crude oil and condensate destination estimates (2025)
+
+**Data provider:** Vortexa.
+
+**Published visualization:** The Guardian interactive graphic, *The majority of oil and LNG transiting through the strait of Hormuz is destined for Asian markets*.
+
+**URL:** <https://interactive.guim.co.uk/uploader/embed/2026/03/hormuz_oil_lng_hs/giv-32554JERMFmBib7Ja/>
+
+**Local file:** `data/processed/hormuz_importer_flows_2025.csv`.
+
+**Values transcribed for destination crude oil and condensates, 2025:** China 5.4 mb/d; India 2.1 mb/d; South Korea 1.8 mb/d; Japan 1.7 mb/d.
+
+**Used for:** Destination-specific baseline seaborne crude-oil and condensate flows transiting the Strait of Hormuz in the first importer-country scenario panel.
+
+**Limitations:** The values are shown to one decimal place in a secondary visualization sourced to Vortexa. They do not represent each country's total imports, national import-dependency percentages, total oil products, or LNG. Values are estimates, not official national statistics. The panel preserves this provenance and rounding limitation.
+
+## 14. IEA — Strait of Hormuz factsheet
+
+**Organization:** International Energy Agency.
+
+**URL:** <https://www.iea.org/about/oil-safety-and-emergency-response/strait-of-hormuz>
+
+**Last updated:** February 2026.
+
+**Used for:** Cross-checking the overall 2025 route-flow scale and interpreting alternative export routes. The IEA reports nearly 15 mb/d of crude oil, 5 mb/d of oil products, and 19.87 mb/d total oil exports via Hormuz in 2025. It estimates 3.5–5.5 mb/d of potential alternative crude export capacity through Saudi Arabia's East-West pipeline and the UAE's ADCOP route.
+
+**Limitations:** Shared regional bypass capacity is not equivalent to available replacement imports for any one destination. Operational conditions and export-terminal constraints affect deliverability, and rerouted flows have not been robustly tested at scale. The importer model therefore does not allocate this capacity to individual countries.
