@@ -83,7 +83,7 @@ def validate_reserve_response_events(data):
     _validate_http_urls(cleaned, "Reserve response event")
     for column in ("decision_date","implementation_start","implementation_end"):
         original = cleaned[column]
-        parsed = pd.to_datetime(original, errors="coerce")
+        parsed = pd.to_datetime(original, errors="coerce", format="%Y-%m-%d")
         invalid = original.notna() & original.astype(str).str.strip().ne("") & parsed.isna()
         if invalid.any():
             raise ValueError(f"Reserve response event {column} contains an invalid date.")
