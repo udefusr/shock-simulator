@@ -1,250 +1,204 @@
 # Shock Simulator
 
-A Python-based simulation project exploring how supply disruptions affect demand, reserves, shortages, and system recovery.
+Shock Simulator is an evolving Python research prototype for studying oil-supply resilience under production and maritime disruptions. It combines national energy statistics, documented disruption estimates, deterministic simulation, and an interactive Streamlit dashboard.
 
-Shock Simulator models a simplified resource-supply system. It lets you define a disruption, apply response strategies, and examine how different assumptions change the system's behaviour over time. An interactive dashboard supports scenario exploration and comparison.
+> **Research status:** The project is an exploratory, data-informed what-if framework. The current simulations use normalized units and simplified assumptions. They are not a global oil-market forecast or an operational policy tool.
 
-> **Project status:** Early-stage prototype. The model uses simplified, configurable assumptions for experimentation and learning. It is not a real-world forecasting system or an operational policy tool.
+## Research question
 
-## What it does
+How do disruptions to critical maritime energy routes and regional oil production affect supply availability, and how do inventory releases and temporary demand responses change the resulting shortages?
 
-The current project includes:
+The current empirical focus is the 2026 Strait of Hormuz disruption. The project distinguishes production shut-ins, maritime transit disruption, national trade observations, inventory records, and simulated outcomes rather than treating them as interchangeable measures.
 
-- A deterministic, day-by-day supply-and-demand simulation.
-- Temporary supply disruptions with configurable start day, duration, and magnitude.
-- Reserve deployment constrained by available stock and a daily release limit.
+## Current capabilities
+
+- Deterministic day-by-day supply and demand simulation.
+- Configurable supply disruption magnitude, timing, and duration.
+- Reserve release constrained by starting inventory and a daily release limit.
 - Gradual post-shock supply recovery.
-- Optional demand reduction.
-- Daily unmet-demand calculations and shortage-severity classification.
-- Configurable warning and critical severity thresholds.
-- Scenario comparison across no-intervention, reserve-release, and combined-response strategies.
-- One-factor-at-a-time sensitivity experiments, including recovery rate, shock magnitude, reserve capacity, reserve release limit, and demand reduction.
-- An interactive Streamlit dashboard with Plotly charts.
-- CSV export for scenario comparisons and demand-response sensitivity results.
-- Input validation and automated tests.
+- Demand reduction with configurable start day and duration.
+- Daily unmet-demand and shortage-severity calculations.
+- Six empirical/hypothetical scenario definitions and three response strategies (18 experiments).
+- Sensitivity analysis for recovery, shock magnitude, reserve capacity, release limits, and demand reduction.
+- JODI-Oil data loading and processing.
+- EIA-based maritime-flow and production-shut-in reference datasets.
+- Initial source-backed reserve profiles for the United States, Japan, South Korea, and Germany.
+- Separate records for Japan's 2026 announced reserve releases and stockholding-obligation change.
+- Reserve dataset schema validation and automated tests.
+- Streamlit dashboard with Plotly visualizations and CSV exports.
 
-## How it works
+## Research evidence and interpretation
 
-The simulation advances one day at a time:
+The project uses several different evidence types:
 
-1. **Baseline:** Define normal supply and daily demand.
-2. **Shock:** Apply a percentage reduction in supply for a specified duration.
-3. **Response:** Optionally release reserves, limited by available stock and the daily release cap. Demand can also be reduced.
-4. **Recovery:** After the shock ends, supply gradually approaches its baseline level.
-5. **Assessment:** Calculate daily unmet demand, shortage percentage, reserve use, and severity.
+| Evidence | What it represents | What it does not establish |
+|---|---|---|
+| JODI country statistics | Reported national production, imports, exports, refinery intake and stocks | The maritime route used by a specific shipment |
+| EIA chokepoint estimates | Estimated total oil flows through selected maritime routes | An equivalent loss of global oil supply |
+| EIA production shut-ins | Estimated production unavailable in specified producer countries | A directly observed production series |
+| Reserve profile sources | Inventory snapshots, capacities, stock categories and release procedures | That all recorded inventory is immediately deliverable |
+| Reserve response events | Officially announced release plans or stockholding-policy changes | Verified physical withdrawals unless separately measured |
+| Simulation output | Consequences under explicit model rules and assumptions | Causal proof or real-world predictive accuracy |
 
-### Severity classification
+The EIA-derived March–July 2026 benchmark is calculated from estimated regional production shut-ins divided by the February baseline for covered Gulf producers. It is not a global supply-loss percentage. The model currently applies this benchmark to a normalized system for comparative experiments.
 
-Severity is based on the percentage of daily demand that goes unmet.
+## Dashboard
 
-| Unmet demand as a percentage of demand | Classification |
-| --- | --- |
-| 0% | Normal |
-| Greater than 0% up to the warning threshold | Warning |
-| Above the warning threshold up to the critical threshold | Critical |
-| Above the critical threshold | Severe |
+Launch the application:
 
-The default warning and critical thresholds are 5% and 15%, respectively. They are configurable simulation parameters and are prototype assumptions, not empirically validated thresholds.
+```powershell
+streamlit run app.py
+```
 
-## Interactive dashboard
+The dashboard currently contains:
 
-The Streamlit dashboard provides controls for core simulation parameters and visualizes:
+1. **Simulation** — configurable supply, demand, reserve and recovery parameters.
+2. **Scenario comparison** — compare no intervention, reserve release and a combined response.
+3. **Sensitivity analysis** — inspect how demand-reduction assumptions affect outcomes.
+4. **Empirical scenarios** — compare six scenarios under three response strategies, inspect individual runs, and export the 18-experiment results.
 
-- Baseline supply, reserve contribution, total available supply, and demand.
-- Daily unmet demand.
-- System severity over the simulation period.
-- A comparison of no intervention, reserve deployment, and a combined response.
-- Demand-reduction sensitivity results.
+The empirical scenario experiments restrict the 10% demand-reduction response to the disruption window. Demand returns to baseline during recovery. Reserve releases may continue during recovery while a deficit remains and reserve stock is available.
 
-The dashboard also provides CSV downloads for the scenario comparison and demand-response sensitivity experiment.
+## Current model assumptions
 
-## Project structure
+The simulation is deterministic. It advances one day at a time:
+
+1. Apply the specified supply loss during the disruption window.
+2. Calculate demand, including any active demand-reduction policy.
+3. Release reserves if enabled, limited by both the daily cap and remaining stock.
+4. Calculate unmet demand and shortage severity.
+5. After the supply shock ends, recover supply gradually toward baseline.
+
+Important assumptions and limitations:
+- Supply, demand and reserve quantities must use consistent units.
+- The current empirical experiments use normalized units, not million barrels or barrels per day.
+- Reserve capacity and daily release limits in the empirical scenario set remain illustrative assumptions; the reserve reference data has not yet been harmonized into model inputs.
+- Crude oil and refined-product inventories are not interchangeable without considering refining, quality, transport and distribution.
+- The model does not yet explicitly represent oil prices, refinery constraints, alternative shipping routes, country-level trade networks or market substitution.
+- The model does not establish that observed national changes were caused solely by the Hormuz disruption.
+- Severity thresholds are configurable assumptions, not empirically validated thresholds.
+
+## Data and research files
+
+- `data/raw/jodi/` — original JODI-Oil downloads.
+- `data/raw/other/eia_chokepoint_flows.csv` — manually transcribed EIA route-flow estimates.
+- `data/raw/other/eia_production_shutins.csv` — manually transcribed EIA production shut-in estimates.
+- `data/raw/other/reserve_response_events.csv` — manually structured official Japanese reserve-response announcements.
+- `data/processed/reserve_profiles_initial.csv` — source-backed reserve profile snapshots, preserving native units and stock definitions.
+- `research/methodology.md` — research and simulation methodology.
+- `research/data_dictionary.md` — data fields and measurement units.
+- `research/source_register.md` — source register.
+- `research/findings.md` — descriptive results and scenario experiments.
+- `research/scenario_design.md` — empirical and hypothetical scenario definitions.
+- `research/reserve_data_assessment.md` — reserve-source assessment, comparability cautions and data gaps.
+
+The reserve data is an initial source inventory, not a calibrated cross-country reserve dataset. Missing values mean not reported or not established; they are not zero.
+
+## Repository structure
 
 ```text
 shock-simulator/
 ├── src/
-│   ├── __init__.py
 │   ├── simulation.py
 │   ├── scenarios.py
-│   └── sensitivity.py
+│   ├── empirical_scenarios.py
+│   ├── sensitivity.py
+│   ├── data_loader.py
+│   └── reserve_data.py
+├── scripts/
+│   └── validate_reserve_data.py
 ├── tests/
 │   ├── test_simulation.py
-│   └── test_sensitivity.py
+│   ├── test_sensitivity.py
+│   ├── test_empirical_scenarios.py
+│   └── test_reserve_data.py
+├── data/
+│   ├── raw/
+│   │   ├── jodi/
+│   │   └── other/
+│   └── processed/
+├── research/
 ├── app.py
 ├── main.py
 ├── requirements.txt
 └── README.md
 ```
 
-The repository may contain additional files as development continues. The virtual environment directory (usually `.venv/`) should remain local and should not be committed.
+The virtual environment directory (usually `.venv/`) should remain local and should not be committed.
 
-## Getting started
+## Setup
 
-### Requirements
+Python 3.10 or later is recommended.
 
-- Python 3.10 or later (recommended)
-- `pip`
-- Git (optional, for cloning and version control)
+### Windows PowerShell
 
-### 1. Clone the repository
+```powershell
+git clone https://github.com/udefusr/shock-simulator.git
+cd shock-simulator
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+### macOS / Linux
 
 ```bash
 git clone https://github.com/udefusr/shock-simulator.git
 cd shock-simulator
-```
-
-### 2. Create and activate a virtual environment
-
-**Windows PowerShell**
-
-```powershell
-py -m venv .venv
-.venv\Scripts\Activate.ps1
-```
-
-If PowerShell blocks activation, use the environment's interpreter directly:
-
-```powershell
-.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
-
-**macOS / Linux**
-
-```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-### 3. Install dependencies
-
-Install the project dependencies:
-
-```bash
 python -m pip install -r requirements.txt
 ```
 
-The simulation engine uses Python code, while the interactive dashboard uses Streamlit and Plotly. The dashboard's CSV export uses pandas. The test suite uses pytest.
+## Validation commands
 
-### 4. Run the interactive dashboard
+Run all automated tests from the repository root:
 
-From the repository root:
-
-```bash
-streamlit run app.py
-```
-
-Streamlit will start a local server and provide a URL for opening the dashboard in your browser.
-
-### 5. Run the built-in scenario comparison
-
-```bash
-python -m src.scenarios
-```
-
-This runs the built-in response scenarios and prints summary metrics.
-
-### 6. Run the sensitivity experiments
-
-```bash
-python -m src.sensitivity
-```
-
-This runs the sensitivity analyses defined in the module.
-
-### 7. Run the tests
-
-```bash
+```powershell
 python -m pytest -v
 ```
 
-Run these commands from the repository root so Python can resolve the `src` package correctly.
+Validate the source-backed reserve profile and response-event files:
 
-## Current model parameters
+```powershell
+python -m scripts.validate_reserve_data
+```
 
-The simulation exposes parameters including:
+Run the built-in scenario comparison:
 
-| Parameter | Description |
-| --- | --- |
-| `baseline_supply` | Normal daily supply |
-| `daily_demand` | Daily demand |
-| `initial_reserves` | Starting reserve stock |
-| `shock_loss_pct` | Fraction of baseline supply lost during the shock (0–1) |
-| `shock_start_day` | First day of the disruption |
-| `shock_duration` | Number of days the disruption lasts |
-| `reserve_release_limit` | Maximum reserve release per day |
-| `use_reserves` | Whether reserve releases are enabled |
-| `demand_reduction_pct` | Fraction of demand reduced (0–1) |
-| `recovery_rate` | Fraction of the remaining supply gap recovered each day |
-| `days` | Number of simulation days |
-| `warning_threshold` | Upper boundary of the Warning classification |
-| `critical_threshold` | Upper boundary of the Critical classification |
+```powershell
+python -m src.scenarios
+```
 
-Supply, demand, and reserve quantities must use consistent units. The model does not enforce a particular real-world unit.
+Run the sensitivity experiments:
 
-## Scenario comparison
-
-The dashboard compares three response strategies under the same baseline and shock conditions:
-
-- **No intervention:** No reserve release and no demand reduction.
-- **Reserve strategy:** Reserve stock can be released to reduce shortages.
-- **Combined strategy:** Reserve release and a 10% demand reduction are applied.
-
-The combined strategy's demand reduction is a fixed illustrative assumption in the current comparison. It is applied throughout the simulation, not only during the shock. These settings are not recommended intervention levels.
-
-The comparison reports total unmet demand, shortage days, critical days, severe days, and remaining reserves. It is important to consider multiple metrics: a strategy can reduce cumulative unmet demand without eliminating all shortage days or periods of elevated severity.
-
-## Sensitivity analysis
-
-The sensitivity module varies one parameter at a time while holding the other inputs constant. The current experiments examine:
-
-- Recovery rate.
-- Shock magnitude.
-- Initial reserve capacity.
-- Daily reserve release limit.
-- Demand-reduction percentage.
-
-The demand-response experiment compares 0%, 5%, 10%, 15%, and 20% demand reduction under a fixed set of illustrative assumptions. Results are descriptive outputs of this simplified model, not empirical estimates of real-world intervention effects.
-
-## Model assumptions and limitations
-
-The current implementation is intentionally simplified:
-
-- Supply is reduced to a fixed level while the shock is active.
-- Recovery begins immediately after the shock ends and follows a gradual, exponential-style recovery rule.
-- Reserve releases directly offset the daily supply deficit.
-- Reserve releases are limited by available stock and a daily release limit.
-- Demand is constant unless a demand-reduction parameter is applied.
-- The model does not yet represent prices, market behaviour, imports, production constraints, transport networks, storage infrastructure, or distribution bottlenecks.
-- The model does not currently represent surplus supply being stored for later use.
-- Severity thresholds are configurable assumptions and have not been calibrated against empirical evidence.
-- The model is deterministic: identical inputs produce identical outputs.
-
-These limitations matter. The simulator is currently a **what-if model**, not a predictive model of actual energy markets or geopolitical events. Passing software tests demonstrates that the implementation behaves as expected for tested cases; it does not establish real-world predictive accuracy.
+```powershell
+python -m src.sensitivity
+```
 
 ## Development roadmap
 
-- [x] Basic daily supply-and-demand simulation
-- [x] Reserve-release response
-- [x] Gradual post-shock supply recovery
-- [x] Shortage severity classification
-- [x] Configurable severity thresholds
-- [x] One-factor-at-a-time sensitivity analysis
-- [ ] Improved model validation and empirical calibration
-- [ ] Additional disruption types and response strategies
-- [x] Visualisation and interactive exploration
-- [x] Scenario comparison and CSV export
-
-The roadmap may change as the model is tested and refined.
-
-## Contributing
-
-This is an evolving project. Suggestions, bug reports, and constructive feedback are welcome.
-
-For substantial changes, consider opening an issue first to discuss the proposed model behaviour or implementation.
+- [x] Basic daily supply-and-demand simulation.
+- [x] Reserve-release response and finite stock constraint.
+- [x] Gradual post-shock supply recovery.
+- [x] Severity classification and configurable thresholds.
+- [x] One-factor-at-a-time sensitivity analysis.
+- [x] JODI and EIA source data processing.
+- [x] Empirical scenario definitions and dashboard comparison.
+- [x] Time-bounded demand-response policy in empirical experiments.
+- [x] Initial national reserve profiles and response-event records.
+- [x] Reserve schema validation and automated tests.
+- [ ] Reconcile and extend dated reserve inventory time series.
+- [ ] Harmonize reserve categories and country-level demand denominators.
+- [ ] Calibrate deliverable reserve release constraints by country.
+- [ ] Model production disruption separately from maritime transit disruption and rerouting.
+- [ ] Develop country-level importer and producer resilience models.
+- [ ] Add uncertainty analysis and stronger empirical validation.
+- [ ] Complete research report, figures and portfolio demonstration.
 
 ## Disclaimer
 
-Shock Simulator is an educational and experimental software project. Its outputs depend on simplified assumptions and user-provided parameters. They should not be used as forecasts, investment guidance, emergency-planning instructions, or operational policy recommendations.
+Shock Simulator is an educational and experimental research project. Its outputs depend on simplified assumptions and source limitations. They should not be used as forecasts, investment guidance, emergency-planning instructions or operational policy recommendations.
 
 ## License
 
