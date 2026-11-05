@@ -9,7 +9,7 @@ different assumptions change the system's behaviour over time.
 
 > **Project status:** Early-stage prototype. The model currently uses
 > simplified, configurable assumptions and is intended for
-> experimentation and learning---not real-world forecasting or
+> experimentation and learning not real-world forecasting or
 > operational policy decisions.
 
 ## What it does
