@@ -31,6 +31,8 @@ The current empirical focus is the 2026 Strait of Hormuz disruption. The project
 - Deterministic full-factorial uncertainty envelope covering six factors and 729 low/reference/high design points per selected scenario/strategy.
 - Main-effect ranking for the six uncertainty factors, with full design-point and summary CSV exports.
 - Country-specific importer stress tests using 2025 destination flow estimates for crude oil and condensates transiting Hormuz (China, India, South Korea and Japan).
+- Separate LNG importer resilience scenarios using ACER/ICIS 2025 Hormuz destination-flow estimates for Bangladesh, Pakistan, India, China, South Korea and Japan.
+- LNG response levers for alternative cargo availability, assumed finite buffer days and demand reduction, using separate million-cubic-metre units.
 - Explicit alternative-supply delay, inventory-buffer assumptions, daily residual-gap calculations and CSV exports for importer scenarios.
 - Streamlit dashboard with Plotly visualizations and CSV exports.
 
@@ -66,6 +68,7 @@ The dashboard currently contains:
 5. **Reserve calibration** — translate a compatible dated U.S. SPR record into normalized inventory and release parameters after the user supplies a matching physical daily-flow denominator; apply the mobilisation delay and export calibration and simulation outputs.
 6. **Uncertainty analysis** — run 729 combinations across six low/reference/high assumptions, inspect outcome ranges and main-effect rankings, and export all design points.
 7. **Importer resilience** — select China, India, South Korea or Japan; stress-test the 2025 estimated Hormuz crude-flow baseline under disruption and analyst-defined replacement-supply and buffer assumptions.
+8. **LNG resilience** — run a separate gas-volume stress test for Bangladesh, Pakistan, India, China, South Korea or Japan; vary disruption, replacement LNG, assumed buffer cover and demand response.
 
 The empirical scenario experiments restrict the 10% demand-reduction response to the disruption window. Demand returns to baseline during recovery. Reserve releases may continue during recovery while a deficit remains and reserve stock is available.
 
@@ -88,7 +91,8 @@ Important assumptions and limitations:
 - The U.S. SPR calibration uses a country-specific reserve profile inside a normalized wider supply-disruption model; it is not a full U.S. oil-market, global trade, or Hormuz-importer model.
 - Importer destination-flow estimates are rounded Vortexa estimates reproduced in a secondary visualization; they do not establish national import shares or total national import dependency.
 - Importer alternative-supply and buffer inputs are scenario assumptions, not measured spare capacity, observed cargo substitution, or verified national strategic-stock volumes. Shared Saudi/UAE pipeline capacity is not allocated to importing countries.
-- The importer panel covers crude oil and condensates only. It excludes oil products and LNG; Bangladesh LNG exposure requires a separate gas-volume model.
+- The crude importer panel covers crude oil and condensates only. The separate LNG panel uses annual ACER/ICIS destination-flow estimates and gas-volume units; its alternative LNG, buffer and demand-response inputs are analyst assumptions, not measured capability.
+- The LNG destination-flow estimates do not represent total national LNG imports or import-dependency percentages. The IEA reports almost two-thirds of total LNG supplies in Bangladesh, India and Pakistan came via Hormuz in 2025; that contextual indicator is not substituted for missing national demand series in the simulator.
 - The DOE 2016 drawdown schedule is a historical design reference, not current effective capacity. GAO reported effective aggregate drawdown capability of 2.700 million barrels/day versus a 4.415 design rate as of December 2025 (61%). The model keeps these dated measures separate; it does not infer a current site-level rate curve.
 - Uncertainty-envelope minimum, median and maximum values summarize deterministic design points. They are not confidence intervals, probabilities, or expected values.
 - The uncertainty design uses analyst-defined ranges and does not yet model correlated inputs or statistically estimated distributions.
@@ -103,6 +107,7 @@ Important assumptions and limitations:
 - `data/raw/other/reserve_response_events.csv` — manually structured official Japanese reserve-response announcements.
 - `data/processed/reserve_profiles_initial.csv` — source-backed reserve profile snapshots, preserving native units and stock definitions.
 - `data/processed/hormuz_importer_flows_2025.csv` — 2025 destination estimates for crude oil and condensates transiting Hormuz, with source provenance and limitations.
+- `data/processed/hormuz_importer_lng_flows_2025.csv` — ACER/ICIS 2025 LNG destination-flow estimates via Hormuz, in bcm/year.
 - `research/methodology.md` — research and simulation methodology.
 - `research/data_dictionary.md` — data fields and measurement units.
 - `research/source_register.md` — source register.
@@ -111,8 +116,9 @@ Important assumptions and limitations:
 - `research/reserve_data_assessment.md` — reserve-source assessment, comparability cautions and data gaps.
 - `research/reserve_calibration_method.md` — unit-compatible conversion, lead-time treatment, and calibration limitations.
 - `research/uncertainty_analysis.md` — bounded uncertainty factors, full-factorial design, main-effect method and interpretation.
-- `src/importer_resilience.py` — importer-country disruption, replacement-supply and buffer model.
-- `research/methodology.md` and `research/source_register.md` — importer evidence, model equations, sources and limitations.
+- `src/importer_resilience.py` — crude-oil importer-country disruption, replacement-supply and buffer model.
+- `src/importer_lng_resilience.py` — separate LNG importer volume-gap model in mcm/day and mcm.
+- `research/methodology.md`, `research/data_dictionary.md` and `research/source_register.md` — importer/LNG evidence, model equations, source definitions and limitations.
 
 The reserve data is an initial source inventory, not a calibrated cross-country reserve dataset. Missing values mean not reported or not established; they are not zero.
 
@@ -129,7 +135,8 @@ shock-simulator/
 │   ├── reserve_data.py
 │   ├── reserve_calibration.py
 │   ├── uncertainty.py
-│   └── importer_resilience.py
+│   ├── importer_resilience.py
+│   └── importer_lng_resilience.py
 ├── scripts/
 │   └── validate_reserve_data.py
 ├── tests/
@@ -139,13 +146,15 @@ shock-simulator/
 │   ├── test_reserve_data.py
 │   ├── test_reserve_calibration.py
 │   ├── test_uncertainty.py
-│   └── test_importer_resilience.py
+│   ├── test_importer_resilience.py
+│   └── test_importer_lng_resilience.py
 ├── data/
 │   ├── raw/
 │   │   ├── jodi/
 │   │   └── other/
 │   └── processed/
-│       └── hormuz_importer_flows_2025.csv
+│       ├── hormuz_importer_flows_2025.csv
+│       └── hormuz_importer_lng_flows_2025.csv
 ├── research/
 ├── app.py
 ├── main.py
@@ -228,7 +237,8 @@ python -m src.sensitivity
 - [x] Add an initial importer-country flow stress-test model with explicit alternative-supply and buffer assumptions.
 - [ ] Add country total-import denominators and matching trade-route/origin evidence before estimating national dependency shares.
 - [ ] Model producer-country rerouting and shared pipeline capacity separately from importer replacement sourcing.
-- [ ] Add a separate LNG importer module with consistent gas-volume units; do not mix LNG data into crude-oil barrels/day.
+- [x] Add a separate LNG importer volume-gap model with consistent gas-volume units; do not mix LNG data into crude-oil barrels/day.
+- [ ] Add country-level total LNG import and gas-demand time series, storage and regasification constraints before treating the stress test as a national gas-system model.
 - [x] Add deterministic 729-point uncertainty envelope and main-effect screening for six model assumptions.
 - [ ] Estimate defensible statistical distributions and correlated uncertainty from data before adding probabilistic forecasts.
 - [ ] Complete research report, figures and portfolio demonstration.
