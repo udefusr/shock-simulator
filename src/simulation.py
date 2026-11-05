@@ -17,6 +17,7 @@ def validate_inputs(
     critical_threshold,
     demand_reduction_start_day=1,
     demand_reduction_duration=None,
+    reserve_release_start_day=1,
 ):
     """Validate simulation parameters before running."""
 
@@ -89,6 +90,12 @@ def validate_inputs(
     if days < 1:
         raise ValueError("days must be at least 1.")
 
+    if isinstance(reserve_release_start_day, bool) or not isinstance(reserve_release_start_day, int):
+        raise TypeError("reserve_release_start_day must be an integer.")
+
+    if reserve_release_start_day < 1:
+        raise ValueError("reserve_release_start_day must be at least 1.")
+
     if not isinstance(use_reserves, bool):
         raise TypeError("use_reserves must be a boolean.")
 
@@ -145,6 +152,7 @@ def simulate_day(
     critical_threshold=15.0,
     demand_reduction_start_day=1,
     demand_reduction_duration=None,
+    reserve_release_start_day=1,
 ):
     """Calculate the system state for one simulation day."""
 
@@ -171,7 +179,9 @@ def simulate_day(
 
     release = 0.0
 
-    if use_reserves:
+    reserve_release_active = use_reserves and day >= reserve_release_start_day
+
+    if reserve_release_active:
         release = min(deficit, reserve_release_limit, reserves)
 
     remaining_reserves = reserves - release
@@ -190,6 +200,7 @@ def simulate_day(
         "day": day,
         "shock_active": shock_active,
         "demand_reduction_active": demand_reduction_active,
+        "reserve_release_active": reserve_release_active,
         "supply": supply,
         "demand": demand,
         "reserve_release": release,
@@ -217,6 +228,7 @@ def run_simulation(
     critical_threshold=15.0,
     demand_reduction_start_day=1,
     demand_reduction_duration=None,
+    reserve_release_start_day=1,
 ):
     """Run a simulation and return daily results."""
 
@@ -236,6 +248,7 @@ def run_simulation(
         critical_threshold,
         demand_reduction_start_day,
         demand_reduction_duration,
+        reserve_release_start_day,
     )
 
     reserves = float(initial_reserves)
@@ -260,6 +273,7 @@ def run_simulation(
             critical_threshold=critical_threshold,
             demand_reduction_start_day=demand_reduction_start_day,
             demand_reduction_duration=demand_reduction_duration,
+            reserve_release_start_day=reserve_release_start_day,
         )
 
         previous_supply = daily_result["supply"]
