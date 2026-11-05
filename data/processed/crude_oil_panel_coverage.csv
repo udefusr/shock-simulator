@@ -1,0 +1,99 @@
+SOURCE_FILE,REF_AREA,COUNTRY_NAME,INDICATOR,UNIT_MEASURE,total_observations,numeric_observations,missing_observations
+primaryyear2025.csv,CN,China,Closing stocks,KBBL,12,0,12
+primaryyear2025.csv,CN,China,Direct use,KBD,12,0,12
+primaryyear2025.csv,CN,China,Exports,KBD,12,12,0
+primaryyear2025.csv,CN,China,Imports,KBD,12,12,0
+primaryyear2025.csv,CN,China,Production,KBD,12,12,0
+primaryyear2025.csv,CN,China,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,CN,China,Stock change,KBBL,12,0,12
+primaryyear2025.csv,DE,Germany,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,DE,Germany,Direct use,KBD,12,12,0
+primaryyear2025.csv,DE,Germany,Exports,KBD,12,12,0
+primaryyear2025.csv,DE,Germany,Imports,KBD,12,12,0
+primaryyear2025.csv,DE,Germany,Production,KBD,12,12,0
+primaryyear2025.csv,DE,Germany,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,DE,Germany,Stock change,KBBL,12,12,0
+primaryyear2025.csv,IN,India,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,IN,India,Direct use,KBD,12,0,12
+primaryyear2025.csv,IN,India,Exports,KBD,12,0,12
+primaryyear2025.csv,IN,India,Imports,KBD,12,12,0
+primaryyear2025.csv,IN,India,Production,KBD,12,12,0
+primaryyear2025.csv,IN,India,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,IN,India,Stock change,KBBL,12,12,0
+primaryyear2025.csv,JP,Japan,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,JP,Japan,Direct use,KBD,12,12,0
+primaryyear2025.csv,JP,Japan,Exports,KBD,12,12,0
+primaryyear2025.csv,JP,Japan,Imports,KBD,12,12,0
+primaryyear2025.csv,JP,Japan,Production,KBD,12,12,0
+primaryyear2025.csv,JP,Japan,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,JP,Japan,Stock change,KBBL,12,12,0
+primaryyear2025.csv,KR,South Korea,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,KR,South Korea,Direct use,KBD,12,12,0
+primaryyear2025.csv,KR,South Korea,Exports,KBD,12,12,0
+primaryyear2025.csv,KR,South Korea,Imports,KBD,12,12,0
+primaryyear2025.csv,KR,South Korea,Production,KBD,12,12,0
+primaryyear2025.csv,KR,South Korea,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,KR,South Korea,Stock change,KBBL,12,12,0
+primaryyear2025.csv,KW,Kuwait,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,KW,Kuwait,Direct use,KBD,12,12,0
+primaryyear2025.csv,KW,Kuwait,Exports,KBD,12,12,0
+primaryyear2025.csv,KW,Kuwait,Imports,KBD,12,12,0
+primaryyear2025.csv,KW,Kuwait,Production,KBD,12,12,0
+primaryyear2025.csv,KW,Kuwait,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,KW,Kuwait,Stock change,KBBL,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Closing stocks,KBBL,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Direct use,KBD,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Exports,KBD,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Imports,KBD,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Production,KBD,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Refinery intake,KBD,12,12,0
+primaryyear2025.csv,SA,Saudi Arabia,Stock change,KBBL,12,12,0
+primaryyear2026.csv,CN,China,Closing stocks,KBBL,8,0,8
+primaryyear2026.csv,CN,China,Direct use,KBD,8,0,8
+primaryyear2026.csv,CN,China,Exports,KBD,8,8,0
+primaryyear2026.csv,CN,China,Imports,KBD,8,8,0
+primaryyear2026.csv,CN,China,Production,KBD,8,8,0
+primaryyear2026.csv,CN,China,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,CN,China,Stock change,KBBL,8,2,6
+primaryyear2026.csv,DE,Germany,Closing stocks,KBBL,8,8,0
+primaryyear2026.csv,DE,Germany,Direct use,KBD,8,8,0
+primaryyear2026.csv,DE,Germany,Exports,KBD,8,8,0
+primaryyear2026.csv,DE,Germany,Imports,KBD,8,8,0
+primaryyear2026.csv,DE,Germany,Production,KBD,8,8,0
+primaryyear2026.csv,DE,Germany,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,DE,Germany,Stock change,KBBL,8,8,0
+primaryyear2026.csv,IN,India,Closing stocks,KBBL,8,3,5
+primaryyear2026.csv,IN,India,Direct use,KBD,8,0,8
+primaryyear2026.csv,IN,India,Exports,KBD,8,0,8
+primaryyear2026.csv,IN,India,Imports,KBD,8,3,5
+primaryyear2026.csv,IN,India,Production,KBD,8,3,5
+primaryyear2026.csv,IN,India,Refinery intake,KBD,8,3,5
+primaryyear2026.csv,IN,India,Stock change,KBBL,8,3,5
+primaryyear2026.csv,JP,Japan,Closing stocks,KBBL,8,8,0
+primaryyear2026.csv,JP,Japan,Direct use,KBD,8,8,0
+primaryyear2026.csv,JP,Japan,Exports,KBD,8,8,0
+primaryyear2026.csv,JP,Japan,Imports,KBD,8,8,0
+primaryyear2026.csv,JP,Japan,Production,KBD,8,8,0
+primaryyear2026.csv,JP,Japan,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,JP,Japan,Stock change,KBBL,8,8,0
+primaryyear2026.csv,KR,South Korea,Closing stocks,KBBL,8,8,0
+primaryyear2026.csv,KR,South Korea,Direct use,KBD,8,8,0
+primaryyear2026.csv,KR,South Korea,Exports,KBD,8,8,0
+primaryyear2026.csv,KR,South Korea,Imports,KBD,8,8,0
+primaryyear2026.csv,KR,South Korea,Production,KBD,8,8,0
+primaryyear2026.csv,KR,South Korea,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,KR,South Korea,Stock change,KBBL,8,8,0
+primaryyear2026.csv,KW,Kuwait,Closing stocks,KBBL,8,8,0
+primaryyear2026.csv,KW,Kuwait,Direct use,KBD,8,8,0
+primaryyear2026.csv,KW,Kuwait,Exports,KBD,8,8,0
+primaryyear2026.csv,KW,Kuwait,Imports,KBD,8,8,0
+primaryyear2026.csv,KW,Kuwait,Production,KBD,8,8,0
+primaryyear2026.csv,KW,Kuwait,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,KW,Kuwait,Stock change,KBBL,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Closing stocks,KBBL,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Direct use,KBD,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Exports,KBD,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Imports,KBD,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Production,KBD,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Refinery intake,KBD,8,8,0
+primaryyear2026.csv,SA,Saudi Arabia,Stock change,KBBL,8,8,0

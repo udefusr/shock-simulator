@@ -1,0 +1,981 @@
+REF_AREA,COUNTRY_NAME,TIME_PERIOD,OBSERVATION_DATE,ENERGY_PRODUCT,FLOW_BREAKDOWN,INDICATOR,UNIT_MEASURE,OBS_VALUE,OBS_VALUE_NUMERIC,OBS_VALUE_STATUS,ASSESSMENT_CODE,SOURCE_FILE
+CN,China,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,4337.4542,4337.4542,reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,14560.1884,14560.1884,reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,158.0566,158.0566,reported,3,primaryyear2025.csv
+CN,China,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,10380.9406,10380.9406,reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,4357.7529,4357.7529,reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,14627.7129,14627.7129,reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,158.8172,158.8172,reported,3,primaryyear2025.csv
+CN,China,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,10428.9086,10428.9086,reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,4492.3548,4492.3548,reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16469.5277,16469.5277,reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,96.7879,96.7879,reported,3,primaryyear2025.csv
+CN,China,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,12073.9858,12073.9858,reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,4324.6560,4324.656,reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16000.3000,16000.3,reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,48.8497,48.8497,reported,3,primaryyear2025.csv
+CN,China,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11724.4440,11724.444,reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,4361.0671,4361.0671,reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,15322.8852,15322.8852,reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,41.7948,41.7948,reported,3,primaryyear2025.csv
+CN,China,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11003.6129,11003.6129,reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,4440.3120,4440.312,reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16304.8120,16304.812,reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,306.9520,306.952,reported,3,primaryyear2025.csv
+CN,China,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,12171.4520,12171.452,reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,4279.6026,4279.6026,reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,15349.8039,15349.8039,reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,75.2737,75.2737,reported,3,primaryyear2025.csv
+CN,China,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11145.5265,11145.5265,reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,4310.7716,4310.7716,reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,15959.7252,15959.7252,reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,37.5343,37.5343,reported,3,primaryyear2025.csv
+CN,China,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11686.4981,11686.4981,reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,4337.1000,4337.1,reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,15747.7600,15747.76,reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,36.2699,36.2699,reported,3,primaryyear2025.csv
+CN,China,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11447.0160,11447.016,reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,4251.5032,4251.5032,reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,15629.3806,15629.3806,reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,40.5809,40.5809,reported,3,primaryyear2025.csv
+CN,China,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11418.4916,11418.4916,reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,4300.9880,4300.988,reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16698.8720,16698.872,reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,19.2892,19.2892,reported,3,primaryyear2025.csv
+CN,China,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,12417.4040,12417.404,reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,4201.9161,4201.9161,reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,17397.5148,17397.5148,reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,18.6669,18.6669,reported,3,primaryyear2025.csv
+CN,China,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,13214.4890,13214.489,reported,3,primaryyear2025.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,4427.8916,4427.8916,reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16414.5097,16414.5097,reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,24.3479,24.3479,reported,3,primaryyear2026.csv
+CN,China,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,12010.9394,12010.9394,reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,4439.5800,4439.58,reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16458.7586,16458.7586,reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,24.2597,24.2597,reported,3,primaryyear2026.csv
+CN,China,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,12043.4914,12043.4914,reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,4502.2723,4502.2723,reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,16257.4839,16257.4839,reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,46.8677,46.8677,reported,3,primaryyear2026.csv
+CN,China,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,11802.2013,11802.2013,reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,4378.0920,4378.092,reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,13693.7680,13693.768,reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,71.4920,71.492,reported,3,primaryyear2026.csv
+CN,China,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,9386.9240,9386.924,reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,4384.4439,4384.4439,reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,12106.8077,12106.8077,reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,88.8747,88.8747,reported,3,primaryyear2026.csv
+CN,China,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,7811.3845,7811.3845,reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,4420.5480,4420.548,reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,11501.1840,11501.184,reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,61.6392,61.6392,reported,3,primaryyear2026.csv
+CN,China,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,7142.3680,7142.368,reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,4313.1329,4313.1329,reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,12691.6994,12691.6994,reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,57.4185,57.4185,reported,3,primaryyear2026.csv
+CN,China,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,8435.9458,8435.9458,reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,4352.5665,4352.5665,reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,13247.0748,13247.0748,reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,61.4774,61.4774,reported,3,primaryyear2026.csv
+CN,China,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,8955.9019,8955.9019,reported,3,primaryyear2026.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,145189.0000,145189.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,18.8129,18.8129,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1703.0271,1703.0271,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,331.6500,331.65,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1664.1935,1664.1935,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,145071.0800,145071.08,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,31.8857,31.8857,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1604.7271,1604.7271,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-125.2900,-125.29,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1582.4443,1582.4443,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143265.4300,143265.43,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,39.4839,39.4839,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1607.4761,1607.4761,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1805.6500,-1805.65,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1446.6597,1446.6597,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143110.6600,143110.66,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,29.5200,29.52,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1660.5600,1660.56,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-154.7700,-154.77,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1615.0127,1615.0127,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143464.4200,143464.42,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,29.7290,29.729,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1628.7097,1628.7097,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,346.3900,346.39,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1652.7819,1652.7819,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,139897.3400,139897.34,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,29.7600,29.76,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1674.5227,1674.5227,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-3559.7100,-3559.71,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1519.6940,1519.694,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,140413.2400,140413.24,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,30.8903,30.8903,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1746.7006,1746.7006,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,508.5300,508.53,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1661.3406,1661.3406,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,139602.5400,139602.54,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,30.1935,30.1935,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1787.4787,1787.4787,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-810.7000,-810.7,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1699.6171,1699.6171,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,138556.0000,138556.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,30.4800,30.48,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1690.7293,1690.7293,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1039.1700,-1039.17,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1452.6270,1452.627,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,140044.7400,140044.74,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,32.5161,32.5161,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1720.6413,1720.6413,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1481.3700,1481.37,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1696.7642,1696.7642,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,139948.9300,139948.93,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,45.3600,45.36,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1726.6333,1726.6333,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-95.8100,-95.81,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1673.7270,1673.727,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,138836.0600,138836.06,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,30.6581,30.6581,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1690.4800,1690.48,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1112.8700,-1112.87,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+DE,Germany,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1629.0077,1629.0077,reported,1,primaryyear2025.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,138777.1000,138777.1,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,32.2839,32.2839,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1652.3561,1652.3561,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-58.9600,-58.96,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1616.1697,1616.1697,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,136602.9500,136602.95,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,32.4000,32.4,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1725.2086,1725.2086,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2174.1500,-2174.15,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1594.2889,1594.2889,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,137597.9000,137597.9,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,21.1355,21.1355,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1559.2181,1559.2181,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,994.9500,994.95,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1531.2958,1531.2958,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,133890.7900,133890.79,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,28.5600,28.56,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1532.4027,1532.4027,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-3707.1100,-3707.11,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1362.2217,1362.2217,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,133824.4600,133824.46,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,26.9419,26.9419,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1722.0890,1722.089,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-58.9600,-58.96,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1679.1713,1679.1713,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,135438.4900,135438.49,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,30.9600,30.96,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1691.7267,1691.7267,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1614.0300,1614.03,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1686.7473,1686.7473,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,133249.6000,133249.6,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,30.4258,30.4258,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1669.4877,1669.4877,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2188.8900,-2188.89,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1557.9229,1557.9229,reported,1,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,131775.6000,131775.6,reported,1,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,30.4258,30.4258,reported,2,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1489.9677,1489.9677,reported,2,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1474.0000,-1474.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+DE,Germany,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1528.6806,1528.6806,reported,1,primaryyear2026.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,45064.0800,45064.08,reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,593.0400,593.04,reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5653.0277,5653.0277,reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1458.2400,-1458.24,reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4955.9684,4955.9684,reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,47757.3600,47757.36,reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,587.7600,587.76,reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5672.0046,5672.0046,reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2693.2800,2693.28,reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5026.0768,5026.0768,reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,43352.8800,43352.88,reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,589.9200,589.92,reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5692.2552,5692.2552,reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-4404.4800,-4404.48,reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5262.6555,5262.6555,reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,52734.7200,52734.72,reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,583.7920,583.792,reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5371.0103,5371.0103,reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,9381.8400,9381.84,reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5215.7490,5215.749,reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,53426.6400,53426.64,reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,582.4800,582.48,reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5475.6723,5475.6723,reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,691.9200,691.92,reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5545.0929,5545.0929,reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,49483.4400,49483.44,reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,578.8320,578.832,reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5465.5920,5465.592,reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-3943.2000,-3943.2,reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4854.8647,4854.8647,reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,51261.6000,51261.6,reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,575.7600,575.76,reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5519.8923,5519.8923,reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1778.1600,1778.16,reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4412.4903,4412.4903,reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,48598.0800,48598.08,reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,569.7600,569.76,reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5307.1132,5307.1132,reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2663.5200,-2663.52,reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4660.4552,4660.4552,reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,43285.9200,43285.92,reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,559.9840,559.984,reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5143.5230,5143.523,reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-5312.1600,-5312.16,reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4944.7787,4944.7787,reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,54944.4000,54944.4,reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,561.3600,561.36,reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5335.8800,5335.88,reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,11658.4800,11658.48,reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5005.4187,5005.4187,reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,60933.6000,60933.6,reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,563.2080,563.208,reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5452.8173,5452.8173,reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,5989.2000,5989.2,reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5172.5117,5172.5117,reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,56863.9200,56863.92,reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,559.9200,559.92,reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5672.9981,5672.9981,reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-4069.6800,-4069.68,reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2025.csv
+IN,India,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4955.2552,4955.2552,reported,3,primaryyear2025.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,59028.9600,59028.96,reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,558.9600,558.96,reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5630.4423,5630.4423,reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2165.0400,2165.04,reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5014.9284,5014.9284,reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,62376.9600,62376.96,reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,557.7343,557.7343,reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5704.1168,5704.1168,reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,3348.0000,3348.0,reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,5114.5168,5114.5168,reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,45279.8400,45279.84,reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,556.0800,556.08,reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,5568.6294,5568.6294,reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-17097.1200,-17097.12,reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,4496.6510,4496.651,reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,-,,not_reported,3,primaryyear2026.csv
+IN,India,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,-,,not_reported,3,primaryyear2026.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,332902.9000,332902.9,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.4755,0.4755,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2550.0865,2550.0865,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-729.6300,-729.63,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2506.7510,2506.751,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,332615.4700,332615.47,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.5264,0.5264,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,3.4218,3.4218,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2378.6400,2378.64,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-287.4300,-287.43,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2353.3989,2353.3989,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,344075.8200,344075.82,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2377,0.2377,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2369.8523,2369.8523,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,11460.3500,11460.35,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2719.7677,2719.7677,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,338504.1000,338504.1,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2457,0.2457,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,3.1937,3.1937,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2549.7593,2549.7593,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-5571.7200,-5571.72,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2361.5937,2361.5937,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,339462.2000,339462.2,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2377,0.2377,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,2.6152,2.6152,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2181.7194,2181.7194,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,958.1000,958.1,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2202.2035,2202.2035,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,342447.0500,342447.05,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,3.1937,3.1937,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2091.9453,2091.9453,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2984.8500,2984.85,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2191.3467,2191.3467,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,341975.3700,341975.37,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.4755,0.4755,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2188.6606,2188.6606,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-479.0500,-479.05,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2151.8023,2151.8023,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,332681.8000,332681.8,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,3.8039,3.8039,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,3.0906,3.0906,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2409.1065,2409.1065,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-9293.5700,-9293.57,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2109.7219,2109.7219,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,333160.8500,333160.85,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.4740,1.474,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,2.7023,2.7023,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2335.3213,2335.3213,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,479.0500,479.05,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2324.7437,2324.7437,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,333772.5600,333772.56,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,2.6152,2.6152,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2372.9639,2372.9639,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,604.3400,604.34,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2406.4239,2406.4239,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,333271.4000,333271.4,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2457,0.2457,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,2.9480,2.948,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2438.7067,2438.7067,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-501.1600,-501.16,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2423.2560,2423.256,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,343810.5000,343810.5,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2377,0.2377,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2778.6703,2778.6703,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,10539.1000,10539.1,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+JP,Japan,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2957.7474,2957.7474,reported,1,primaryyear2025.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,337656.5500,337656.55,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.7132,0.7132,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2746.3574,2746.3574,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-6161.3200,-6161.32,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2557.6277,2557.6277,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,334841.2100,334841.21,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.0529,1.0529,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,3.4218,3.4218,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2652.6500,2652.65,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2807.9700,-2807.97,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2534.2271,2534.2271,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,334878.0600,334878.06,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.9510,0.951,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,3.3284,3.3284,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2274.3497,2274.3497,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,36.8500,36.85,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2247.6123,2247.6123,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,287717.4300,287717.43,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.7197,1.7197,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,3.1937,3.1937,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2201.0193,2201.0193,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-47160.6300,-47160.63,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,656.4213,656.4213,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,264369.2700,264369.27,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,2.1397,2.1397,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,2.6152,2.6152,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2247.7813,2247.7813,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-23348.1600,-23348.16,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,1457.3581,1457.3581,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,266292.8400,266292.84,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.9827,0.9827,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,2.9480,2.948,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2157.2413,2157.2413,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1923.5700,1923.57,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2175.1327,2175.1327,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,268098.4900,268098.49,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.7132,0.7132,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,2.8529,2.8529,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2420.8348,2420.8348,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1798.2800,1798.28,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2496.0526,2496.0526,reported,1,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,272336.2400,272336.24,reported,1,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.2377,0.2377,reported,2,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,2.6152,2.6152,reported,2,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2349.2677,2349.2677,reported,1,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,4245.1200,4245.12,reported,2,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+JP,Japan,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2492.2487,2492.2487,reported,1,primaryyear2026.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,104115.9900,104115.99,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2781.0639,2781.0639,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,3950.3200,3950.32,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2857.1826,2857.1826,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,105258.3400,105258.34,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2758.1200,2758.12,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1142.3500,1142.35,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2724.5311,2724.5311,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,111272.2600,111272.26,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2495.0348,2495.0348,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,6013.9200,6013.92,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2575.4584,2575.4584,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,109319.2100,109319.21,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2830.4827,2830.4827,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1953.0500,-1953.05,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2677.7667,2677.7667,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,109017.0400,109017.04,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2917.0174,2917.0174,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-302.1700,-302.17,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,3007.1977,3007.1977,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,108383.2200,108383.22,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2899.2413,2899.2413,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-633.8200,-633.82,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2781.1923,2781.1923,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,101971.3200,101971.32,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2973.5052,2973.5052,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-6411.9000,-6411.9,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2738.3116,2738.3116,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,106157.4800,106157.48,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2871.7794,2871.7794,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,4186.1600,4186.16,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2962.9777,2962.9777,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,99834.0200,99834.02,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2786.2100,2786.21,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-6323.4600,-6323.46,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2630.5987,2630.5987,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,111294.3700,111294.37,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2754.7348,2754.7348,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,11460.3500,11460.35,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2953.4681,2953.4681,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,109046.5200,109046.52,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2900.7253,2900.7253,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2247.8500,-2247.85,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2707.0010,2707.001,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,100018.2700,100018.27,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2996.4832,2996.4832,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-9028.2500,-9028.25,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2025.csv
+KR,South Korea,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2778.9655,2778.9655,reported,1,primaryyear2025.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,100814.2300,100814.23,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2991.9355,2991.9355,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,803.3300,803.33,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,3007.9110,3007.911,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,103283.1800,103283.18,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2945.7400,2945.74,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2461.5800,2461.58,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2901.4111,2901.4111,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,103607.4600,103607.46,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2570.4316,2570.4316,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,324.2800,324.28,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2472.5161,2472.5161,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,90518.3400,90518.34,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2195.3307,2195.3307,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-13081.7500,-13081.75,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2149.8290,2149.829,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,91645.9500,91645.95,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2325.8110,2325.811,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1120.2400,1120.24,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2349.1281,2349.1281,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,94645.5400,94645.54,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2463.1927,2463.1927,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,3006.9600,3006.96,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2452.7360,2452.736,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,115156.2500,115156.25,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2756.6497,2756.6497,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,20510.7100,20510.71,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,3005.7713,3005.7713,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,117566.2400,117566.24,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2976.6168,2976.6168,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2409.9900,2409.99,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,0.0000,0.0,reported,1,primaryyear2026.csv
+KR,South Korea,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,2946.3358,2946.3358,reported,1,primaryyear2026.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.0000,1.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,2400.0000,2400.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1180.0000,1180.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-178.0000,-178.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1225.0000,1225.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,10.0000,10.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,2406.0000,2406.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1180.0000,1180.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-105.0000,-105.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1220.0000,1220.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,5.0000,5.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,2413.0000,2413.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1180.0000,1180.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-62.0000,-62.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1230.0000,1230.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,5.0000,5.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,2413.0000,2413.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1185.0000,1185.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-60.0000,-60.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1225.0000,1225.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,5.0000,5.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,2420.0000,2420.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1180.0000,1180.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-155.0000,-155.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1240.0000,1240.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,5.0000,5.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,2420.0000,2420.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1180.0000,1180.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-150.0000,-150.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1240.0000,1240.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,5.0000,5.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,2445.0000,2445.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1190.0000,1190.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1250.0000,1250.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,2489.0000,2489.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1220.0000,1220.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-31.0000,-31.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1270.0000,1270.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.0000,1.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,2516.0000,2516.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1230.0000,1230.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1285.0000,1285.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,2559.0000,2559.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,910.0000,910.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-31.0000,-31.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1650.0000,1650.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,2569.0000,2569.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,900.0000,900.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,274.0000,274.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1660.0000,1660.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,19.0000,19.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,2580.0000,2580.0,reported,1,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1095.0000,1095.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1466.0000,1466.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2025.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,2580.0000,2580.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1326.0000,1326.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1254.0000,1254.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.0000,1.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,2580.0000,2580.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,1366.0000,1366.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1213.0000,1213.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,1.0000,1.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,1200.0000,1200.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,700.0000,700.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-18.0000,-18.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,500.0000,500.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,562.0000,562.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,561.0000,561.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1206.0000,-1206.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,41.0000,41.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,578.0000,578.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,492.0000,492.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1924.0000,1924.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,24.0000,24.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,15.0000,15.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,1650.0000,1650.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,622.0000,622.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1403.0000,-1403.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1060.0000,1060.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,102.0000,102.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,1971.0000,1971.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,648.0000,648.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2837.0000,2837.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1129.0000,1129.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,0.0000,0.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,112.0000,112.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,1988.0000,1988.0,reported,1,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,830.0000,830.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-62.0000,-62.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,1048.0000,1048.0,reported,3,primaryyear2026.csv
+KW,Kuwait,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,155926.0000,155926.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,275.7097,275.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,INDPROD,Production,KBD,8917.9032,8917.9032,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2459.0000,2459.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,8153.0000,8153.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6073.6129,6073.6129,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-01,2025-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,153.3871,153.3871,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,145790.0000,145790.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,283.7857,283.7857,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,INDPROD,Production,KBD,8947.3929,8947.3929,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2621.5000,2621.5,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-10136.0000,-10136.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6547.8929,6547.8929,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-02,2025-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,143.7857,143.7857,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,146366.0000,146366.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,383.0968,383.0968,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,INDPROD,Production,KBD,8957.5161,8957.5161,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2944.1935,2944.1935,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,577.0000,577.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,5754.9032,5754.9032,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-03,2025-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,143.2903,143.2903,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143534.0000,143534.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,377.1000,377.1,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,INDPROD,Production,KBD,9005.0000,9005.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2704.3000,2704.3,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2832.0000,-2832.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6166.7000,6166.7,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-04,2025-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,148.7000,148.7,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,140912.0000,140912.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,489.7097,489.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,INDPROD,Production,KBD,9184.0968,9184.0968,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2721.9032,2721.9032,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-2623.0000,-2623.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6191.8065,6191.8065,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-05,2025-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,134.7097,134.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,152414.0000,152414.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,674.7000,674.7,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,INDPROD,Production,KBD,9752.4000,9752.4,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2703.2000,2703.2,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,11502.0000,11502.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6141.2000,6141.2,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-06,2025-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,150.0000,150.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,145352.0000,145352.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,608.9032,608.9032,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,INDPROD,Production,KBD,9201.0000,9201.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2978.1935,2978.1935,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-7062.0000,-7062.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,5994.3871,5994.3871,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-07,2025-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,152.7097,152.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143799.0000,143799.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,607.3871,607.3871,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,INDPROD,Production,KBD,9722.0000,9722.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2902.0968,2902.0968,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1553.0000,-1553.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6407.3871,6407.3871,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-08,2025-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,144.7097,144.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,150528.0000,150528.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,DIRECUSE,Direct use,KBD,485.2000,485.2,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,INDPROD,Production,KBD,9966.0000,9966.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2940.8000,2940.8,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,STOCKCH,Stock change,KBBL,6729.0000,6729.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6460.4000,6460.4,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-09,2025-09-01,CRUDEOIL,TOTIMPSB,Imports,KBD,144.7000,144.7,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,148785.0000,148785.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,DIRECUSE,Direct use,KBD,393.1935,393.1935,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,INDPROD,Production,KBD,10002.0000,10002.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2712.1935,2712.1935,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1742.0000,-1742.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,TOTEXPSB,Exports,KBD,7098.5161,7098.5161,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-10,2025-10-01,CRUDEOIL,TOTIMPSB,Imports,KBD,145.7097,145.7097,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,146994.0000,146994.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,DIRECUSE,Direct use,KBD,317.3000,317.3,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,INDPROD,Production,KBD,10050.0000,10050.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2560.5000,2560.5,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-1791.0000,-1791.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,TOTEXPSB,Exports,KBD,7378.2000,7378.2,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-11,2025-11-01,CRUDEOIL,TOTIMPSB,Imports,KBD,146.3000,146.3,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,153430.0000,153430.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,DIRECUSE,Direct use,KBD,210.0968,210.0968,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,INDPROD,Production,KBD,10084.0000,10084.0,reported,1,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2738.9032,2738.9032,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,STOCKCH,Stock change,KBBL,6436.0000,6436.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6988.3871,6988.3871,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2025-12,2025-12-01,CRUDEOIL,TOTIMPSB,Imports,KBD,61.0000,61.0,reported,3,primaryyear2025.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,156577.0000,156577.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,DIRECUSE,Direct use,KBD,227.5161,227.5161,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,INDPROD,Production,KBD,10100.0000,10100.0,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2805.0968,2805.0968,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,STOCKCH,Stock change,KBBL,3147.0000,3147.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,TOTEXPSB,Exports,KBD,6993.1935,6993.1935,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-01,2026-01-01,CRUDEOIL,TOTIMPSB,Imports,KBD,27.2903,27.2903,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,170557.0000,170557.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,DIRECUSE,Direct use,KBD,248.2857,248.2857,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,INDPROD,Production,KBD,10882.0000,10882.0,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,3012.2143,3012.2143,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,STOCKCH,Stock change,KBBL,13980.0000,13980.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,TOTEXPSB,Exports,KBD,7276.2143,7276.2143,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-02,2026-02-01,CRUDEOIL,TOTIMPSB,Imports,KBD,154.0000,154.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,152645.0000,152645.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,DIRECUSE,Direct use,KBD,330.1935,330.1935,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,INDPROD,Production,KBD,6967.0968,6967.0968,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2266.0968,2266.0968,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-17912.0000,-17912.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,TOTEXPSB,Exports,KBD,4974.3871,4974.3871,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-03,2026-03-01,CRUDEOIL,TOTIMPSB,Imports,KBD,25.8065,25.8065,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,139967.0000,139967.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,DIRECUSE,Direct use,KBD,540.5000,540.5,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,INDPROD,Production,KBD,6316.0000,6316.0,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2211.3000,2211.3,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-12678.0000,-12678.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,TOTEXPSB,Exports,KBD,3986.8000,3986.8,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-04,2026-04-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,142794.0000,142794.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,DIRECUSE,Direct use,KBD,647.7097,647.7097,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,INDPROD,Production,KBD,6560.7097,6560.7097,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2386.9032,2386.9032,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,STOCKCH,Stock change,KBBL,2827.0000,2827.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,TOTEXPSB,Exports,KBD,3434.9032,3434.9032,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-05,2026-05-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,144210.0000,144210.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,DIRECUSE,Direct use,KBD,583.5000,583.5,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,INDPROD,Production,KBD,7122.3000,7122.3,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2497.9000,2497.9,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,STOCKCH,Stock change,KBBL,1416.0000,1416.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,TOTEXPSB,Exports,KBD,3993.7000,3993.7,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-06,2026-06-01,CRUDEOIL,TOTIMPSB,Imports,KBD,0.0000,0.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,175632.0000,175632.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,DIRECUSE,Direct use,KBD,561.0968,561.0968,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,INDPROD,Production,KBD,8135.0968,8135.0968,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2477.8065,2477.8065,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,STOCKCH,Stock change,KBBL,31422.0000,31422.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,TOTEXPSB,Exports,KBD,4124.6129,4124.6129,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-07,2026-07-01,CRUDEOIL,TOTIMPSB,Imports,KBD,42.0000,42.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,CLOSTLV,Closing stocks,KBBL,143197.0000,143197.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,DIRECUSE,Direct use,KBD,604.0968,604.0968,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,INDPROD,Production,KBD,6237.9032,6237.9032,reported,1,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,REFINOBS,Refinery intake,KBD,2297.0968,2297.0968,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,STOCKCH,Stock change,KBBL,-32435.0000,-32435.0,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,TOTEXPSB,Exports,KBD,4450.7097,4450.7097,reported,3,primaryyear2026.csv
+SA,Saudi Arabia,2026-08,2026-08-01,CRUDEOIL,TOTIMPSB,Imports,KBD,67.7097,67.7097,reported,3,primaryyear2026.csv
