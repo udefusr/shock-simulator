@@ -159,3 +159,23 @@ Strategic crude oil and refined product stocks should not be treated as immediat
 This initial dataset is a source inventory and research aid. It is not evidence that every recorded barrel or tonne can be released at the nominal rate, nor that inventories are all physically accessible to the same market.
 
 The next phase is to obtain reproducible time series, harmonize stock definitions, and design a reserve-response model with explicit deliverability assumptions.
+
+
+## 9. Reserve calibration implementation (November 6, 2026)
+
+The next-stage adapter is implemented in src/reserve_calibration.py. It converts one compatible reserve profile into normalized simulation inputs only when inventory, nominal daily release capability, lead time, and measurement units are all available.
+
+The adapter requires a user-supplied physical daily-flow denominator and a written definition of that denominator. It calculates:
+
+- Derived stock cover = reported inventory / user-supplied physical daily flow.
+- Model inventory = derived stock-cover days × model daily demand.
+- Model release limit = (reported nominal release rate / physical daily flow) × model daily demand.
+- First modeled delivery day = stated complete lead time + 1, using day 1 as the decision day.
+
+The two U.S. DOE records are eligible because both contain inventory, nominal rate, and lead-time information. Japan, South Korea, and Germany remain descriptive-only in this calibration adapter because the current records do not contain all required comparable parameters.
+
+The Japanese event analysis separately derives the daily-supply denominator implied by announced volume divided by equivalent supply-days. For the two national announcements, the derived values are approximately 0.283 and 0.290 million kilolitres/day. These are **not release rates** and are not treated as observed withdrawals.
+
+The Reserve calibration dashboard tab runs a selected scenario with the translated U.S. SPR inventory, daily release cap, and mobilisation delay. It is kept separate from the existing 18 normalized experiments, whose original assumptions and findings remain unchanged.
+
+See research/reserve_calibration_method.md for equations, day-number convention, caveats, and reproducibility steps.
