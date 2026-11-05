@@ -8,6 +8,15 @@ def summarize_results(results):
 
     shortage_days = sum(row["unmet_demand"] > 0 for row in results)
 
+    critical_days = sum(row["is_critical"] for row in results)
+
+    severe_days = sum(row["severity"] == "Severe" for row in results)
+
+    maximum_shortage_percentage = max(
+        (row["shortage_percentage"] for row in results),
+        default=0.0,
+    )
+
     maximum_shortage = max(
         (row["unmet_demand"] for row in results),
         default=0.0,
@@ -18,6 +27,9 @@ def summarize_results(results):
         "shortage_days": shortage_days,
         "maximum_daily_shortage": maximum_shortage,
         "remaining_reserves": results[-1]["reserves_remaining"],
+        "critical_days": critical_days,
+        "severe_days": severe_days,
+        "maximum_shortage_percentage": maximum_shortage_percentage,
     }
 
 

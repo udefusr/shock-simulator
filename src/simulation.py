@@ -73,6 +73,19 @@ def validate_inputs(
         raise ValueError("recovery_rate must be greater than 0 and at most 1.")
 
 
+def classify_severity(shortage_percentage):
+    """Classify disruption severity based on unmet demand percentage."""
+
+    if shortage_percentage == 0:
+        return "Normal"
+    elif shortage_percentage <= 5:
+        return "Warning"
+    elif shortage_percentage <= 15:
+        return "Critical"
+    else:
+        return "Severe"
+
+
 def simulate_day(
     day,
     baseline_supply,
@@ -107,6 +120,10 @@ def simulate_day(
 
     remaining_reserves = reserves - release
     unmet_demand = max(0.0, deficit - release)
+    shortage_percentage = (unmet_demand / demand) * 100 if demand > 0 else 0.0
+
+    severity = classify_severity(shortage_percentage)
+    is_critical = severity in ("Critical", "Severe")
 
     return {
         "day": day,
@@ -116,6 +133,9 @@ def simulate_day(
         "reserve_release": release,
         "reserves_remaining": remaining_reserves,
         "unmet_demand": unmet_demand,
+        "shortage_percentage": shortage_percentage,
+        "severity": severity,
+        "is_critical": is_critical,
     }
 
 

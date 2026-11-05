@@ -10,7 +10,7 @@ Expected layout:
 
 import pytest
 
-from src.simulation import run_simulation
+from src.simulation import classify_severity, run_simulation
 
 
 def test_normal_operation_has_no_shortage_or_reserve_release():
@@ -254,3 +254,40 @@ def test_invalid_recovery_rates_are_rejected():
     for rate in [-0.1, 0, 1.1]:
         with pytest.raises(ValueError):
             run_simulation(recovery_rate=rate)
+
+
+def test_severity_classification():
+    assert classify_severity(0) == "Normal"
+    assert classify_severity(2) == "Warning"
+    assert classify_severity(5) == "Warning"
+    assert classify_severity(10) == "Critical"
+    assert classify_severity(15) == "Critical"
+    assert classify_severity(20) == "Severe"
+
+
+def test_shortage_percentage_is_calculated_correctly():
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=100,
+        initial_reserves=0,
+        shock_loss_pct=0.20,
+        use_reserves=False,
+        days=1,
+    )
+
+    assert results[0]["shortage_percentage"] == pytest.approx(20)
+    assert results[0]["severity"] == "Severe"
+    assert results[0]["is_critical"] is True
+
+
+def test_zero_demand_does_not_cause_division_error():
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=0,
+        initial_reserves=0,
+        use_reserves=False,
+        days=1,
+    )
+
+    assert results[0]["shortage_percentage"] == 0
+    assert results[0]["severity"] == "Normal"
