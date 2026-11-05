@@ -32,6 +32,7 @@ def compare_scenarios():
         "shock_start_day": 1,
         "shock_duration": 20,
         "reserve_release_limit": 5,
+        "recovery_rate": 0.10,
         "days": 60,
     }
 

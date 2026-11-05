@@ -11,6 +11,7 @@ def validate_inputs(
     reserve_release_limit,
     demand_reduction_pct,
     use_reserves,
+    recovery_rate,
     days,
 ):
     # Validate simulation parameters before running
@@ -22,6 +23,7 @@ def validate_inputs(
         "shock_loss_pct": shock_loss_pct,
         "reserve_release_limit": reserve_release_limit,
         "demand_reduction_pct": demand_reduction_pct,
+        "recovery_rate": recovery_rate,
     }
 
     for name, value in numeric_values.items():
@@ -67,26 +69,33 @@ def validate_inputs(
     if not isinstance(use_reserves, bool):
         raise TypeError("use_reserves must be a boolean.")
 
+    if not 0 < recovery_rate <= 1:
+        raise ValueError("recovery_rate must be greater than 0 and at most 1.")
+
 
 def simulate_day(
     day,
     baseline_supply,
     daily_demand,
+    previous_supply,
     reserves,
     shock_loss_pct,
     shock_start_day,
     shock_duration,
     reserve_release_limit,
     demand_reduction_pct,
+    recovery_rate,
     use_reserves,
 ):
-    # Calculate the system state for one simulation day
+    """Calculate the system state for one simulation day."""
 
     shock_active = shock_start_day <= day < shock_start_day + shock_duration
 
-    supply_loss = shock_loss_pct if shock_active else 0.0
+    if shock_active:
+        supply = baseline_supply * (1 - shock_loss_pct)
+    else:
+        supply = previous_supply + recovery_rate * (baseline_supply - previous_supply)
 
-    supply = baseline_supply * (1 - supply_loss)
     demand = daily_demand * (1 - demand_reduction_pct)
 
     deficit = max(0.0, demand - supply)
@@ -120,6 +129,7 @@ def run_simulation(
     reserve_release_limit=5.0,
     demand_reduction_pct=0.0,
     use_reserves=True,
+    recovery_rate=0.10,
     days=60,
 ):
     # Run a simulation and return daily results
@@ -134,16 +144,19 @@ def run_simulation(
         reserve_release_limit,
         demand_reduction_pct,
         use_reserves,
+        recovery_rate,
         days,
     )
 
     reserves = float(initial_reserves)
+    previous_supply = float(baseline_supply)
     results = []
 
     for day in range(1, days + 1):
         daily_result = simulate_day(
             day=day,
             baseline_supply=baseline_supply,
+            previous_supply=previous_supply,
             daily_demand=daily_demand,
             reserves=reserves,
             shock_loss_pct=shock_loss_pct,
@@ -152,8 +165,9 @@ def run_simulation(
             reserve_release_limit=reserve_release_limit,
             demand_reduction_pct=demand_reduction_pct,
             use_reserves=use_reserves,
+            recovery_rate=recovery_rate,
         )
-
+        previous_supply = daily_result["supply"]
         reserves = daily_result["reserves_remaining"]
         results.append(daily_result)
 
