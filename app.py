@@ -5,6 +5,11 @@ import streamlit as st
 from src.scenarios import summarize_results
 from src.sensitivity import analyze_demand_reduction
 from src.simulation import run_simulation
+from src.empirical_scenarios import (
+    RESPONSE_STRATEGIES,
+    list_empirical_scenarios,
+    run_empirical_scenarios,
+)
 
 # --------------------------------------------------
 # Configuration
@@ -279,11 +284,12 @@ final_reserves = results[-1]["reserves_remaining"]
 # Main dashboard tabs
 # --------------------------------------------------
 
-simulation_tab, comparison_tab, sensitivity_tab = st.tabs(
+simulation_tab, comparison_tab, sensitivity_tab, empirical_tab = st.tabs(
     [
         "📊 Simulation",
         "⚖️ Scenario comparison",
         "📈 Sensitivity analysis",
+        "🛢️ Empirical scenarios",
     ]
 )
 
@@ -451,5 +457,201 @@ with sensitivity_tab:
         label="Download sensitivity analysis as CSV",
         data=demand_df.to_csv(index=False).encode("utf-8"),
         file_name="demand_response_sensitivity.csv",
+        mime="text/csv",
+    )
+
+# ==================================================
+# TAB 4: EMPIRICAL OIL DISRUPTION SCENARIOS
+# ==================================================
+
+with empirical_tab:
+    st.header("Empirical oil disruption scenarios")
+
+    st.caption(
+        "Compare EIA-informed disruption benchmarks and hypothetical "
+        "stress tests under different response strategies."
+    )
+
+    st.info(
+        "These experiments use normalized model units. The EIA-derived "
+        "shock percentages represent estimated production disruptions "
+        "among covered Gulf producers, not global oil supply losses. "
+        "Reserve, demand and recovery parameters remain model assumptions."
+    )
+
+    # --------------------------------------------------
+    # Run all 18 experiments
+    # --------------------------------------------------
+
+    scenario_definitions = {
+        scenario["scenario_id"]: scenario for scenario in list_empirical_scenarios()
+    }
+
+    empirical_runs = {}
+    empirical_rows = []
+
+    for strategy in RESPONSE_STRATEGIES:
+        strategy_results = run_empirical_scenarios(strategy=strategy)
+
+        for scenario_id, result in strategy_results.items():
+            empirical_runs[(scenario_id, strategy)] = result
+
+            scenario = result["scenario"]
+            summary = result["summary"]
+
+            empirical_rows.append(
+                {
+                    "Scenario": scenario["name"],
+                    "Classification": scenario["classification"],
+                    "Response strategy": strategy,
+                    "Supply shock (%)": round(scenario["shock_loss_pct"] * 100, 2),
+                    "Shock duration (days)": (scenario["shock_duration_days"]),
+                    "Total unmet demand (units)": round(
+                        summary["total_unmet_demand"], 2
+                    ),
+                    "Shortage days": summary["shortage_days"],
+                    "Critical days": summary["critical_days"],
+                    "Severe days": summary["severe_days"],
+                    "Remaining reserves (units)": round(
+                        summary["remaining_reserves"], 2
+                    ),
+                }
+            )
+
+    empirical_df = pd.DataFrame(empirical_rows)
+
+    # --------------------------------------------------
+    # Full experiment results
+    # --------------------------------------------------
+
+    st.subheader("Experiment results")
+
+    st.caption("Six disruption scenarios tested against three response strategies.")
+
+    st.dataframe(
+        empirical_df,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    # --------------------------------------------------
+    # Metric comparison chart
+    # --------------------------------------------------
+
+    st.subheader("Compare response strategies")
+
+    metric_options = [
+        "Total unmet demand (units)",
+        "Shortage days",
+        "Critical days",
+        "Severe days",
+        "Remaining reserves (units)",
+    ]
+
+    selected_metric = st.selectbox(
+        "Comparison metric",
+        options=metric_options,
+    )
+
+    fig = go.Figure()
+
+    for strategy in RESPONSE_STRATEGIES:
+        strategy_df = empirical_df[empirical_df["Response strategy"] == strategy]
+
+        fig.add_trace(
+            go.Bar(
+                x=strategy_df["Scenario"],
+                y=strategy_df[selected_metric],
+                name=strategy,
+            )
+        )
+
+    fig.update_layout(
+        barmode="group",
+        xaxis_title="Disruption scenario",
+        yaxis_title=selected_metric,
+        template="plotly_dark",
+        hovermode="x unified",
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True,
+    )
+
+    # --------------------------------------------------
+    # Inspect one experiment in detail
+    # --------------------------------------------------
+
+    st.divider()
+    st.subheader("Inspect an individual experiment")
+
+    scenario_ids = list(scenario_definitions)
+
+    selected_scenario_id = st.selectbox(
+        "Disruption scenario",
+        options=scenario_ids,
+        format_func=lambda value: scenario_definitions[value]["name"],
+    )
+
+    selected_strategy = st.selectbox(
+        "Response strategy",
+        options=list(RESPONSE_STRATEGIES),
+    )
+
+    selected_result = empirical_runs[(selected_scenario_id, selected_strategy)]
+
+    selected_summary = selected_result["summary"]
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric(
+        "Total unmet demand",
+        f"{selected_summary['total_unmet_demand']:.2f}",
+    )
+
+    col2.metric(
+        "Shortage days",
+        selected_summary["shortage_days"],
+    )
+
+    col3.metric(
+        "Critical days",
+        selected_summary["critical_days"],
+    )
+
+    col4.metric(
+        "Remaining reserves",
+        f"{selected_summary['remaining_reserves']:.2f}",
+    )
+
+    st.caption(selected_result["scenario"]["interpretation"])
+
+    detail_col1, detail_col2 = st.columns(2)
+
+    with detail_col1:
+        st.subheader("Supply and demand")
+
+        st.plotly_chart(
+            create_supply_chart(selected_result["daily_results"]),
+            use_container_width=True,
+        )
+
+    with detail_col2:
+        st.subheader("Daily unmet demand")
+
+        st.plotly_chart(
+            create_shortage_chart(selected_result["daily_results"]),
+            use_container_width=True,
+        )
+
+    # --------------------------------------------------
+    # Export
+    # --------------------------------------------------
+
+    st.download_button(
+        label="Download all 18 experiments as CSV",
+        data=empirical_df.to_csv(index=False).encode("utf-8"),
+        file_name="empirical_oil_scenario_comparison.csv",
         mime="text/csv",
     )
