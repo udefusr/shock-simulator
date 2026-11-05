@@ -134,3 +134,14 @@ The stated reserve-release lead time is represented explicitly. Under the curren
 This parameter translation currently applies to the U.S. SPR profiles only. Japan's official announced volumes and equivalent days are retained as policy-event observations, with their division used only to derive an implied daily-supply denominator. That result is not a release rate. South Korea and Germany remain descriptive because the current source records lack compatible release-rate and lead-time inputs.
 
 The new Reserve calibration dashboard tab is separate from the existing 18 normalized scenario experiments. The original results remain unchanged. See research/reserve_calibration_method.md for equations and limitations.
+
+
+## 12. Deterministic uncertainty envelope
+
+The uncertainty module evaluates a full-factorial grid of 729 combinations across six analyst-defined low/reference/high dimensions: shock magnitude, shock duration, initial reserve inventory, daily release capability, recovery rate, and additional mobilisation delay.
+
+The engine uses reserve-enabled strategies only. The neutral combination reproduces the original empirical-scenario inputs. It reports the minimum, median of enumerated design points, maximum, and neutral reference result for each outcome metric. These are deterministic grid summaries, not probability-weighted values or statistical confidence intervals.
+
+A main-effect screening statistic is also calculated for each input: mean total unmet demand at the high level minus mean total unmet demand at the low level, averaged over all settings of the other five inputs. The absolute difference ranks average high-low effects. This is a screening measure and does not isolate interactions or establish causal effects.
+
+The default levels are analyst-defined and have not been statistically estimated from empirical distributions. No probabilities are assigned. The no-disruption baseline is excluded because reserve parameters would be inactive and create redundant outcomes. See research/uncertainty_analysis.md for the complete design and limitations.
