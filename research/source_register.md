@@ -198,3 +198,34 @@
 **Used for:** Cross-checking the overall 2025 route-flow scale and interpreting alternative export routes. The IEA reports nearly 15 mb/d of crude oil, 5 mb/d of oil products, and 19.87 mb/d total oil exports via Hormuz in 2025. It estimates 3.5–5.5 mb/d of potential alternative crude export capacity through Saudi Arabia's East-West pipeline and the UAE's ADCOP route.
 
 **Limitations:** Shared regional bypass capacity is not equivalent to available replacement imports for any one destination. Operational conditions and export-terminal constraints affect deliverability, and rerouted flows have not been robustly tested at scale. The importer model therefore does not allocate this capacity to individual countries.
+
+
+## 15. ACER — Key developments in European gas wholesale markets (winter 2025/2026)
+
+**Organization:** European Union Agency for the Cooperation of Energy Regulators (ACER).
+
+**Report:** *Key developments in European gas wholesale markets (winter 2025/2026)*.
+
+**URL:** <https://www.acer.europa.eu/sites/default/files/documents/Publications/2026-ACER-Gas-Key-Developments-winter.pdf>
+
+**Relevant visual:** LNG flows via the Strait of Hormuz, 2025 (bcm), based on ICIS data.
+
+**Local file:** `data/processed/hormuz_importer_lng_flows_2025.csv`.
+
+**Destination estimates transcribed:** Bangladesh 6.2 bcm; Pakistan 9.6 bcm; India 20.0 bcm; China 28.3 bcm; South Korea 9.9 bcm; Japan 5.6 bcm.
+
+**Used for:** Annual destination flow baselines for the LNG importer volume-gap scenarios.
+
+**Limitations:** Rounded annual route-flow estimates. They are not total national LNG imports, import-dependency shares or daily delivery schedules. Data is sourced to ICIS and reproduced in the ACER report.
+
+## 16. IEA — Strait of Hormuz
+
+**Organization:** International Energy Agency.
+
+**URL:** <https://www.iea.org/about/oil-safety-and-emergency-response/strait-of-hormuz>
+
+**Used for:** Context on the global LNG flows through Hormuz and Bangladesh/Pakistan/India exposure.
+
+**Data notes:** The IEA reports just over 112 bcm of LNG transiting Hormuz in 2025, almost 20% of global LNG trade. It states that Bangladesh, India and Pakistan imported almost two-thirds of their total LNG supplies via the Strait in 2025. It also reports that gas-fired generation represented 50% of Bangladesh's electricity supply mix in 2024.
+
+**Limitations:** These national exposure indicators are not fed into the ACER destination-flow scenario as a substitute for a matched national LNG-import denominator or a complete gas-demand series. The model does not infer national dependency shares from the route-flow dataset.
