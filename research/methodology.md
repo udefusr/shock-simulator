@@ -1,4 +1,3 @@
-
 # Research Methodology
 
 ## 1. Research objective
@@ -94,7 +93,17 @@ This is a derived benchmark, not an independently observed production value.
 
 Differences are retained and investigated rather than automatically treated as errors.
 
-## 8. Data quality
+## 8. Simulation and response-policy assumptions
+
+The deterministic simulation uses normalized supply, demand, and reserve units. These units are not presented as actual million barrels or barrels per day.
+
+In the empirical scenario experiments, the demand-reduction policy begins on the first day of the disruption and remains active only for the duration of that disruption. Baseline demand is restored once the disruption window ends and the simulation enters the recovery period.
+
+Reserve deployment follows a different timing rule. When reserve use is enabled, releases may continue during the recovery period whenever a supply deficit remains, subject to the daily release limit and the quantity of reserves still available. Releases stop when there is no deficit to cover or when the reserve stock is exhausted.
+
+The demand-reduction percentage, reserve capacity, daily release limit, and supply recovery rate are model assumptions used for scenario analysis. They are not treated as measured historical policy responses.
+
+## 9. Data quality
 
 The project preserves:
 
@@ -107,7 +116,7 @@ The project preserves:
 
 AIS-based maritime estimates are subject to uncertainty, especially during the 2026 conflict.
 
-## 9. Limitations
+## 10. Limitations
 
 - National production changes cannot be attributed exclusively to Hormuz.
 - JODI national trade data does not identify the maritime route of each shipment.
