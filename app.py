@@ -878,7 +878,9 @@ with uncertainty_tab:
 
     uncertainty_col1, uncertainty_col2 = st.columns(2)
     scenario_options = {
-        item["scenario_id"]: item for item in list_empirical_scenarios()
+        item["scenario_id"]: item
+        for item in list_empirical_scenarios()
+        if item["shock_loss_pct"] > 0 and item["shock_duration_days"] > 0
     }
     with uncertainty_col1:
         uncertainty_scenario_id = st.selectbox(
@@ -1023,6 +1025,35 @@ with uncertainty_tab:
             use_container_width=True,
         )
 
+    st.subheader("Which assumptions move the result most?")
+    st.caption(
+        "Main effect = mean unmet demand at the high level minus mean unmet "
+        "demand at the low level, averaged over all combinations of the other "
+        "five factors. This ranks average one-factor effects; it does not remove "
+        "or fully explain interactions."
+    )
+    factor_effects = uncertainty_result["factor_effects"]
+    st.dataframe(
+        factor_effects.round(2),
+        use_container_width=True,
+        hide_index=True,
+    )
+    effects_chart = go.Figure(
+        go.Bar(
+            x=factor_effects["absolute_main_effect"],
+            y=factor_effects["factor"],
+            orientation="h",
+            name="Absolute high-low main effect",
+        )
+    )
+    effects_chart.update_layout(
+        xaxis_title="Absolute change in mean total unmet demand",
+        yaxis_title="Assumption",
+        yaxis={"categoryorder": "total ascending"},
+        template="plotly_dark",
+    )
+    st.plotly_chart(effects_chart, use_container_width=True)
+
     st.download_button(
         "Download all 729 design points",
         data=uncertainty_runs.to_csv(index=False).encode("utf-8"),
@@ -1033,6 +1064,12 @@ with uncertainty_tab:
         "Download outcome envelope",
         data=uncertainty_envelope.to_csv(index=False).encode("utf-8"),
         file_name="shock_simulator_uncertainty_envelope.csv",
+        mime="text/csv",
+    )
+    st.download_button(
+        "Download assumption sensitivity ranking",
+        data=factor_effects.to_csv(index=False).encode("utf-8"),
+        file_name="shock_simulator_uncertainty_factor_effects.csv",
         mime="text/csv",
     )
 
