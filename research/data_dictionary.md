@@ -150,3 +150,34 @@ The reserve simulation daily output includes reserve_release_active, indicating 
 ## Announced-release denominator check
 
 The Japan event adapter calculates announced_quantity / equivalent_days as an implied daily-supply denominator. It is not a physical release rate, actual withdrawal series, or implementation schedule. The calculation is kept separate from reserve calibration.
+
+
+## Deterministic uncertainty outputs
+
+The full-factorial design output in src/uncertainty.py contains:
+
+| Field | Description |
+| --- | --- |
+| shock_loss_multiplier | Multiplier applied to the scenario's baseline shock percentage |
+| shock_loss_pct | Resulting supply-loss percentage |
+| shock_duration_multiplier | Multiplier applied to the scenario shock duration |
+| shock_duration_days | Resulting duration rounded to the nearest whole day |
+| reserve_inventory_fraction | Fraction of baseline normalized reserve inventory |
+| initial_reserves_model_units | Initial reserve inventory after applying the fraction |
+| release_limit_fraction | Fraction of baseline normalized daily reserve release cap |
+| release_limit_model_units_per_day | Daily release cap after applying the fraction |
+| recovery_rate_multiplier | Multiplier applied to the baseline supply recovery rate |
+| recovery_rate | Resulting daily recovery rate |
+| additional_mobilization_delay_days | Additional delay beyond the base mobilisation day |
+| reserve_release_start_day | First day on which reserve delivery is enabled |
+| total_unmet_demand | Cumulative unmet demand over the simulation horizon |
+| shortage_days | Number of days with positive unmet demand |
+| critical_days | Days classified Critical or Severe |
+| severe_days | Days classified Severe |
+| maximum_shortage_percentage | Largest daily unmet-demand percentage |
+| remaining_reserves | Reserve inventory remaining at the end of the simulation |
+| total_reserve_released | Initial reserve inventory minus remaining inventory |
+
+The factor-effect output reports the low and high factor levels, mean total unmet demand at each level averaged across the other factors, the signed high-minus-low difference, its absolute value, and rank.
+
+The median outcome is the median of enumerated design points, not an expected value. Design-point counts do not imply likelihood.
