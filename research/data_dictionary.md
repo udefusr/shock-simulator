@@ -126,3 +126,27 @@ The validation script checks required columns, numeric values, non-negative quan
 Original JODI markers are preserved.
 
 Missing or unavailable values in reserve datasets remain blank/NaN. They must never be silently replaced with zero.
+
+
+## Reserve calibration outputs
+
+The evidence-aware adapter in src/reserve_calibration.py derives the following fields. These are calculated model inputs, not original source observations.
+
+| Field | Description |
+| --- | --- |
+| derived_stock_cover_days | Reported inventory divided by the analyst-supplied physical daily-flow denominator |
+| nominal_release_as_share_of_daily_demand | Reported nominal daily release rate divided by the same physical denominator |
+| physical_daily_demand | User-supplied physical daily-flow denominator |
+| physical_daily_demand_unit | Required compatible unit, e.g. million barrels per day |
+| demand_denominator_basis | Analyst's written definition of the chosen denominator |
+| model_daily_demand | Chosen daily demand in normalized simulation units |
+| initial_reserves_model_units | Derived stock-cover days multiplied by model daily demand |
+| reserve_release_limit_model_units | Nominal release share multiplied by model daily demand |
+| reserve_release_start_day | Lead time plus one, because simulation day 1 is the decision day |
+| calibration_status | Statement identifying the values as derived from reported evidence and a user-supplied denominator |
+
+The reserve simulation daily output includes reserve_release_active, indicating whether reserve deployment is enabled and past its configured mobilisation day. This flag is distinct from reserve_release, which can remain zero when there is no deficit.
+
+## Announced-release denominator check
+
+The Japan event adapter calculates announced_quantity / equivalent_days as an implied daily-supply denominator. It is not a physical release rate, actual withdrawal series, or implementation schedule. The calculation is kept separate from reserve calibration.
