@@ -164,3 +164,27 @@ The alternative supply rate, buffer-cover duration, disruption fraction and dela
 The model does not allocate the shared Saudi/UAE pipeline bypass capacity to importers. It does not identify cargo origins, model bilateral contracts, oil products, LNG, refinery compatibility, prices, or competition among importers for the same replacement barrels. It also does not infer a national import-dependency percentage because a consistent same-year total-import denominator is not included in the route-flow dataset.
 
 The present comparison includes four destination markets with published flow labels. Bangladesh is not represented in this crude-oil panel. The IEA separately reports substantial Bangladesh exposure to LNG transiting Hormuz; that is a different commodity and should be added through a separate LNG module with consistent gas-volume units rather than mixed into crude-oil barrels/day.
+
+
+## 12. LNG importer-country resilience
+
+The LNG extension is separate from the crude-oil importer model. Its baseline dataset records 2025 annual destination volumes of LNG transiting Hormuz, in billion cubic metres (bcm), reproduced from the European Union Agency for the Cooperation of Energy Regulators (ACER) 2026 gas-market report. The reported destination estimates are Bangladesh 6.2 bcm, Pakistan 9.6 bcm, India 20.0 bcm, China 28.3 bcm, South Korea 9.9 bcm, and Japan 5.6 bcm. These are not total national LNG imports and cannot by themselves be used to calculate each country's import-dependency percentage.
+
+The annual destination flow is converted to a calendar-day average:
+
+`baseline mcm/day = annual destination flow bcm × 1,000 / days in year`
+
+The user selects a disruption fraction and duration. For each disruption day the simulation applies this response order:
+
+1. Alternative LNG deliveries become available from the user-selected day, bounded by the gross daily lost flow.
+2. A finite, assumed buffer volume covers the remaining gap. Its starting volume is gross disrupted flow multiplied by the assumed buffer-cover days.
+3. Demand response reduces a user-defined share of the gross lost flow, capped by the remaining gap.
+4. Any remaining daily gap is recorded as uncovered LNG volume.
+
+Daily rates in million cubic metres/day summed over daily time steps yield million cubic metres (mcm). The model does not convert LNG volumes into crude-oil barrels or normalized oil model units.
+
+Alternative LNG deliveries, assumed buffer days, disruption fraction/duration, and demand-response fraction are scenario parameters, not source observations. The buffer is not a claim about actual national storage or linepack. Demand response is not a claim that gas demand can be curtailed without industrial, power-sector or economic consequences.
+
+The IEA states that Bangladesh, India and Pakistan imported almost two-thirds of their total LNG supplies via Hormuz in 2025. It also reports that gas-fired generation supplied 50% of Bangladesh's electricity mix in 2024. These IEA indicators provide national exposure context; they are not used as inputs to the destination-flow simulation because the model has no matched national LNG-import denominator or gas-sector demand series.
+
+Important limitations: no country-specific total LNG demand series, non-Hormuz import origin mix, regasification-terminal capacity, cargo scheduling, spot-market competition, pipeline constraints, storage/linepack inventory, domestic gas production, power dispatch, industrial allocation, prices, or contract flexibility are modelled. The module is a transparent first-stage volume-gap stress test, not a national gas-system forecast.
