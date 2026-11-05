@@ -1,9 +1,7 @@
-import pytest
-
 from src.sensitivity import (
+    add_baseline_comparisons,
     calculate_improvement,
     calculate_sensitivity_metrics,
-    add_baseline_comparisons,
 )
 
 
