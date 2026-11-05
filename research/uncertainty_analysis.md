@@ -14,7 +14,7 @@ The analysis uses a full-factorial grid of bounded low/reference/high design val
 
 The default design varies six inputs:
 
-| Factor | Low | Reference | High |
+| Factor | Level 1 | Level 2 | Level 3 |
 | --- | ---: | ---: | ---: |
 | Supply-shock multiplier | 0.8× | 1.0× | 1.2× |
 | Shock-duration multiplier | 0.8× | 1.0× | 1.2× |
@@ -23,7 +23,7 @@ The default design varies six inputs:
 | Recovery-rate multiplier | 0.5× | 1.0× | 1.5× |
 | Additional mobilisation delay | 0 days | 7 days | 14 days |
 
-All levels are analyst-defined stress ranges. The reference values reproduce the existing empirical-scenario inputs. Duration values are rounded to the nearest whole simulation day.
+All levels are analyst-defined stress ranges. The neutral reference combination uses 1.0× for multipliers, 100% for reserve inventory and release-cap fractions, and zero additional mobilisation delay. Therefore, the 50% / 75% / 100% reserve and release-cap levels are all reductions up to the existing baseline, not a symmetric low/base/high range. Duration values are rounded to the nearest whole simulation day.
 
 The full factorial design contains 3^6 = 729 design points for each selected disruption scenario and reserve-enabled strategy.
 
