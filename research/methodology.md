@@ -123,3 +123,14 @@ AIS-based maritime estimates are subject to uncertainty, especially during the 2
 - The seven-country panel is not a complete global oil balance.
 - EIA shut-in estimates and JODI production observations use different methodologies.
 - The current research does not establish causal effects.
+
+
+## 11. Evidence-aware reserve calibration
+
+The separate reserve-calibration experiment translates compatible inventory and daily-release observations into normalized model units. It requires an analyst-supplied physical daily-flow denominator with a matching unit and a written definition. The project calculates inventory cover, normalized reserve inventory, and normalized daily release capability from that denominator; it does not infer missing rates or convert incompatible physical units.
+
+The stated reserve-release lead time is represented explicitly. Under the current convention, simulation day 1 is the decision day and a lead time of N complete days enables delivery from day N+1. For the DOE 13-day statement, first modeled delivery is therefore day 14.
+
+This parameter translation currently applies to the U.S. SPR profiles only. Japan's official announced volumes and equivalent days are retained as policy-event observations, with their division used only to derive an implied daily-supply denominator. That result is not a release rate. South Korea and Germany remain descriptive because the current source records lack compatible release-rate and lead-time inputs.
+
+The new Reserve calibration dashboard tab is separate from the existing 18 normalized scenario experiments. The original results remain unchanged. See research/reserve_calibration_method.md for equations and limitations.
