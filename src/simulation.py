@@ -125,7 +125,7 @@ def simulate_day(
     warning_threshold=5.0,
     critical_threshold=15.0
 ):
-    """Calculate the system state for one simulation day."""
+    # Calculate the system state for one simulation day
 
     shock_active = shock_start_day <= day < shock_start_day + shock_duration
 
