@@ -20,7 +20,7 @@ For a selected country and dated reserve profile:
 - Analyst-supplied physical daily-flow denominator Dp, in the matching volume-per-day unit.
 - Desired model daily demand Dm, in normalized simulation units per day.
 
-The analyst must also record what Dp represents (for example, crude-oil net imports or domestic consumption). The denominator must match the scope of the reserve quantity and the research question. It is never silently inferred.
+The analyst must also record what Dp represents (for example, crude-oil net imports or domestic consumption). Dp must represent the same physical flow that model daily demand represents; it cannot be an unrelated denominator. The denominator must match the reserve scope and research question, and is never silently inferred.
 
 ## 3. Conversion equations
 
@@ -95,7 +95,7 @@ The dashboard's Reserve calibration tab:
 5. Runs one selected disruption scenario and response strategy using those translated reserve parameters.
 6. Exports the derived calibration record and daily model output.
 
-This is a country-specific reserve sensitivity experiment embedded in a wider normalized producer-disruption model. It is not a full model of the U.S. petroleum market, global oil trade, or Hormuz-importing economies.
+This is a country-specific reserve sensitivity experiment embedded in a wider normalized producer-disruption model. It combines a U.S. reserve profile with regional Gulf producer disruption benchmarks or hypothetical stress tests, so it is an abstract cross-system sensitivity experiment rather than a matched country-level balance. It is not a full model of the U.S. petroleum market, global oil trade, or Hormuz-importing economies.
 
 ## 9. Interpretation and limitations
 
