@@ -7,8 +7,14 @@ from src.sensitivity import analyze_demand_reduction
 from src.simulation import run_simulation
 from src.empirical_scenarios import (
     RESPONSE_STRATEGIES,
+    build_simulation_inputs,
     list_empirical_scenarios,
     run_empirical_scenarios,
+)
+from src.reserve_calibration import (
+    calibrate_reserve_profile,
+    list_calibratable_profiles,
+    summarize_announced_release_denominators,
 )
 
 # --------------------------------------------------
@@ -284,12 +290,13 @@ final_reserves = results[-1]["reserves_remaining"]
 # Main dashboard tabs
 # --------------------------------------------------
 
-simulation_tab, comparison_tab, sensitivity_tab, empirical_tab = st.tabs(
+simulation_tab, comparison_tab, sensitivity_tab, empirical_tab, reserve_tab = st.tabs(
     [
         "📊 Simulation",
         "⚖️ Scenario comparison",
         "📈 Sensitivity analysis",
         "🛢️ Empirical scenarios",
+        "🧰 Reserve calibration",
     ]
 )
 
@@ -655,3 +662,189 @@ with empirical_tab:
         file_name="empirical_oil_scenario_comparison.csv",
         mime="text/csv",
     )
+
+# ==================================================
+# TAB 5: EVIDENCE-AWARE RESERVE CALIBRATION
+# ==================================================
+
+with reserve_tab:
+    st.header("Evidence-aware reserve calibration")
+
+    st.warning(
+        "This is a separate, user-parameterized calibration experiment. "
+        "It does not alter the 18 normalized experiments above. The selected "
+        "physical daily-demand denominator must match the reserve record's scope."
+    )
+
+    calibratable_profiles = list_calibratable_profiles()
+    profile_options = {
+        f"{row['country']} — {row['reference_date']}": row
+        for _, row in calibratable_profiles.iterrows()
+    }
+    selected_profile_label = st.selectbox(
+        "Reserve profile",
+        options=list(profile_options),
+    )
+    selected_profile = profile_options[selected_profile_label]
+
+    st.caption(
+        f"Source: {selected_profile['source_organization']}. "
+        f"Stock category: {selected_profile['stock_category']}."
+    )
+
+    input_col1, input_col2 = st.columns(2)
+    with input_col1:
+        physical_daily_demand = st.number_input(
+            "Physical daily demand / net-import denominator "
+            "(million barrels per day)",
+            min_value=0.0,
+            value=0.0,
+            step=0.1,
+            help=(
+                "Enter a denominator that is conceptually consistent with the "
+                "selected crude-oil reserve stock. This is user supplied, not "
+                "inferred from the reserve profile."
+            ),
+        )
+        demand_denominator_basis = st.text_input(
+            "Denominator definition",
+            value="User-specified crude-oil daily flow denominator",
+        )
+    with input_col2:
+        model_daily_demand = st.number_input(
+            "Daily demand in simulation units",
+            min_value=0.1,
+            value=95.0,
+            step=1.0,
+        )
+
+    if physical_daily_demand <= 0:
+        st.info(
+            "Enter a positive physical daily-flow denominator to calculate "
+            "model-scale reserve inputs. No default denominator is assumed."
+        )
+    else:
+        calibration = calibrate_reserve_profile(
+            country=selected_profile["country"],
+            reference_date=selected_profile["reference_date"],
+            physical_daily_demand=physical_daily_demand,
+            physical_daily_demand_unit="million barrels per day",
+            model_daily_demand=model_daily_demand,
+            demand_denominator_basis=demand_denominator_basis,
+        )
+
+        metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+        metric_col1.metric(
+            "Derived stock cover",
+            f"{calibration['derived_stock_cover_days']:.1f} days",
+        )
+        metric_col2.metric(
+            "Model reserve inventory",
+            f"{calibration['initial_reserves_model_units']:.1f} units",
+        )
+        metric_col3.metric(
+            "Model daily release cap",
+            f"{calibration['reserve_release_limit_model_units']:.2f} units/day",
+        )
+        metric_col4.metric(
+            "First delivery day",
+            calibration["reserve_release_start_day"],
+        )
+
+        st.caption(
+            "The stock-cover result is calculated from the user-entered "
+            "denominator; it is not a separately reported official metric. "
+            "The release cap is DOE's nominal capability scaled to the chosen "
+            "denominator, not a guarantee of market delivery."
+        )
+
+        st.subheader("Run a reserve-calibrated scenario")
+        scenario_lookup = {
+            item["scenario_id"]: item
+            for item in list_empirical_scenarios()
+        }
+        selected_reserve_scenario = st.selectbox(
+            "Disruption scenario",
+            options=list(scenario_lookup),
+            format_func=lambda value: scenario_lookup[value]["name"],
+            key="reserve_calibration_scenario",
+        )
+        selected_reserve_strategy = st.selectbox(
+            "Response strategy",
+            options=["Reserve release", "Combined response"],
+            key="reserve_calibration_strategy",
+        )
+
+        calibrated_inputs = build_simulation_inputs(
+            selected_reserve_scenario,
+            selected_reserve_strategy,
+        )
+        calibrated_inputs.update(
+            {
+                "daily_demand": model_daily_demand,
+                "initial_reserves": calibration["initial_reserves_model_units"],
+                "reserve_release_limit": calibration["reserve_release_limit_model_units"],
+                "reserve_release_start_day": calibration["reserve_release_start_day"],
+            }
+        )
+        calibrated_results = run_simulation(**calibrated_inputs)
+        calibrated_summary = summarize_results(calibrated_results)
+
+        result_col1, result_col2, result_col3, result_col4 = st.columns(4)
+        result_col1.metric(
+            "Total unmet demand",
+            f"{calibrated_summary['total_unmet_demand']:.1f}",
+        )
+        result_col2.metric("Shortage days", calibrated_summary["shortage_days"])
+        result_col3.metric(
+            "Remaining reserves",
+            f"{calibrated_summary['remaining_reserves']:.1f}",
+        )
+        result_col4.metric(
+            "Total reserve released",
+            f"{sum(row['reserve_release'] for row in calibrated_results):.1f}",
+        )
+
+        st.plotly_chart(
+            create_supply_chart(calibrated_results),
+            use_container_width=True,
+        )
+        calibrated_daily_df = pd.DataFrame(calibrated_results)
+        st.download_button(
+            "Download calibrated daily simulation",
+            data=calibrated_daily_df.to_csv(index=False).encode("utf-8"),
+            file_name="reserve_calibrated_simulation.csv",
+            mime="text/csv",
+        )
+        calibration_export = pd.DataFrame([calibration])
+        st.download_button(
+            "Download calibration parameters",
+            data=calibration_export.to_csv(index=False).encode("utf-8"),
+            file_name="reserve_calibration_parameters.csv",
+            mime="text/csv",
+        )
+
+    st.divider()
+    st.subheader("Japan: announced stock-release equivalents")
+    japan_event_summary = summarize_announced_release_denominators()
+    st.dataframe(
+        japan_event_summary[
+            [
+                "decision_date",
+                "announced_quantity",
+                "quantity_unit",
+                "equivalent_days",
+                "implied_daily_supply_equivalent",
+                "implied_daily_supply_unit",
+            ]
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+    st.caption(
+        "The implied daily-supply-equivalent column is announced volume divided "
+        "by the official equivalent-days statement. It is a derived denominator "
+        "check, not a physical release rate, withdrawal time series, or evidence "
+        "that the announced volumes were fully delivered."
+    )
+
