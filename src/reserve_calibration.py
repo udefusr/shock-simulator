@@ -2,8 +2,9 @@
 
 This adapter never guesses a demand denominator. The caller must supply a
 physical daily-flow denominator whose unit matches the inventory and release
-rate record. It produces normalized model inputs, not a forecast of actual
-deliveries.
+rate record. This denominator must represent the same physical flow as the
+simulation's model_daily_demand. It produces normalized model inputs, not a
+forecast of actual deliveries.
 """
 from math import isfinite
 import pandas as pd
