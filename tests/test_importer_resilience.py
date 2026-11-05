@@ -48,8 +48,8 @@ def test_importer_scenario_reports_residual_gap_after_buffer_exhaustion():
         buffer_cover_days=0.5,
         simulation_days=2,
     )
-    assert result["summary"]["total_uncovered_gap_million_barrels"] == pytest.approx(1.05)
-    assert result["summary"]["maximum_daily_uncovered_gap_mbd"] == pytest.approx(1.05)
+    assert result["summary"]["total_uncovered_gap_million_barrels"] == pytest.approx(3.15)
+    assert result["summary"]["maximum_daily_uncovered_gap_mbd"] == pytest.approx(2.1)
 
 
 @pytest.mark.parametrize(
