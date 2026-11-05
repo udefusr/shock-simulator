@@ -173,6 +173,33 @@ def analyze_reserve_release_limits():
     add_baseline_comparisons(results, 2)
     return results
 
+def analyze_demand_reduction():
+    demand_reductions = [0.0, 0.05, 0.10, 0.15, 0.20]
+
+    common_inputs = {
+        "baseline_supply": 100.0,
+        "daily_demand": 95.0,
+        "initial_reserves": 200.0,
+        "shock_loss_pct": 0.25,
+        "shock_start_day": 1,
+        "shock_duration": 20,
+        "reserve_release_limit": 5.0,
+        "recovery_rate": 0.10,
+        "days": 60,
+        "use_reserves": True,
+    }
+
+    results = {}
+
+    for reduction in demand_reductions:
+        simulation = run_simulation(
+            **common_inputs,
+            demand_reduction_pct=reduction,
+        )
+
+        results[reduction] = summarize_results(simulation)
+
+    return add_baseline_comparisons(results, 0.0)
 
 def print_analysis(title, results, parameter_label, parameter_formatter=None):
     print(f"\n{title}")

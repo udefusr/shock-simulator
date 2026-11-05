@@ -54,3 +54,15 @@ def test_sensitivity_metrics_include_reserve_utilization():
     summary = calculate_sensitivity_metrics(simulation, 100)
 
     assert summary["reserve_utilization_percentage"] == 25.0
+
+from src.sensitivity import analyze_demand_reduction
+
+
+def test_demand_reduction_analysis():
+    results = analyze_demand_reduction()
+
+    assert len(results) == 5
+    assert 0.0 in results
+    assert 0.20 in results
+
+    assert results[0.20]["total_unmet_demand"] <= results[0.0]["total_unmet_demand"]
