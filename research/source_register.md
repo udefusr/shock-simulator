@@ -140,3 +140,32 @@
 - Document manual transcription separately from original downloadable data.
 - Distinguish observation, estimate, forecast, announced policy and completed release.
 - Retain source definitions and native units before calculating comparable measures.
+
+
+## 11. U.S. Department of Energy — 2016 Long-Term Strategic Review of the SPR
+
+**Organization:** U.S. Department of Energy.
+
+**Report:** *Long-Term Strategic Review of the U.S. Strategic Petroleum Reserve: Report to Congress* (2016).
+
+**URL:** <https://www.energy.gov/ceser/articles/long-term-strategic-review-ltsr-us-strategic-petroleum-reserve-spr-report-congress>
+
+**Relevant figure:** Figure 15, SPR Maximum Drawdown Rate vs. Duration.
+
+**Used for:** Historical design-reference drawdown schedule: 4.4 million barrels/day during days 1–90; 3.8 during days 91–120; 3.4 during days 121–150; and 1.9 during days 151–180.
+
+**Limitations:** This is a historical design curve, not a dated observation of current effective site-level capability. The simulator's continuation of the final rate beyond day 180 is an explicit extrapolation, not a value published in the figure.
+
+## 12. U.S. Government Accountability Office — GAO-26-106918
+
+**Organization:** U.S. Government Accountability Office.
+
+**Report:** *Energy Security: Congress and DOE Need a Unified Plan to Align Priorities and Investments for the Strategic Petroleum Reserve*.
+
+**Publication date:** May 29, 2026; publicly released June 26, 2026.
+
+**URL:** <https://www.gao.gov/products/gao-26-106918>
+
+**Used for:** Dated assessment of effective SPR drawdown capability, inventory, and operational constraints.
+
+**Data notes:** GAO reports DOE's estimates as of December 2025: effective aggregate drawdown capability of 2.700 million barrels/day against a 4.415 million-barrel/day design rate (61%). This aggregate snapshot is not a time-varying drawdown curve and is not combined with the 2016 DOE design-reference curve in this model.
