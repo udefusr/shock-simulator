@@ -131,3 +131,88 @@ def test_shock_can_start_later():
         days=5,
     )
     assert [r["supply"] for r in results] == [100, 100, 75, 75, 100]
+
+
+@pytest.mark.parametrize(
+    "parameters",
+    [
+        {"baseline_supply": -10},
+        {"daily_demand": -5},
+        {"initial_reserves": -100},
+        {"shock_loss_pct": 1.5},
+        {"shock_loss_pct": -0.1},
+        {"demand_reduction_pct": 1.2},
+        {"reserve_release_limit": -2},
+        {"days": 0},
+        {"shock_start_day": 0},
+        {"shock_duration": -1},
+    ],
+)
+def test_invalid_inputs_are_rejected(parameters):
+    with pytest.raises((ValueError, TypeError)):
+        run_simulation(**parameters)
+
+
+def test_reserves_never_become_negative():
+    results = run_simulation(
+        initial_reserves=2,
+        shock_loss_pct=0.5,
+        shock_duration=5,
+        reserve_release_limit=5,
+        days=5,
+    )
+
+    for row in results:
+        assert row["reserves_remaining"] >= 0
+
+
+def test_shock_status_is_recorded_correctly():
+    results = run_simulation(
+        shock_start_day=3,
+        shock_duration=2,
+        days=6,
+    )
+
+    assert [r["shock_active"] for r in results] == [
+        False,
+        False,
+        True,
+        True,
+        False,
+        False,
+    ]
+
+
+def test_different_runs_with_same_inputs_are_identical():
+    first = run_simulation()
+    second = run_simulation()
+
+    assert first == second
+
+
+def test_shock_duration_zero_means_no_shock():
+    results = run_simulation(
+        shock_duration=0,
+        use_reserves=False,
+        days=5,
+    )
+
+    assert all(not row["shock_active"] for row in results)
+
+
+def test_use_reserves_must_be_boolean():
+    with pytest.raises(TypeError):
+        run_simulation(use_reserves="false")
+
+
+def test_zero_baseline_supply_is_handled():
+    results = run_simulation(
+        baseline_supply=0,
+        daily_demand=95,
+        initial_reserves=0,
+        shock_loss_pct=0,
+        use_reserves=False,
+        days=1,
+    )
+
+    assert results[0]["unmet_demand"] == pytest.approx(95)
