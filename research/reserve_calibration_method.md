@@ -64,7 +64,13 @@ The data file contains two dated DOE inventory records: 411 million barrels at e
 
 The end-2025 DOE stock-cover statement of approximately 125 days uses U.S. crude-oil net imports. The 2026 inventory record does not include a corresponding days-cover value in the structured data. The adapter recalculates stock cover from the analyst's selected denominator and labels it as derived.
 
-DOE describes 4.4 million barrels/day as a maximum nominal rate for up to 90 days, after which drawdown capability declines as caverns empty. The current simulation applies a constant daily cap while inventory remains. It does not yet implement the declining-rate curve, site-level constraints, crude-grade matching, pipeline/terminal bottlenecks, or the difference between SPR releases and barrels available to a particular importing country.
+DOE's August 2016 Long-Term Strategic Review publishes a stepped design drawdown curve: 4.4 million barrels/day on days 1–90, 3.8 on days 91–120, 3.4 on days 121–150, and 1.9 on days 151–180 ([DOE report, Figure 15](https://www.energy.gov/ceser/articles/long-term-strategic-review-ltsr-us-strategic-petroleum-reserve-spr-report-congress)). The simulator offers this as an optional historical design-reference schedule. It is indexed from the first modeled delivery day, not from the reserve decision day, so the 13-day lead time does not consume the first 13 drawdown days.
+
+The DOE figure ends at day 180. For a simulation continuing beyond day 180, the implementation holds the final 1.9/4.4 multiplier constant. This is an explicit extrapolation for continuity, not a DOE-published rate beyond day 180. The alternative constant-cap setting is retained only as a comparison and does not reproduce DOE's post-90-day decline.
+
+This historical curve must not be read as current effective SPR capability. GAO's May 2026 report states that DOE estimated aggregate effective drawdown capability at 2.700 million barrels/day against a 4.415 million-barrel/day design rate as of December 2025 (61%), citing site outages, infrastructure issues, and inventory constraints ([GAO-26-106918](https://www.gao.gov/products/gao-26-106918)). The 2016 curve and December 2025 effective rate are different measures and dates; the model does not combine them into a synthetic current curve.
+
+The model still omits site-level constraints, crude-grade matching, pipeline/terminal bottlenecks, and the difference between SPR releases and barrels available to a particular importing country.
 
 ## 6. Japan announcement cross-check
 
@@ -102,7 +108,7 @@ This is a country-specific reserve sensitivity experiment embedded in a wider no
 - Model-scale outputs depend directly on the analyst-supplied denominator.
 - A nominal release capability is not a guarantee of actual market delivery.
 - The model's single reserve pool abstracts from crude grades, refined-product compatibility, geography, transport, and commercial availability.
-- The model applies a constant release limit and does not reproduce DOE's reported post-90-day taper.
+- The optional DOE taper is a 2016 historical design-reference curve, not current effective capability. Its final 1.9 rate is held beyond the source's 180-day horizon as an explicit extrapolation. GAO's December 2025 effective-rate estimate is reported separately and is not combined with the historical curve.
 - The simulation does not assume that U.S. SPR barrels can be delivered directly to any specific importer.
 - The Japan event cross-check uses rounded announced quantities and equivalent days.
 - The existing 18 empirical experiments retain their original normalized illustrative reserve parameters. This calibration tab does not retroactively change their published results.
