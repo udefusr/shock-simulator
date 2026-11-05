@@ -30,6 +30,8 @@ The current empirical focus is the 2026 Strait of Hormuz disruption. The project
 - Separate Japan announcement denominator cross-check that does not mislabel equivalent-day calculations as release rates.
 - Deterministic full-factorial uncertainty envelope covering six factors and 729 low/reference/high design points per selected scenario/strategy.
 - Main-effect ranking for the six uncertainty factors, with full design-point and summary CSV exports.
+- Country-specific importer stress tests using 2025 destination flow estimates for crude oil and condensates transiting Hormuz (China, India, South Korea and Japan).
+- Explicit alternative-supply delay, inventory-buffer assumptions, daily residual-gap calculations and CSV exports for importer scenarios.
 - Streamlit dashboard with Plotly visualizations and CSV exports.
 
 ## Research evidence and interpretation
@@ -63,6 +65,7 @@ The dashboard currently contains:
 4. **Empirical scenarios** — compare six scenarios under three response strategies, inspect individual runs, and export the 18-experiment results.
 5. **Reserve calibration** — translate a compatible dated U.S. SPR record into normalized inventory and release parameters after the user supplies a matching physical daily-flow denominator; apply the mobilisation delay and export calibration and simulation outputs.
 6. **Uncertainty analysis** — run 729 combinations across six low/reference/high assumptions, inspect outcome ranges and main-effect rankings, and export all design points.
+7. **Importer resilience** — select China, India, South Korea or Japan; stress-test the 2025 estimated Hormuz crude-flow baseline under disruption and analyst-defined replacement-supply and buffer assumptions.
 
 The empirical scenario experiments restrict the 10% demand-reduction response to the disruption window. Demand returns to baseline during recovery. Reserve releases may continue during recovery while a deficit remains and reserve stock is available.
 
@@ -83,6 +86,9 @@ Important assumptions and limitations:
 - Crude oil and refined-product inventories are not interchangeable without considering refining, quality, transport and distribution.
 - The model does not yet explicitly represent oil prices, refinery constraints, alternative shipping routes, country-level trade networks or market substitution.
 - The U.S. SPR calibration uses a country-specific reserve profile inside a normalized wider supply-disruption model; it is not a full U.S. oil-market, global trade, or Hormuz-importer model.
+- Importer destination-flow estimates are rounded Vortexa estimates reproduced in a secondary visualization; they do not establish national import shares or total national import dependency.
+- Importer alternative-supply and buffer inputs are scenario assumptions, not measured spare capacity, observed cargo substitution, or verified national strategic-stock volumes. Shared Saudi/UAE pipeline capacity is not allocated to importing countries.
+- The importer panel covers crude oil and condensates only. It excludes oil products and LNG; Bangladesh LNG exposure requires a separate gas-volume model.
 - The DOE 2016 drawdown schedule is a historical design reference, not current effective capacity. GAO reported effective aggregate drawdown capability of 2.700 million barrels/day versus a 4.415 design rate as of December 2025 (61%). The model keeps these dated measures separate; it does not infer a current site-level rate curve.
 - Uncertainty-envelope minimum, median and maximum values summarize deterministic design points. They are not confidence intervals, probabilities, or expected values.
 - The uncertainty design uses analyst-defined ranges and does not yet model correlated inputs or statistically estimated distributions.
@@ -96,6 +102,7 @@ Important assumptions and limitations:
 - `data/raw/other/eia_production_shutins.csv` — manually transcribed EIA production shut-in estimates.
 - `data/raw/other/reserve_response_events.csv` — manually structured official Japanese reserve-response announcements.
 - `data/processed/reserve_profiles_initial.csv` — source-backed reserve profile snapshots, preserving native units and stock definitions.
+- `data/processed/hormuz_importer_flows_2025.csv` — 2025 destination estimates for crude oil and condensates transiting Hormuz, with source provenance and limitations.
 - `research/methodology.md` — research and simulation methodology.
 - `research/data_dictionary.md` — data fields and measurement units.
 - `research/source_register.md` — source register.
@@ -104,6 +111,8 @@ Important assumptions and limitations:
 - `research/reserve_data_assessment.md` — reserve-source assessment, comparability cautions and data gaps.
 - `research/reserve_calibration_method.md` — unit-compatible conversion, lead-time treatment, and calibration limitations.
 - `research/uncertainty_analysis.md` — bounded uncertainty factors, full-factorial design, main-effect method and interpretation.
+- `src/importer_resilience.py` — importer-country disruption, replacement-supply and buffer model.
+- `research/methodology.md` and `research/source_register.md` — importer evidence, model equations, sources and limitations.
 
 The reserve data is an initial source inventory, not a calibrated cross-country reserve dataset. Missing values mean not reported or not established; they are not zero.
 
@@ -119,7 +128,8 @@ shock-simulator/
 │   ├── data_loader.py
 │   ├── reserve_data.py
 │   ├── reserve_calibration.py
-│   └── uncertainty.py
+│   ├── uncertainty.py
+│   └── importer_resilience.py
 ├── scripts/
 │   └── validate_reserve_data.py
 ├── tests/
@@ -128,12 +138,14 @@ shock-simulator/
 │   ├── test_empirical_scenarios.py
 │   ├── test_reserve_data.py
 │   ├── test_reserve_calibration.py
-│   └── test_uncertainty.py
+│   ├── test_uncertainty.py
+│   └── test_importer_resilience.py
 ├── data/
 │   ├── raw/
 │   │   ├── jodi/
 │   │   └── other/
 │   └── processed/
+│       └── hormuz_importer_flows_2025.csv
 ├── research/
 ├── app.py
 ├── main.py
@@ -213,7 +225,10 @@ python -m src.sensitivity
 - [ ] Obtain a current, dated, site-level effective drawdown schedule before claiming current operational release capability.
 - [ ] Calibrate deliverable reserve release constraints by country.
 - [ ] Model production disruption separately from maritime transit disruption and rerouting.
-- [ ] Develop country-level importer and producer resilience models.
+- [x] Add an initial importer-country flow stress-test model with explicit alternative-supply and buffer assumptions.
+- [ ] Add country total-import denominators and matching trade-route/origin evidence before estimating national dependency shares.
+- [ ] Model producer-country rerouting and shared pipeline capacity separately from importer replacement sourcing.
+- [ ] Add a separate LNG importer module with consistent gas-volume units; do not mix LNG data into crude-oil barrels/day.
 - [x] Add deterministic 729-point uncertainty envelope and main-effect screening for six model assumptions.
 - [ ] Estimate defensible statistical distributions and correlated uncertainty from data before adding probabilistic forecasts.
 - [ ] Complete research report, figures and portfolio demonstration.
