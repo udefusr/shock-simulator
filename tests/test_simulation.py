@@ -291,3 +291,42 @@ def test_zero_demand_does_not_cause_division_error():
 
     assert results[0]["shortage_percentage"] == 0
     assert results[0]["severity"] == "Normal"
+
+
+def test_custom_severity_thresholds():
+    assert classify_severity(7, warning_threshold=8, critical_threshold=20) == "Warning"
+
+    assert (
+        classify_severity(15, warning_threshold=8, critical_threshold=20) == "Critical"
+    )
+
+    assert classify_severity(25, warning_threshold=8, critical_threshold=20) == "Severe"
+
+
+def test_invalid_thresholds_are_rejected():
+    invalid_configurations = [
+        {"warning_threshold": -1},
+        {"warning_threshold": 15, "critical_threshold": 10},
+        {"critical_threshold": 101},
+        {"warning_threshold": 5, "critical_threshold": 5},
+    ]
+
+    for parameters in invalid_configurations:
+        with pytest.raises(ValueError):
+            run_simulation(**parameters)
+
+
+def test_custom_thresholds_affect_daily_severity():
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=100,
+        initial_reserves=0,
+        shock_loss_pct=0.10,
+        use_reserves=False,
+        warning_threshold=5,
+        critical_threshold=15,
+        days=1,
+    )
+
+    assert results[0]["shortage_percentage"] == pytest.approx(10)
+    assert results[0]["severity"] == "Critical"

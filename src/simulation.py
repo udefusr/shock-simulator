@@ -13,6 +13,8 @@ def validate_inputs(
     use_reserves,
     recovery_rate,
     days,
+    warning_threshold,
+    critical_threshold
 ):
     # Validate simulation parameters before running
 
@@ -72,15 +74,34 @@ def validate_inputs(
     if not 0 < recovery_rate <= 1:
         raise ValueError("recovery_rate must be greater than 0 and at most 1.")
 
+    if not 0 <= warning_threshold < critical_threshold <= 100:
+        raise ValueError(
+            "Thresholds must satisfy: "
+            "0 <= warning_threshold < critical_threshold <= 100."
+        )
 
-def classify_severity(shortage_percentage):
-    """Classify disruption severity based on unmet demand percentage."""
+
+def classify_severity(
+    shortage_percentage,
+    warning_threshold=5.0,
+    critical_threshold=15.0,
+):
+    """Classify severity using configurable shortage thresholds."""
+
+    if not 0 <= warning_threshold < critical_threshold <= 100:
+        raise ValueError(
+            "Thresholds must satisfy: "
+            "0 <= warning_threshold < critical_threshold <= 100."
+        )
+
+    if shortage_percentage < 0 or shortage_percentage > 100:
+        raise ValueError("shortage_percentage must be between 0 and 100.")
 
     if shortage_percentage == 0:
         return "Normal"
-    elif shortage_percentage <= 5:
+    elif shortage_percentage <= warning_threshold:
         return "Warning"
-    elif shortage_percentage <= 15:
+    elif shortage_percentage <= critical_threshold:
         return "Critical"
     else:
         return "Severe"
@@ -99,6 +120,8 @@ def simulate_day(
     demand_reduction_pct,
     recovery_rate,
     use_reserves,
+    warning_threshold=5.0,
+    critical_threshold=15.0
 ):
     """Calculate the system state for one simulation day."""
 
@@ -122,7 +145,11 @@ def simulate_day(
     unmet_demand = max(0.0, deficit - release)
     shortage_percentage = (unmet_demand / demand) * 100 if demand > 0 else 0.0
 
-    severity = classify_severity(shortage_percentage)
+    severity = classify_severity(
+        shortage_percentage,
+        warning_threshold,
+        critical_threshold,
+    )
     is_critical = severity in ("Critical", "Severe")
 
     return {
@@ -151,6 +178,8 @@ def run_simulation(
     use_reserves=True,
     recovery_rate=0.10,
     days=60,
+    warning_threshold=5.0,
+    critical_threshold=15.0
 ):
     # Run a simulation and return daily results
 
@@ -166,6 +195,8 @@ def run_simulation(
         use_reserves,
         recovery_rate,
         days,
+        warning_threshold,
+        critical_threshold
     )
 
     reserves = float(initial_reserves)
@@ -186,6 +217,8 @@ def run_simulation(
             demand_reduction_pct=demand_reduction_pct,
             use_reserves=use_reserves,
             recovery_rate=recovery_rate,
+            warning_threshold=warning_threshold,
+            critical_threshold=critical_threshold
         )
         previous_supply = daily_result["supply"]
         reserves = daily_result["reserves_remaining"]

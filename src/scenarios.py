@@ -46,6 +46,8 @@ def compare_scenarios():
         "reserve_release_limit": 5,
         "recovery_rate": 0.10,
         "days": 60,
+        "warning_threshold": 5.0,
+        "critical_threshold": 15.0
     }
 
     scenarios = {
