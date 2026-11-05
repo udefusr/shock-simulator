@@ -410,3 +410,40 @@ def test_invalid_demand_reduction_periods_are_rejected():
     for parameters in invalid_configurations:
         with pytest.raises((ValueError, TypeError)):
             run_simulation(**parameters)
+
+
+def test_delayed_reserve_mobilization_waits_until_start_day():
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=95,
+        initial_reserves=100,
+        shock_loss_pct=0.25,
+        shock_duration=4,
+        reserve_release_limit=5,
+        reserve_release_start_day=3,
+        use_reserves=True,
+        days=4,
+    )
+
+    assert [row["reserve_release"] for row in results] == pytest.approx([0, 0, 5, 5])
+    assert [row["reserve_release_active"] for row in results] == [False, False, True, True]
+    assert [row["reserves_remaining"] for row in results] == pytest.approx([100, 100, 95, 90])
+
+
+def test_reserve_release_start_day_must_be_positive_integer():
+    for value in (0, -1, 1.5, True):
+        with pytest.raises((ValueError, TypeError)):
+            run_simulation(reserve_release_start_day=value)
+
+
+def test_delayed_reserve_mobilization_does_not_release_when_reserves_disabled():
+    results = run_simulation(
+        initial_reserves=100,
+        shock_loss_pct=0.25,
+        shock_duration=3,
+        reserve_release_start_day=3,
+        use_reserves=False,
+        days=3,
+    )
+    assert all(row["reserve_release"] == 0 for row in results)
+    assert all(not row["reserve_release_active"] for row in results)
