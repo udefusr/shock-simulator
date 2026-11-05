@@ -36,10 +36,29 @@ def load_importer_flow_profiles(path=DATA_PATH):
         raise ValueError(f"Importer flow data is missing columns: {sorted(missing)}")
     if data["country"].duplicated().any():
         raise ValueError("Importer flow data contains duplicate country records.")
+    data["baseline_hormuz_flow_mbd"] = pd.to_numeric(
+        data["baseline_hormuz_flow_mbd"], errors="coerce"
+    )
     if data["baseline_hormuz_flow_mbd"].isna().any():
-        raise ValueError("Importer flow baseline values cannot be missing.")
+        raise ValueError("Importer flow baseline values must be numeric and present.")
+    if not data["baseline_hormuz_flow_mbd"].map(isfinite).all():
+        raise ValueError("Importer flow baseline values must be finite.")
     if (data["baseline_hormuz_flow_mbd"] <= 0).any():
         raise ValueError("Importer flow baseline values must be positive.")
+    for column in (
+        "country",
+        "commodity",
+        "source_url",
+        "data_status",
+        "source_organization",
+        "data_provider",
+        "limitations",
+    ):
+        if data[column].isna().any() or data[column].astype(str).str.strip().eq("").any():
+            raise ValueError(f"Importer flow {column} values cannot be blank.")
+    if not data["source_url"].astype(str).str.startswith(("https://", "http://")).all():
+        raise ValueError("Importer flow source_url values must be HTTP(S) URLs.")
+    data["reference_year"] = pd.to_numeric(data["reference_year"], errors="raise").astype(int)
     return data
 
 
