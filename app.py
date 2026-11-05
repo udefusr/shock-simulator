@@ -761,6 +761,59 @@ with reserve_tab:
             "denominator, not a guarantee of market delivery."
         )
 
+        drawdown_profile = st.selectbox(
+            "Reserve drawdown profile",
+            options=[
+                "DOE 2016 design-reference taper",
+                "Constant nominal cap (comparison only)",
+            ],
+            key="reserve_calibration_drawdown_profile",
+            help=(
+                "The DOE taper uses historical 2016 design rates. It is not a "
+                "measurement of current effective SPR capability."
+            ),
+        )
+
+        if drawdown_profile == "DOE 2016 design-reference taper":
+            st.dataframe(
+                pd.DataFrame(
+                    [
+                        ["Days 1–90", 4.4],
+                        ["Days 91–120", 3.8],
+                        ["Days 121–150", 3.4],
+                        ["Days 151–180", 1.9],
+                    ],
+                    columns=[
+                        "Days since first delivery",
+                        "DOE design rate (million barrels/day)",
+                    ],
+                ),
+                width="stretch",
+                hide_index=True,
+            )
+            st.caption(
+                "The DOE 2016 curve is expressed as a fraction of the calibrated "
+                "4.4-million-barrel/day nominal cap. For model days beyond day 180, "
+                "the final 1.9 rate is held constant; that extension is an explicit "
+                "extrapolation because the cited curve ends at day 180. "
+                f"Source: {calibration['doe_spr_design_reference_url']}"
+            )
+            st.warning(
+                "This is a historical design-reference curve, not a current "
+                "capability forecast. GAO reported effective aggregate drawdown "
+                "capability of 2.700 million barrels/day versus a 4.415 design rate "
+                "as of December 2025 (61%). The dated effective rate reflects "
+                "site outages, infrastructure and inventory limits. The model "
+                "does not combine that aggregate figure with the 2016 taper because "
+                "a current time-varying site-level curve is not available in this "
+                "calibration record. Source: https://www.gao.gov/products/gao-26-106918"
+            )
+        else:
+            st.warning(
+                "This comparison holds the nominal cap constant and therefore "
+                "does not reproduce DOE's published post-90-day decline."
+            )
+
         st.info(
             "The selected disruption percentage is an EIA-derived regional Gulf "
             "producer benchmark or a hypothetical stress test, while the reserve "
@@ -796,6 +849,11 @@ with reserve_tab:
                 "initial_reserves": calibration["initial_reserves_model_units"],
                 "reserve_release_limit": calibration["reserve_release_limit_model_units"],
                 "reserve_release_start_day": calibration["reserve_release_start_day"],
+                "reserve_release_schedule": (
+                    calibration["doe_spr_design_reference_schedule"]
+                    if drawdown_profile == "DOE 2016 design-reference taper"
+                    else None
+                ),
             }
         )
         calibrated_results = run_simulation(**calibrated_inputs)
@@ -827,7 +885,10 @@ with reserve_tab:
             file_name="reserve_calibrated_simulation.csv",
             mime="text/csv",
         )
-        calibration_export = pd.DataFrame([calibration])
+        calibration_export = pd.DataFrame([{
+            **calibration,
+            "selected_drawdown_profile": drawdown_profile,
+        }])
         st.download_button(
             "Download calibration parameters",
             data=calibration_export.to_csv(index=False).encode("utf-8"),
