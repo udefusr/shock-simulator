@@ -330,3 +330,83 @@ def test_custom_thresholds_affect_daily_severity():
 
     assert results[0]["shortage_percentage"] == pytest.approx(10)
     assert results[0]["severity"] == "Critical"
+
+
+def test_demand_reduction_ends_when_configured_duration_expires():
+    results = run_simulation(
+        baseline_supply=100,
+        daily_demand=95,
+        initial_reserves=0,
+        shock_loss_pct=0.25,
+        shock_duration=2,
+        demand_reduction_pct=0.10,
+        demand_reduction_start_day=1,
+        demand_reduction_duration=2,
+        use_reserves=False,
+        days=4,
+    )
+
+    assert [row["demand"] for row in results] == pytest.approx([85.5, 85.5, 95, 95])
+
+    assert [row["demand_reduction_active"] for row in results] == [
+        True,
+        True,
+        False,
+        False,
+    ]
+
+
+def test_demand_reduction_can_start_later():
+    results = run_simulation(
+        daily_demand=100,
+        shock_loss_pct=0,
+        demand_reduction_pct=0.10,
+        demand_reduction_start_day=3,
+        demand_reduction_duration=2,
+        days=6,
+    )
+
+    assert [row["demand"] for row in results] == pytest.approx(
+        [100, 100, 90, 90, 100, 100]
+    )
+
+
+def test_zero_demand_reduction_duration_means_no_reduction():
+    results = run_simulation(
+        daily_demand=100,
+        shock_loss_pct=0,
+        demand_reduction_pct=0.10,
+        demand_reduction_duration=0,
+        days=3,
+    )
+
+    assert all(row["demand"] == pytest.approx(100) for row in results)
+    assert all(not row["demand_reduction_active"] for row in results)
+
+
+def test_unspecified_demand_reduction_duration_preserves_old_behavior():
+    results = run_simulation(
+        daily_demand=100,
+        shock_loss_pct=0,
+        shock_duration=1,
+        demand_reduction_pct=0.10,
+        use_reserves=False,
+        days=4,
+    )
+
+    assert all(row["demand"] == pytest.approx(90) for row in results)
+    assert all(row["demand_reduction_active"] for row in results)
+
+
+def test_invalid_demand_reduction_periods_are_rejected():
+    invalid_configurations = [
+        {"demand_reduction_start_day": 0},
+        {"demand_reduction_duration": -1},
+        {"demand_reduction_duration": 1.5},
+        {"demand_reduction_duration": True},
+        {"demand_reduction_start_day": True},
+    ]
+
+    for parameters in invalid_configurations:
+        with pytest.raises((ValueError, TypeError)):
+            run_simulation(**parameters)

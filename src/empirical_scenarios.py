@@ -222,6 +222,8 @@ def build_simulation_inputs(
         {
             "shock_loss_pct": scenario.shock_loss_pct,
             "shock_duration": scenario.shock_duration_days,
+            "demand_reduction_start_day": BASE_MODEL_INPUTS["shock_start_day"],
+            "demand_reduction_duration": scenario.shock_duration_days,
         }
     )
 

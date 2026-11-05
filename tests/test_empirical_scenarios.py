@@ -116,3 +116,29 @@ def test_all_scenarios_can_be_run_together():
     assert "baseline" in results
     assert "observed_benchmark" in results
     assert "extreme_stress" in results
+
+
+def test_empirical_demand_reduction_duration_matches_shock_duration():
+    for scenario in list_empirical_scenarios():
+        inputs = build_simulation_inputs(scenario["scenario_id"])
+
+        assert inputs["demand_reduction_duration"] == scenario["shock_duration_days"]
+
+
+def test_combined_response_restores_demand_after_disruption():
+    result = run_empirical_scenario(
+        "august_conditions",
+        strategy="Combined response",
+    )
+
+    daily_results = result["daily_results"]
+
+    # August scenario lasts 31 days.
+    assert daily_results[0]["demand"] == pytest.approx(85.5)
+    assert daily_results[30]["demand"] == pytest.approx(85.5)
+
+    # Day 32 is the recovery period.
+    assert daily_results[31]["demand"] == pytest.approx(95.0)
+
+    assert daily_results[30]["demand_reduction_active"] is True
+    assert daily_results[31]["demand_reduction_active"] is False

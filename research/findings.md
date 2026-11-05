@@ -94,3 +94,78 @@ However, differences between JODI and EIA are not automatically errors. The sour
 - How did importing economies adjust refinery intake and imports?
 - How did the September disruption to Saudi Arabia's East-West pipeline affect recovery?
 - How should uncertainty and missing observations be represented in the simulation?
+
+## 2026 Empirical Scenario Experiments — Revised Demand-Response Model
+
+### Experimental design
+
+Six disruption scenarios were tested against three response strategies:
+
+1. No intervention.
+2. Reserve release.
+3. Combined response: reserve release and a 10% demand reduction.
+
+The simulation horizon is 213 days. Demand reduction is now restricted to the disruption period. Demand returns to its baseline level during recovery.
+
+Reserve deployment remains available during recovery, subject to the daily release limit and remaining reserve stock.
+
+All supply, demand and reserve quantities are normalized model units.
+
+### Results
+
+| Scenario | Strategy | Total unmet demand | Shortage days | Critical days | Severe days | Remaining reserves |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| March–July | No intervention | 4571.37 | 171 | 164 | 158 | 200.00 |
+| March–July | Reserve release | 4371.37 | 171 | 164 | 158 | 0.00 |
+| March–July | Combined response | 2917.87 | 171 | 164 | 158 | 0.00 |
+| August | No intervention | 642.22 | 45 | 39 | 32 | 200.00 |
+| August | Reserve release | 442.22 | 43 | 35 | 0 | 0.00 |
+| August | Combined response | 147.72 | 43 | 4 | 0 | 0.00 |
+| September | No intervention | 480.10 | 42 | 36 | 0 | 200.00 |
+| September | Reserve release | 287.68 | 36 | 32 | 0 | 7.58 |
+| September | Combined response | 19.82 | 6 | 2 | 0 | 24.72 |
+| Severe | No intervention | 7180.76 | 174 | 168 | 162 | 200.00 |
+| Severe | Reserve release | 6980.76 | 174 | 168 | 162 | 0.00 |
+| Severe | Combined response | 5527.26 | 174 | 168 | 162 | 0.00 |
+| Extreme | No intervention | 11211.54 | 178 | 172 | 165 | 200.00 |
+| Extreme | Reserve release | 11011.54 | 178 | 172 | 165 | 0.00 |
+| Extreme | Combined response | 9558.04 | 178 | 172 | 165 | 0.00 |
+
+### Strategy effectiveness
+
+Percentage reduction in cumulative unmet demand relative to no intervention:
+
+| Scenario | Reserve release | Combined response |
+| --- | ---: | ---: |
+| March–July | 4.4% | 36.2% |
+| August | 31.1% | 77.0% |
+| September | 40.1% | 95.9% |
+| Severe stress | 2.8% | 23.0% |
+| Extreme stress | 1.8% | 14.7% |
+
+### Findings
+
+1. Reserve release provides limited protection under prolonged disruptions because the finite reserve stock becomes depleted.
+2. Combined response produces substantial reductions in unmet demand under the shorter August and September scenarios.
+3. In the longer benchmark and hypothetical stress tests, intervention reduces cumulative unmet demand but does not eliminate shortage days.
+4. Severe and extreme shocks overwhelm the modeled reserve capacity and retain substantial shortages even with combined intervention.
+5. The effectiveness of demand reduction depends on intervention duration. The revised model therefore restricts the 10% demand reduction to the disruption period rather than maintaining it throughout recovery.
+
+### Model interpretation
+
+The revised demand-response experiment replaces the original always-active demand-reduction assumption.
+
+The original experiment kept demand reduction active for all 213 days. The revised experiment restores baseline demand after the disruption ends.
+
+This increases combined-response unmet demand in every non-baseline scenario compared with the original experiment.
+
+The results demonstrate sensitivity to intervention timing, not real-world policy effectiveness.
+
+### Limitations
+
+- Normalized units are not actual million barrels or barrels per day.
+- Reserve capacity and release limits are assumptions.
+- The 10% demand reduction is an experimental policy assumption.
+- Recovery follows a simplified deterministic function.
+- The model does not explicitly represent oil prices, rerouting, country-level trade networks or substitution between fuels.
+- These experiments do not establish causal effects of real-world policy interventions.

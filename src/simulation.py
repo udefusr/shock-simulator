@@ -14,9 +14,11 @@ def validate_inputs(
     recovery_rate,
     days,
     warning_threshold,
-    critical_threshold
+    critical_threshold,
+    demand_reduction_start_day=1,
+    demand_reduction_duration=None,
 ):
-    # Validate simulation parameters before running
+    """Validate simulation parameters before running."""
 
     numeric_values = {
         "baseline_supply": baseline_supply,
@@ -27,7 +29,7 @@ def validate_inputs(
         "demand_reduction_pct": demand_reduction_pct,
         "recovery_rate": recovery_rate,
         "warning_threshold": warning_threshold,
-        "critical_threshold": critical_threshold
+        "critical_threshold": critical_threshold,
     }
 
     for name, value in numeric_values.items():
@@ -61,11 +63,28 @@ def validate_inputs(
     if isinstance(days, bool) or not isinstance(days, int):
         raise TypeError("days must be an integer.")
 
+    if isinstance(demand_reduction_start_day, bool) or not isinstance(
+        demand_reduction_start_day, int
+    ):
+        raise TypeError("demand_reduction_start_day must be an integer.")
+
     if shock_start_day < 1:
         raise ValueError("shock_start_day must be at least 1.")
 
     if shock_duration < 0:
         raise ValueError("shock_duration cannot be negative.")
+
+    if demand_reduction_start_day < 1:
+        raise ValueError("demand_reduction_start_day must be at least 1.")
+
+    if demand_reduction_duration is not None:
+        if isinstance(demand_reduction_duration, bool) or not isinstance(
+            demand_reduction_duration, int
+        ):
+            raise TypeError("demand_reduction_duration must be an integer or None.")
+
+        if demand_reduction_duration < 0:
+            raise ValueError("demand_reduction_duration cannot be negative.")
 
     if days < 1:
         raise ValueError("days must be at least 1.")
@@ -123,9 +142,11 @@ def simulate_day(
     recovery_rate,
     use_reserves,
     warning_threshold=5.0,
-    critical_threshold=15.0
+    critical_threshold=15.0,
+    demand_reduction_start_day=1,
+    demand_reduction_duration=None,
 ):
-    # Calculate the system state for one simulation day
+    """Calculate the system state for one simulation day."""
 
     shock_active = shock_start_day <= day < shock_start_day + shock_duration
 
@@ -134,7 +155,17 @@ def simulate_day(
     else:
         supply = previous_supply + recovery_rate * (baseline_supply - previous_supply)
 
-    demand = daily_demand * (1 - demand_reduction_pct)
+    # Determine whether demand reduction is active today.
+    demand_reduction_active = day >= demand_reduction_start_day and (
+        demand_reduction_duration is None
+        or day < demand_reduction_start_day + demand_reduction_duration
+    )
+
+    effective_demand_reduction = (
+        demand_reduction_pct if demand_reduction_active else 0.0
+    )
+
+    demand = daily_demand * (1 - effective_demand_reduction)
 
     deficit = max(0.0, demand - supply)
 
@@ -152,11 +183,13 @@ def simulate_day(
         warning_threshold,
         critical_threshold,
     )
+
     is_critical = severity in ("Critical", "Severe")
 
     return {
         "day": day,
         "shock_active": shock_active,
+        "demand_reduction_active": demand_reduction_active,
         "supply": supply,
         "demand": demand,
         "reserve_release": release,
@@ -181,9 +214,11 @@ def run_simulation(
     recovery_rate=0.10,
     days=60,
     warning_threshold=5.0,
-    critical_threshold=15.0
+    critical_threshold=15.0,
+    demand_reduction_start_day=1,
+    demand_reduction_duration=None,
 ):
-    # Run a simulation and return daily results
+    """Run a simulation and return daily results."""
 
     validate_inputs(
         baseline_supply,
@@ -198,7 +233,9 @@ def run_simulation(
         recovery_rate,
         days,
         warning_threshold,
-        critical_threshold
+        critical_threshold,
+        demand_reduction_start_day,
+        demand_reduction_duration,
     )
 
     reserves = float(initial_reserves)
@@ -220,8 +257,11 @@ def run_simulation(
             use_reserves=use_reserves,
             recovery_rate=recovery_rate,
             warning_threshold=warning_threshold,
-            critical_threshold=critical_threshold
+            critical_threshold=critical_threshold,
+            demand_reduction_start_day=demand_reduction_start_day,
+            demand_reduction_duration=demand_reduction_duration,
         )
+
         previous_supply = daily_result["supply"]
         reserves = daily_result["reserves_remaining"]
         results.append(daily_result)
