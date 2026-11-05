@@ -194,3 +194,48 @@ Daily simulation outputs add:
 | reserve_drawdown_day | Day number since first modeled reserve delivery; blank before mobilisation |
 | reserve_release_rate_multiplier | Schedule multiplier active on that day; zero before mobilisation |
 | reserve_release_limit_today | Effective model-unit daily cap after applying the schedule; zero before mobilisation |
+
+
+## Importer-country route-flow dataset
+
+File: `data/processed/hormuz_importer_flows_2025.csv`
+
+| Field | Description |
+| --- | --- |
+| country | Destination market |
+| reference_year | Calendar year represented by the route-flow observation |
+| commodity | Crude oil and condensates; does not include LNG or a separate oil-products series |
+| baseline_hormuz_flow_mbd | Estimated seaborne destination flow via Hormuz, million barrels/day |
+| source_organization | Publisher of the visualization |
+| data_provider | Provider of the underlying estimate |
+| source_url | Source page for the destination-flow graphic |
+| data_status | Source classification and provenance note |
+| limitations | Known rounding and scope limitations |
+
+The destination-flow values are estimates, rounded to 0.1 million barrels/day. They are not country total imports or national import-dependency percentages.
+
+## Importer resilience inputs and outputs
+
+Function: `run_importer_resilience_scenario()` in `src/importer_resilience.py`.
+
+| Input | Description |
+| --- | --- |
+| disruption_fraction | Share of the baseline Hormuz flow assumed unavailable (0–1) |
+| disruption_duration_days | Number of days for which the disruption applies |
+| alternative_supply_mbd | Analyst-defined replacement supply capacity, capped by the daily lost flow |
+| alternative_supply_start_day | First day replacement supply is available |
+| buffer_cover_days | Analyst-defined buffer volume expressed as days of disrupted Hormuz flow |
+| simulation_days | Total scenario horizon; defaults to disruption duration plus 30 recovery/observation days |
+
+Daily output fields:
+
+| Field | Description |
+| --- | --- |
+| gross_lost_imports_mbd | Gross lost destination flow on the day |
+| alternative_supply_mbd | Replacement volume assumed available on the day |
+| buffer_release_mbd | Buffer volume released to cover the residual gap |
+| uncovered_import_gap_mbd | Residual daily lost flow after replacement and buffer release |
+| buffer_remaining_million_barrels | Remaining modeled buffer inventory |
+| cumulative_uncovered_gap_million_barrels | Sum of uncovered daily gaps over the simulation horizon |
+
+The buffer is a scenario assumption, not a measured national strategic stock. Summing a million-barrel/day rate over one-day time steps yields million barrels.
