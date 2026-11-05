@@ -145,3 +145,22 @@ The engine uses reserve-enabled strategies only. The neutral combination reprodu
 A main-effect screening statistic is also calculated for each input: mean total unmet demand at the high level minus mean total unmet demand at the low level, averaged over all settings of the other five inputs. The absolute difference ranks average high-low effects. This is a screening measure and does not isolate interactions or establish causal effects.
 
 The default levels are analyst-defined and have not been statistically estimated from empirical distributions. No probabilities are assigned. The no-disruption baseline is excluded because reserve parameters would be inactive and create redundant outcomes. See research/uncertainty_analysis.md for the complete design and limitations.
+
+
+## 11. Importer-country resilience scenario
+
+The importer module uses 2025 estimates of crude-oil and condensate seaborne flows through the Strait of Hormuz for China, India, South Korea, and Japan. These destination-flow observations are not total national imports, national dependency percentages, or product/LNG flows. The country values are rounded to 0.1 million barrels per day and sourced from the Vortexa-based destination graphic listed in the source register.
+
+For a selected country, the model calculates:
+
+`gross daily loss = baseline Hormuz destination flow × disruption fraction`
+
+`starting buffer = gross daily loss × assumed buffer-cover days`
+
+For each disrupted day, alternative sourcing becomes available only from the user-selected start day and is capped at the gross daily loss. The buffer releases against the residual daily gap, bounded by remaining buffer stock. The remaining daily gap is recorded as uncovered imports. Daily rates in million barrels/day are summed over calendar days to obtain million barrels.
+
+The alternative supply rate, buffer-cover duration, disruption fraction and delay are analyst-defined scenario assumptions. They are not inferred from JODI national imports, national inventory statistics, spare pipeline capacity, or observed replacement cargoes. The buffer is a deliberately simplified volume equal to a chosen number of days of the disrupted flow; it must not be labelled official national stock cover.
+
+The model does not allocate the shared Saudi/UAE pipeline bypass capacity to importers. It does not identify cargo origins, model bilateral contracts, oil products, LNG, refinery compatibility, prices, or competition among importers for the same replacement barrels. It also does not infer a national import-dependency percentage because a consistent same-year total-import denominator is not included in the route-flow dataset.
+
+The present comparison includes four destination markets with published flow labels. Bangladesh is not represented in this crude-oil panel. The IEA separately reports substantial Bangladesh exposure to LNG transiting Hormuz; that is a different commodity and should be added through a separate LNG module with consistent gas-volume units rather than mixed into crude-oil barrels/day.
