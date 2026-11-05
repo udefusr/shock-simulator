@@ -2,6 +2,7 @@ import pandas as pd
 import pytest
 
 from src.reserve_calibration import (
+    build_doe_spr_design_reference_schedule,
     calibrate_reserve_profile,
     list_calibratable_profiles,
     summarize_announced_release_denominators,
@@ -27,6 +28,12 @@ def test_us_spr_profile_converts_to_model_units_and_delays_release():
     assert result["initial_reserves_model_units"] == pytest.approx((282.2 / 20.0) * 95)
     assert result["reserve_release_limit_model_units"] == pytest.approx((4.4 / 20.0) * 95)
     assert result["reserve_release_start_day"] == 14
+    schedule = result["doe_spr_design_reference_schedule"]
+    assert [period["rate_multiplier"] for period in schedule] == pytest.approx(
+        [1.0, 3.8 / 4.4, 3.4 / 4.4, 1.9 / 4.4]
+    )
+    assert schedule[-1]["start_day"] == 151
+    assert schedule[-1]["end_day"] is None
 
 
 def test_ambiguous_us_profile_requires_reference_date():
@@ -76,3 +83,14 @@ def test_japan_event_equivalents_are_not_mislabeled_as_release_rates():
         [8.5 / 30, 5.8 / 20]
     )
     assert summary["derived_metric_status"].str.contains("not a release rate").all()
+
+
+def test_doe_design_reference_schedule_requires_the_documented_nominal_rate():
+    schedule = build_doe_spr_design_reference_schedule(4.4)
+    assert schedule[0] == {
+        "start_day": 1,
+        "end_day": 90,
+        "rate_multiplier": 1.0,
+    }
+    with pytest.raises(ValueError, match="4.4"):
+        build_doe_spr_design_reference_schedule(2.7)
