@@ -99,3 +99,14 @@ Hypothetical stress tests must always be identified separately from historical o
 The simulator is intended to investigate possible system responses under clearly defined assumptions.
 
 It is not intended to reproduce the entire 2026 oil crisis or to claim precise causal attribution from incomplete observational data.
+
+
+## 9. Bounded uncertainty analysis
+
+The empirical scenario dashboard is supplemented by a separate deterministic full-factorial uncertainty envelope. Six assumptions are varied across low/reference/high levels: shock magnitude, shock duration, reserve inventory fraction, daily release-cap fraction, recovery-rate multiplier, and additional mobilisation delay.
+
+This produces 729 design points for each selected disruption scenario and reserve-enabled response strategy. The no-disruption baseline and no-intervention strategy are excluded because reserve-related parameters would not affect those runs.
+
+The analysis reports outcome ranges and ranks average high-versus-low main effects. The ranges are analyst-defined stress bounds, not estimated probability distributions. Median values describe the enumerated design points, not a statistical expectation.
+
+See research/uncertainty_analysis.md for the levels, calculation method, constraints and interpretation boundary.
