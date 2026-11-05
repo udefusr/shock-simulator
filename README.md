@@ -14,7 +14,7 @@ The current empirical focus is the 2026 Strait of Hormuz disruption. The project
 
 - Deterministic day-by-day supply and demand simulation.
 - Configurable supply disruption magnitude, timing, and duration.
-- Reserve release constrained by starting inventory and a daily release limit.
+- Reserve release constrained by starting inventory and a daily release limit, with optional piecewise drawdown-rate schedules indexed from first delivery.
 - Gradual post-shock supply recovery.
 - Demand reduction with configurable start day and duration.
 - Daily unmet-demand and shortage-severity calculations.
@@ -26,6 +26,7 @@ The current empirical focus is the 2026 Strait of Hormuz disruption. The project
 - Separate records for Japan's 2026 announced reserve releases and stockholding-obligation change.
 - Reserve dataset schema validation and automated tests.
 - Unit-checked U.S. SPR calibration adapter requiring an analyst-supplied physical daily-flow denominator and applying the DOE mobilisation lead time.
+- Optional historical DOE 2016 SPR design-reference taper (4.4, 3.8, 3.4 and 1.9 million barrels/day bands), with the post-day-180 extension identified as an extrapolation.
 - Separate Japan announcement denominator cross-check that does not mislabel equivalent-day calculations as release rates.
 - Deterministic full-factorial uncertainty envelope covering six factors and 729 low/reference/high design points per selected scenario/strategy.
 - Main-effect ranking for the six uncertainty factors, with full design-point and summary CSV exports.
@@ -82,7 +83,7 @@ Important assumptions and limitations:
 - Crude oil and refined-product inventories are not interchangeable without considering refining, quality, transport and distribution.
 - The model does not yet explicitly represent oil prices, refinery constraints, alternative shipping routes, country-level trade networks or market substitution.
 - The U.S. SPR calibration uses a country-specific reserve profile inside a normalized wider supply-disruption model; it is not a full U.S. oil-market, global trade, or Hormuz-importer model.
-- The calibrated release limit is constant in the simulation. DOE describes a nominal rate of up to 4.4 million barrels/day for up to 90 days before drawdown capability declines; the declining-rate curve is not yet implemented.
+- The DOE 2016 drawdown schedule is a historical design reference, not current effective capacity. GAO reported effective aggregate drawdown capability of 2.700 million barrels/day versus a 4.415 design rate as of December 2025 (61%). The model keeps these dated measures separate; it does not infer a current site-level rate curve.
 - Uncertainty-envelope minimum, median and maximum values summarize deterministic design points. They are not confidence intervals, probabilities, or expected values.
 - The uncertainty design uses analyst-defined ranges and does not yet model correlated inputs or statistically estimated distributions.
 - The model does not establish that observed national changes were caused solely by the Hormuz disruption.
@@ -208,7 +209,8 @@ python -m src.sensitivity
 - [ ] Harmonize reserve categories and country-level demand denominators.
 - [x] Add an evidence-aware U.S. SPR calibration adapter with explicit demand denominator and mobilisation lead time.
 - [ ] Extend reserve calibration with dated compatible inventory and release-rate series for Japan, South Korea, and Germany.
-- [ ] Implement DOE's declining SPR drawdown-rate curve after the nominal 90-day period.
+- [x] Implement an optional DOE 2016 historical design-reference drawdown-rate schedule after day 90.
+- [ ] Obtain a current, dated, site-level effective drawdown schedule before claiming current operational release capability.
 - [ ] Calibrate deliverable reserve release constraints by country.
 - [ ] Model production disruption separately from maritime transit disruption and rerouting.
 - [ ] Develop country-level importer and producer resilience models.
