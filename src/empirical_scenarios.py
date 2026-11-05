@@ -166,6 +166,7 @@ BASE_MODEL_INPUTS = {
     "reserve_release_limit": 5.0,
     "recovery_rate": 0.10,
     "shock_start_day": 1,
+    "reserve_release_start_day": 1,
     "days": SIMULATION_HORIZON_DAYS,
     "warning_threshold": 5.0,
     "critical_threshold": 15.0,
